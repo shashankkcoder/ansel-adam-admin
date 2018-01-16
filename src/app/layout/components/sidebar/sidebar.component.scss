@@ -1,10 +1,11 @@
 // $topnav-background-color: #222;
-$topnav-background-color: #95933D;
+$topnav-background-color: #FFFFFF;
 .sidebar {
     border-radius: 0;
     position: fixed;
     z-index: 1000;
-    top: 56px;
+    // top: 56px;
+    top: 100px;
     left: 235px;
     width: 235px;
     margin-left: -235px;
@@ -27,7 +28,7 @@ $topnav-background-color: #95933D;
             border: 0;
             border-radius: 0;
             // color: #999;
-            color: rgb(255, 255, 255);
+            color: #484848;
             text-decoration: none;
             .fa {
                 margin-right: 10px;
@@ -35,11 +36,13 @@ $topnav-background-color: #95933D;
         }
         a:hover {
             background: darken($topnav-background-color, 5%);
-            color: #fff;
+            border-right: 5px solid #969436;
+            color: #969436;
         }
-        a.router-link-active {
-            background: darken($topnav-background-color, 5%);
-            color: #fff;
+        a.router-link-active {  
+            // background: darken($topnav-background-color, 10%);
+            border-right: 5px solid #969436;
+            color: #969436;
         }
         .header-fields {
             padding-top: 10px;
@@ -72,7 +75,7 @@ $topnav-background-color: #95933D;
             }
             a:hover,
             a:focus {
-                color: #fff;
+                color: #969436;
                 outline: none;
                 outline-offset: -2px;
             }
@@ -120,7 +123,7 @@ $topnav-background-color: #95933D;
             height: auto;
             li {
                 a {
-                    color: #fff;
+                    color: #484848;
                     padding: 10px;
                     display: block;
                 }

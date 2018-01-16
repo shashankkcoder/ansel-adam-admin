@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { AlbumService } from './service/album.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,22 +21,23 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-    imports: [
-        CommonModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient]
-            }
-        }),
-        AppRoutingModule
-    ],
-    declarations: [AppComponent],
-    providers: [AuthGuard],
-    bootstrap: [AppComponent]
+	imports: [
+		CommonModule,
+		BrowserModule,
+		BrowserAnimationsModule,
+		HttpClientModule,
+		TranslateModule.forRoot({
+				loader: {
+						provide: TranslateLoader,
+						useFactory: createTranslateLoader,
+						deps: [HttpClient]
+				}
+		}),
+		AppRoutingModule,
+		HttpModule
+	],
+	declarations: [AppComponent],
+	providers: [ AuthGuard, AlbumService ],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
