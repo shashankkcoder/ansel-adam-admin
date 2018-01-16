@@ -11,4 +11,12 @@
       </div>
     </div>
   </div>
+
+  <ul>
+    <li *ngFor="let album of _albumsArray">
+      {{ album.albumId }}
+      {{ album.name }}
+      <img src='{{ album.defaultImageUrl }}'>
+    </li>
+  </ul>
 </div>
