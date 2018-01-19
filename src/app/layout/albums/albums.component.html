@@ -14,9 +14,18 @@
 
   <ul>
     <li *ngFor="let album of _albumsArray">
-      {{ album.albumId }}
-      {{ album.name }}
-      <img src='{{ album.defaultImageUrl }}'>
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="{{ album.defaultImageUrl }}" onerror="this.src='https://anseladams-samples.s3-us-west-1.amazonaws.com/misc/1515189041_Ansel-Adams-Portrait.jpg'" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">{{ album.albumId }}&nbsp;{{ album.name }}</h4>
+          <p class="card-text">Some quick example text </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
     </li>
   </ul>
+
+  
+
+
 </div>
