@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2 class="text-left">All Images Overview</h2>
+      </div>
+      <div class="col-sm-6">
+        <h4 class="text-right">Add New Photos&nbsp;
+          <i class="fa fa-plus-circle"></i>
+        </h4>
+      </div>
+    </div>
+  
+    <div class="row">
+      <ng-container *ngFor="let image of images; let i = index">
+        <div class="col">
+          <div class="card" style="width: 15rem;">
+            <img class="card-img-top" [src]="image.url" height="200px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+            <!-- <div class="card-body">
+              <h4 class="card-title">{{ image.imageId }}&nbsp;{{ image.name }}</h4>
+              <p class="card-text">{{ image.imagesCount }} photos </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div> -->
+          </div>
+        </div>
+  
+        <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+  
+  </div>
