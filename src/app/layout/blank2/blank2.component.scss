@@ -1,0 +1,29 @@
+.description {
+    resize: vertical;
+    height: 100px;
+}
+textarea
+{
+    border:none;
+    resize: none;
+}
+.location 
+{
+    padding-bottom: 5px;
+}
+.coordinates
+{
+    background-color: rgb(37, 4, 4);
+}
+.card-img-top
+{
+    background-color: lightgrey;
+    padding: 0px 10px 0px;
+    min-width: 100px;
+    min-height: 150px;
+    
+}
+.bottom-card-border
+{
+    border:1px solid lightgray;
+}

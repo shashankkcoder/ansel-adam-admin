@@ -18,7 +18,8 @@ const routes: Routes = [
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'albums', loadChildren: './albums/albums.module#AlbumsModule' },
             { path: 'map-regions', loadChildren: './map-regions/map-regions.module#MapRegionsModule' },
-            { path: 'all-photos', loadChildren: './all-photos/all-photos.module#AllPhotosModule' }
+            { path: 'all-photos', loadChildren: './all-photos/all-photos.module#AllPhotosModule' },
+            { path: 'blank2', loadChildren: './blank2/blank2.module#Blank2Module' }
         ]
     }
 ];
