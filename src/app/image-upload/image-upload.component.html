@@ -1,6 +1,6 @@
 <div 
      fileDrop
-     [accept]="supportedExtensions"
+     [accept]="supportedExtendeons"
      (fileOver)="onFileOver($event)"
      (fileDrop)="onFileChange($event)"
      [ngClass]="cssClass"
@@ -9,7 +9,7 @@
      style="padding:100px;text-align:center;"
 >
   <div *ngIf="uploadBox" class="img-ul-file-upload img-ul-hr-inline-group">
-    <div class="w-100" style="text-align:center;">
+    <div class="w-100" style="text-align:center;padding-bottom:10px;">
       <img src="assets/images/upload@2x.png" style="width:150px;margin:auto;">
     </div>
 
@@ -34,7 +34,8 @@
       [ngStyle]="style?.clearButton"
       [innerText]="clearButtonCaption">
     </button>
-
+    <br>
+    
     <div class="img-ul-drag-box-msg" [innerText]="dropBoxMessage"></div>
   </div>
 
