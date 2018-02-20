@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6">
-      <h2 class="text-left">All Photos</h2>
+      <h2 class="text-left">Album Overview</h2>
     </div>
     <!-- <div class="col-sm-6">
       <h4 class="text-right">Upload New photos&nbsp;
@@ -9,22 +9,22 @@
       </h4>
     </div> -->
   </div>
-
+ <div class="images-container"style="background-color:white;padding:10px;">
   <div class="row">
     <ng-container *ngFor="let album of _albumsArray; let i = index">
       <div class="col">
-        <div class="card" style="width: 30rem;">
+        <div class="card" style="width: 25rem;">
           <img class="card-img-top" [src]="album.defaultImageUrl" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">{{ album.albumId }}&nbsp;{{ album.name }}</h4>
+            <h4 class="card-title">&nbsp;{{ album.name }}</h4>
             <p class="card-text">{{ album.imagesCount }} photos </p>
             <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
           </div>
         </div>
       </div>
 
-      <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+      <!-- <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div> -->
     </ng-container>
   </div>
-
+</div>
 </div>
