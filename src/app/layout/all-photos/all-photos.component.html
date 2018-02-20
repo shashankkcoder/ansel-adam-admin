@@ -1,18 +1,21 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6">
-        <h2 class="text-left">All Images Overview</h2>
-      </div>
-      <div class="col-sm-6">
-        <h4 class="text-right"><a class="upload_new_photos" [routerLink]="['uploadphoto']">Upload New photos&nbsp;
-          <img src="assets/images/UPLOAD BOTTON@2x.png"style="width:30px;margin:auto;"></a>
-        </h4>
-      </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="text-left">All Photos</h2>
     </div>
- <div class="images-container"style="background-color:white;padding:10px;">
+    <div class="col-sm-6">
+      <h4 class="text-right">
+        <a class="upload_new_photos" [routerLink]="['uploadphoto']">Upload New Photos&nbsp;
+          <img src="assets/images/UPLOAD BOTTON@2x.png" style="width:30px;margin:auto;">
+        </a>
+      </h4>
+    </div>
+  </div>
+  <div class="images-container" style="background-color:white;padding:10px;">
+    <h5>{{ count }} Photos</h5>
     <div class="row">
-     
-      <ng-container *ngFor="let image of images; let i = index" >
+
+      <ng-container *ngFor="let image of images; let i = index">
         <div class="col" style="padding:20px;">
           <div class="card" style="width: 10rem;">
             <img class="card-img-top" [src]="image.url" height="200px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
@@ -23,9 +26,9 @@
             </div> -->
           </div>
         </div>
-  
+
         <!-- <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div> -->
       </ng-container>
     </div>
   </div>
-  </div>
+</div>

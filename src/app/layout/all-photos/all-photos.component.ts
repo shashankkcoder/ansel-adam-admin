@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AllPhotosComponent implements OnInit {
 
   images: any[];
+  count: number;
 
   constructor(private allPhotosService: AllPhotosService) { }
 
@@ -17,7 +18,8 @@ export class AllPhotosComponent implements OnInit {
       .subscribe(
         images => {
           this.images = images;
-          console.log(this.images);
+          this.count = this.images.length;
+          console.log(this.count);
         },
         error => console.log('Error :: ' + error)
       );

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ImageUploadComponent } from './../../../image-upload/image-upload.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-uploadphotos',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadphotosComponent implements OnInit {
 
+  @ViewChild(ImageUploadComponent) child;
+  uploadBox = true;
+
   constructor() { }
 
   ngOnInit() {}
 
   onUploadFinished($event) {
-		console.log('file loaded!')
+    console.log('file loaded!');
+    this.uploadBox = this.child.uploadBox;
 	}
 
 	onRemoved($event) {
