@@ -59,7 +59,7 @@ label.img-ul-button input[type=file] {
     cursor: pointer;
     display: inline-block;
     /* float: left; */
-    font-size: 1.50em;
+    font-size: 2.0em;
     font-weight: 500;
     padding: 10px;
     text-transform: uppercase;
