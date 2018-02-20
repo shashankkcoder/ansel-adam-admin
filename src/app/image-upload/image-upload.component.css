@@ -1,6 +1,9 @@
-.img-ul {
+:root {
     --active-color: #95933D;
     --common-radius: 3px;
+}
+
+.img-ul {
     background-color: #f8f8f8;
     border-radius: var(--common-radius);
     border: #d0d0d0 dashed 3px;
