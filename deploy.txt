@@ -1,0 +1,13 @@
+http://localhost:4200
+
+Access key: AKIAIM6KUICBIWK527NQ
+Secret key: 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
+
+Ansel Adams admin
+# Deploy to AWS
+$ aws configure
+$ aws s3 sync --acl public-read --sse --delete [path to static files] s3://ansel-adams-api-doc
+$ aws s3 sync --acl public-read --sse --delete ./dist/. s3://ansel-adams-admin
+
+# AWS Cloud Front invalidation
+$ aws cloudfront create-invalidation --distribution-id E34505EJ1W20BS --paths "/*"
