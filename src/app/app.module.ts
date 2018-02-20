@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
+import { ImageService } from './image-upload/image.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
 		HttpModule
 	],
 	declarations: [AppComponent],
-	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService ],
+	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

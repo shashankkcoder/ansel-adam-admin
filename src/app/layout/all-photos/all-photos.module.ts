@@ -1,3 +1,4 @@
+import { ImageUploadModule } from './../../image-upload/image-upload.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,7 +9,8 @@ import { UploadphotosComponent } from './uploadphotos/uploadphotos.component';
 @NgModule({
   imports: [
     CommonModule,
-    AllPhotosRoutingModule
+    AllPhotosRoutingModule,
+    ImageUploadModule
   ],
   declarations: [AllPhotosComponent, UploadphotosComponent]
 })

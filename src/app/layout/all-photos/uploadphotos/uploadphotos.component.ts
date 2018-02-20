@@ -11,4 +11,16 @@ export class UploadphotosComponent implements OnInit {
 
   ngOnInit() {}
 
+  onUploadFinished($event) {
+		console.log('file loaded!')
+	}
+
+	onRemoved($event) {
+    console.log('image removed');
+  }
+
+	onUploadStateChanged($event) {
+    console.log('upload state changed');
+  }
+
 }
