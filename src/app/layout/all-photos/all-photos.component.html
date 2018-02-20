@@ -4,12 +4,12 @@
         <h2 class="text-left">All Images Overview</h2>
       </div>
       <div class="col-sm-6">
-        <h4 class="text-right">Add New Photos&nbsp;
-          <i class="fa fa-plus-circle"></i>
+        <h4 class="text-right"><a class="upload_new_photos" [routerLink]="['uploadphoto']">Upload New photos&nbsp;
+          <img src="assets/images/UPLOAD BOTTON@2x.png"style="width:30px;margin:auto;"></a>
         </h4>
       </div>
     </div>
-  
+ 
     <div class="row">
       <ng-container *ngFor="let image of images; let i = index">
         <div class="col">

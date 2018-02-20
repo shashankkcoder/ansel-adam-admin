@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
+// import 'rxjs/Rx';
 import { Album } from '../model/album';
 import { DataService } from './data.service';
 

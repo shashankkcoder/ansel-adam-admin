@@ -1,33 +1,52 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <h2 class="text-left">Upload</h2>
-    </div>
-    <div class="col-sm-6">
-      <h4 class="text-right">Next&nbsp;
-        <i class="fa fa-arrow-right"></i>
-      </h4>
-    </div>
+<!-- <div
+     fileDrop
+     [accept]="supportedExtensions"
+     (fileOver)="onFileOver($event)"
+     (fileDrop)="onFileChange($event)"
+     [ngClass]="cssClass"
+     [ngClass]="{'img-ul-file-is-over': fileOver}"     
+     [ngStyle]="style?.layout"
+>
+  <div class="img-ul-file-upload img-ul-hr-inline-group">    
+    <label *ngIf="fileCounter != max"
+      class="img-ul-upload img-ul-button" 
+      [ngStyle]="style?.selectButton"
+      [ngClass]="{'img-ul-disabled': disabled}">
+      <span [innerText]="buttonCaption"></span>
+      <input
+        type="file"
+        [disabled]="disabled"
+        [accept]="supportedExtensions"
+        multiple (change)="onFileChange(input.files)"
+        #input>
+    </label>
+    <button *ngIf="fileCounter > 0"
+      [disabled]="disabled"
+      class="img-ul-clear img-ul-button" 
+      (click)="deleteAll()" 
+      [ngStyle]="style?.clearButton"
+      [innerText]="clearButtonCaption">
+    </button>
+    <div class="img-ul-drag-box-msg" [innerText]="dropBoxMessage"></div>
   </div>
-  <div class="box" style="padding:20px;background-color:white;text-align:center;">
-    <div style="border:1px dashed  black;">
-     
-        <div class="w-100" style="text-align:center;padding-top:100px;">
-          <img src="assets/images/upload@2x.png" style="width:150px;margin:auto;">
-        </div>
-        <div class="w-100" style="text-align:center;padding-top:20px;">
-          <label for="file-upload" class="custom-file-upload">
-            Upload
-          </label>
-          <input id="file-upload" type="file" multiple/>
-          <div id="result"></div>
-        </div>
-        <div id="result" class="w-100" style="text-align:center;padding-top:20px;padding-bottom:100px;">
-          <span style="margin:auto;"> select one or more files from computer
-            <br> or drag and drop them here</span>
-        </div>
-    </div>
- 
-  </div>
-</div>
 
+  <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
+
+  <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
+    <div
+      class="img-ul-image"
+      *ngFor="let file of files"
+      [ngStyle]="{'background-image': 'url('+ file.src +')'}"
+    >
+      <div *ngIf="file.pending" class="img-ul-loading-overlay">
+        <div class="img-ul-spinning-circle"></div>
+      </div>
+      <div *ngIf="!file.pending" 
+        [ngClass]="{'img-ul-disabled': disabled}" 
+        class="img-ul-x-mark" 
+        (click)="deleteFile(file)">
+        <span class="img-ul-close"></span>
+      </div>
+    </div>
+  </div>
+</div> -->

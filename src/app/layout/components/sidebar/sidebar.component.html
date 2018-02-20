@@ -39,26 +39,34 @@
                 </ul>
             </li>
         </div>-->
-        <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+         <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank Page' | translate }}
+        </a> 
+        <a [routerLink]="['/map-regions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <img class="img-responsive" src="assets/images/map@2x.png" alt="app-logo" height="20px" width="20px">  &nbsp;{{ 'Map Regions' | translate }}
         </a>
         <a [routerLink]="['/albums']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Albums' | translate }}
+            <img class="img-responsive" src="assets/images/album@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Albums'|translate  }}
         </a>
-        <a [routerLink]="['/map-regions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'Map Regions' | translate }}
-        </a>
+      
+       
         <a [routerLink]="['/all-photos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i>&nbsp;{{ 'All Photos' | translate }}
+            <img class="img-responsive" src="assets/images/photos-select@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'All Photos' | translate }}
         </a>
-        <a [routerLink]="['/blank2']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['/Report']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <img class="img-responsive" src="assets/images/report@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Report' | translate }}
+        </a>
+        <a [routerLink]="['/Settings']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <img class="img-responsive" src="assets/images/Settings@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Settings' | translate }}
+        </a>
+        <!-- <a [routerLink]="['/blank2']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank 2' | translate }}
-        </a>
+        </a> -->
      <!--  <a class="list-group-item more-themes" href="http://www.strapui.com/" >
             {{ 'More Theme' | translate }}
         </a>-->
         <div class="header-fields">
-            <a (click)="rltAndLtr()" class="list-group-item">
+           <a (click)="rltAndLtr()" class="list-group-item">
                 <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
             </a>
             <div class="nested-menu">
