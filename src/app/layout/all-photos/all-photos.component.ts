@@ -1,5 +1,6 @@
 import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-all-photos',

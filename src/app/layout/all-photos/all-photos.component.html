@@ -17,8 +17,18 @@
 
       <ng-container *ngFor="let image of images; let i = index">
         <div class="col" style="padding:20px;">
-          <div class="card" style="width: 10rem;">
-            <img class="card-img-top" [src]="image.url" height="200px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" [src]="image.url" height="170px" width="210px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+            <div class="overlay">
+              <div class="text">
+                  <div *ngIf="image.region">
+                    <i class="fa fa-map-marker" style="font-size:20px;color:orange"></i>&nbsp;<span>{{ image.region.name }}</span>
+                  </div>
+                <br>
+                <p style="font-size: 10px">{{ image.createdDate | date: 'MMMM.dd.yyyy'}}</p>
+              </div>
+
+            </div>
             <!-- <div class="card-body">
               <h4 class="card-title">{{ image.imageId }}&nbsp;{{ image.name }}</h4>
               <p class="card-text">{{ image.imagesCount }} photos </p>

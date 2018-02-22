@@ -59,6 +59,7 @@ label.img-ul-button input[type=file] {
     border: none;
     box-shadow: 2px 2px 4px 0 rgba(148, 148, 148, 0.6);
     color: #FFF;
+    background-color: #95933D;
     cursor: pointer;
     display: inline-block;
     /* float: left; */
