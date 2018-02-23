@@ -10,9 +10,10 @@
         <i class="fa fa-arrow-right"></i>
       </h4>
     </div>
-    <div *ngIf="next" class="col-sm-12">
-    
-        <h4 class="text-right">Submit&nbsp;
+  </div>
+    <div *ngIf="showsubmit" class="col-sm-12">
+    <div >
+        <h4 class="text-right" (click)="submitnext()">Submit&nbsp;
           <i class="fa fa-arrow-right"></i>
         </h4>
       
@@ -22,6 +23,7 @@
   </div>
 
   <image-upload
+    [presssubmit]="presssubmit"
     [press]="press"
     [userUploadedFile]="files"
     [max]="100"

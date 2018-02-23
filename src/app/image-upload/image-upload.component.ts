@@ -49,6 +49,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   @Input() uploadBox = true;
   @Input() press;
+  @Input() presssubmit=false;
   @ViewChild('input')
   private inputElement: ElementRef;
   private pendingFilesCounter: number = 0;
