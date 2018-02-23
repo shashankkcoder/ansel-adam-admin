@@ -12,38 +12,40 @@ export class UploadphotosComponent implements OnInit {
   uploadBox = true;
   public press = false;
   public files = new Array();
-  public next=false;
-  public presssubmit=false;
-  public showsubmit=false;
+  public next = false;
+  public presssubmit = false;
+  public showsubmit = false;
   constructor() { }
-  
+
   ngOnInit() {
   }
 
   onUploadFinished($event) {
     console.log('file loaded!');
     this.uploadBox = this.child.uploadBox;
-	}
-  mynext()
-  {
-    this.press=!this.press;
-    this.next=!this.next;
-    this.showsubmit=true;
-    
+    this.files = this.child.files;
   }
-  submitnext()
-  {
 
-   this.showsubmit=!this.showsubmit;
-   this.presssubmit=!this.presssubmit;
-   
-    
+  mynext() {
+    this.press = !this.press;
+    this.next = !this.next;
+    this.uploadBox = !this.uploadBox;
+    this.showsubmit = true;
   }
-	onRemoved($event) {
+
+  submitnext() {
+    this.showsubmit = !this.showsubmit;
+    this.presssubmit = !this.presssubmit;
+
+    console.log(this.files);
+
+
+  }
+  onRemoved($event) {
     console.log('image removed');
   }
 
-	onUploadStateChanged($event) {
+  onUploadStateChanged($event) {
     console.log('upload state changed');
   }
 

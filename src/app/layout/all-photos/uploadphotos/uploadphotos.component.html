@@ -3,30 +3,30 @@
     <div class="col-sm-6">
       <h2 class="text-left">Upload</h2>
     </div>
-    
+
     <div *ngIf="!uploadBox" class="col-sm-6">
-    <div *ngIf="!next">
-      <h4 (click)="mynext()"class="text-right">Next&nbsp;
-        <i class="fa fa-arrow-right"></i>
-      </h4>
+      <div *ngIf="!next">
+        <h4 (click)="mynext()" class="text-right">Next&nbsp;
+          <i class="fa fa-arrow-right"></i>
+        </h4>
+      </div>
     </div>
-  </div>
-    <div *ngIf="showsubmit" class="col-sm-12">
-    <div >
+    <div *ngIf="showsubmit" class="col">
+      <div>
         <h4 class="text-right" (click)="submitnext()">Submit&nbsp;
           <i class="fa fa-arrow-right"></i>
         </h4>
-      
+
       </div>
     </div>
-   
+
   </div>
 
-  <image-upload
-    [presssubmit]="presssubmit"
-    [press]="press"
-    [userUploadedFile]="files"
-    [max]="100"
+  <image-upload 
+    [presssubmit]="presssubmit" 
+    [press]="press" 
+    [userUploadedFile]="files" 
+    [max]="100" 
     [buttonCaption]="'Upload'"
     [dropBoxMessage]="'Select one or more files from your computer or drag and drop them here'"
     [extensions]="['jpg','png','gif']"
@@ -34,7 +34,7 @@
     (uploadFinished)="onUploadFinished($event)"
     (uploadStateChanged)="onUploadStateChanged($event)">
   </image-upload>
-  
+
 </div>
 
 <!-- <div class="container">
