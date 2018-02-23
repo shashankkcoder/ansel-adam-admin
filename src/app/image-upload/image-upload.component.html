@@ -1,88 +1,70 @@
-<div 
-     fileDrop
-     [accept]="supportedExtensions"
-     (fileOver)="onFileOver($event)"
-     (fileDrop)="onFileChange($event)"
-     [ngClass]="cssClass"
-     [ngClass]="{'img-ul-file-is-over': fileOver}"     
-     [ngStyle]="style?.layout"
-     style="padding:100px;text-align:center;"
->
-  <div *ngIf="uploadBox" class="img-ul-file-upload img-ul-hr-inline-group">
-    <div class="w-100" style="text-align:center;padding-bottom:10px;">
-      <img src="assets/images/upload@2x.png" style="width:150px;margin:auto;">
-    </div>
+<div *ngIf="!press">
 
-    <label *ngIf="fileCounter != max"
-      style="text-align:center;"
-      class="img-ul-upload img-ul-button" 
-      [ngStyle]="style?.selectButton"
-      [ngClass]="{'img-ul-disabled': disabled}">
-      <span [innerText]="buttonCaption"></span>
-      <input
-        type="file"
-        [disabled]="disabled"
-        [accept]="supportedExtensions"
-        multiple (change)="onFileChange(input.files)"
-        #input>
-    </label>
-
-    <button *ngIf="fileCounter > 0"
-      [disabled]="disabled"
-      class="img-ul-clear img-ul-button" 
-      (click)="deleteAll()" 
-      [ngStyle]="style?.clearButton"
-      [innerText]="clearButtonCaption">
-    </button>
-    <br>
-    
-    <div class="img-ul-drag-box-msg" ><span>Select one or more files from your computer</span><br><span>or drag and drop them here</span></div>
-   
-  </div>
-
-  <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
-
-  <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
-    <div *ngIf="press">
-    <div  class="box" *ngFor="let file of files"style="text-align:center;">
-      <div class="card" style="width: 15rem;">
-        <input type="text" class="bottom-card-border" placeholder="Enter photo name">
-         
-        <img class="img-ul-image" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
-          <textarea class="bottom-card-border"  rows="4" cols="50" placeholder="Describe"></textarea>
-            <div class="location  bottom-card-border" style="text-align:left;background-color:lightgrey;">
-            Add coordinates
-            <div class="row form-input">
-                <div class="col-sm-6 location">
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-                <div class="col-sm-6 location">
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-              </div>
-             
-            </div>
-            <textarea class="bottom-card-border" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
-        </div>
-    
-    </div>
-    </div>
-    <div *ngIf="!press">
-    <div
-      class="img-ul-image"
-      *ngFor="let file of files"
-      [ngStyle]="{'background-image': 'url('+ file.src +')'}"
-    >
-      <div *ngIf="file.pending" class="img-ul-loading-overlay">
-        <div class="img-ul-spinning-circle"></div>
+  <div fileDrop [accept]="supportedExtensions" (fileOver)="onFileOver($event)" (fileDrop)="onFileChange($event)" [ngClass]="cssClass"
+    [ngClass]="{'img-ul-file-is-over': fileOver}" [ngStyle]="style?.layout" style="padding:100px;text-align:center;">
+    <div *ngIf="uploadBox" class="img-ul-file-upload img-ul-hr-inline-group">
+      <div class="w-100" style="text-align:center;padding-bottom:10px;">
+        <img src="assets/images/upload@2x.png" style="width:150px;margin:auto;">
       </div>
-      <div *ngIf="!file.pending" 
-        [ngClass]="{'img-ul-disabled': disabled}" 
-        class="img-ul-x-mark" 
-        (click)="deleteFile(file)">
-        <span class="img-ul-close"></span>
+
+      <label *ngIf="fileCounter != max" style="text-align:center;" class="img-ul-upload img-ul-button" [ngStyle]="style?.selectButton"
+        [ngClass]="{'img-ul-disabled': disabled}">
+        <span [innerText]="buttonCaption"></span>
+        <input type="file" [disabled]="disabled" [accept]="supportedExtensions" multiple (change)="onFileChange(input.files)" #input>
+      </label>
+
+      <button *ngIf="fileCounter > 0" [disabled]="disabled" class="img-ul-clear img-ul-button" (click)="deleteAll()" [ngStyle]="style?.clearButton"
+        [innerText]="clearButtonCaption">
+      </button>
+      <br>
+
+      <div class="img-ul-drag-box-msg">
+        <span>Select one or more files from your computer</span>
+        <br>
+        <span>or drag and drop them here</span>
+      </div>
+
+    </div>
+
+    <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
+
+    <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
+
+      <div *ngIf="!press">
+        <div class="img-ul-image" *ngFor="let file of files" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
+          <div *ngIf="file.pending" class="img-ul-loading-overlay">
+            <div class="img-ul-spinning-circle"></div>
+          </div>
+          <div *ngIf="!file.pending" [ngClass]="{'img-ul-disabled': disabled}" class="img-ul-x-mark" (click)="deleteFile(file)">
+            <span class="img-ul-close"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<div *ngIf="press">
+    <div class="images-container" style="background-color:white;padding:10px;">
+  <div class="box" *ngFor="let file of files" style="text-align:center;display:inline-block;padding-left:30px;">
+    <div class="card" style="width: 15rem;">
+      <input type="text" class="bottom-card-border" placeholder="Enter photo name">
+
+      <img class="img-ul-image" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
+      <textarea class="bottom-card-border" rows="4" cols="50" placeholder="Describe"></textarea>
+      <div class="location  bottom-card-border" style="text-align:left;background-color:#F5F5F5;">
+        Add coordinates
+        <div class="row form-input">
+          <div class="col-sm-5 location"style="margin:0px 0px 5px 5px;padding-right:0px;">
+            <input type="text" class="form-control" placeholder="">
+          </div>
+          <div class="col-sm-5 location"style="margin:0px 5px 0px 5px;padding-right:0px;">
+            <input type="text" class="form-control" placeholder="">
+          </div>
+        </div>
+
+      </div>
+      <textarea class="bottom-card-border" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
+    </div>
+    </div>
+  </div>
 </div>

@@ -11,7 +11,8 @@ export class UploadphotosComponent implements OnInit {
   @ViewChild(ImageUploadComponent) child;
   uploadBox = true;
   public press = false;
-
+  public files = new Array();
+  public next=false;
   constructor() { }
 
   ngOnInit() {
@@ -23,10 +24,9 @@ export class UploadphotosComponent implements OnInit {
 	}
   mynext()
   {
-    console.log(this.child.pres);
     this.press=!this.press;
-    console.log("hellllloooooo");
-    console.log(this.press);
+    this.next=!this.next;
+    
   }
 	onRemoved($event) {
     console.log('image removed');

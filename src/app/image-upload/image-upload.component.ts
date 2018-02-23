@@ -16,7 +16,7 @@ export class FileHolder {
 @Component({
   selector: 'image-upload',
   templateUrl: './image-upload.component.html',
-  styleUrls: ['./image-upload.component.css']
+  styleUrls: ['./image-upload.component.scss']
 })
 export class ImageUploadComponent implements OnInit, OnChanges {
 
@@ -40,6 +40,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Input() style: Style;
   @Input('extensions') supportedExtensions: string[];
   @Input() url: string;
+  @Input() userUploadedFile: FileList;
   @Input() withCredentials = false;
   @Input() uploadedFiles: string[] | Array<{ url: string, fileName: string, blob?: Blob }> = [];
   @Output() removed = new EventEmitter<FileHolder>();
@@ -84,6 +85,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   }
 
   onFileChange(files: FileList) {
+    this.userUploadedFile = files;
     if (this.disabled) return;
 
     let remainingSlots = this.countRemainingSlots();
