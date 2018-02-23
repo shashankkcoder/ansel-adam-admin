@@ -47,7 +47,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @Output() uploadFinished = new EventEmitter<FileHolder>();
 
   @Input() uploadBox = true;
-
+  @Input() press;
   @ViewChild('input')
   private inputElement: ElementRef;
   private pendingFilesCounter: number = 0;

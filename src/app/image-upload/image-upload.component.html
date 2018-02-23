@@ -43,6 +43,31 @@
   <p class="img-ul-file-too-large" *ngIf="showFileTooLargeMessage" [innerText]="fileTooLargeMessage"></p>
 
   <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
+    <div *ngIf="press">
+    <div  class="box" *ngFor="let file of files"style="text-align:center;">
+      <div class="card" style="width: 15rem;">
+        <input type="text" class="bottom-card-border" placeholder="Enter photo name">
+         
+        <img class="img-ul-image" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
+          <textarea class="bottom-card-border"  rows="4" cols="50" placeholder="Describe"></textarea>
+            <div class="location  bottom-card-border" style="text-align:left;background-color:lightgrey;">
+            Add coordinates
+            <div class="row form-input">
+                <div class="col-sm-6 location">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="col-sm-6 location">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+             
+            </div>
+            <textarea class="bottom-card-border" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
+        </div>
+    
+    </div>
+    </div>
+    <div *ngIf="!press">
     <div
       class="img-ul-image"
       *ngFor="let file of files"
@@ -59,4 +84,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

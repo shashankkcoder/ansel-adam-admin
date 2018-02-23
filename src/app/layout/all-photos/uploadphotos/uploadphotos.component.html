@@ -4,13 +4,16 @@
       <h2 class="text-left">Upload</h2>
     </div>
     <div *ngIf="!uploadBox" class="col-sm-6">
-      <h4 class="text-right">Next&nbsp;
+    
+      <h4 (click)="mynext()"class="text-right">Next&nbsp;
         <i class="fa fa-arrow-right"></i>
       </h4>
+    
     </div>
   </div>
 
   <image-upload
+    [press]="press"
     [max]="100"
     [buttonCaption]="'Upload'"
     [dropBoxMessage]="'Select one or more files from your computer or drag and drop them here'"

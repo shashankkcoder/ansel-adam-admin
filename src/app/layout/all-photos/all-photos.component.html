@@ -12,7 +12,19 @@
     </div>
   </div>
   <div class="images-container" style="background-color:white;padding:10px;">
-    <h5>{{ count }} Photos</h5>
+    <div class ="row">
+      <div class="col-sm-10">
+    <h4 class="text-left">{{ count }} Photos</h4>
+    </div>
+    <div >
+        <select class="right"style="outline: none;background-color:white;">
+            <option value="most_recent"><h4>Most Recent</h4></option>
+            <option value="Only_geolocation"><h4>Only geolocation</h4></option>
+          </select>
+          <i class="fa fa-angle-down"></i>
+    </div>
+    
+   </div>
     <div class="row">
 
       <ng-container *ngFor="let image of images; let i = index">
