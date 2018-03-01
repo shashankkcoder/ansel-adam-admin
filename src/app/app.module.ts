@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FormsModule } from '@angular/forms';
 
 import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
@@ -37,7 +38,8 @@ export function createTranslateLoader(http: HttpClient) {
 				}
 		}),
 		AppRoutingModule,
-		HttpModule
+		HttpModule,
+		FormsModule
 	],
 	declarations: [AppComponent],
 	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService ],

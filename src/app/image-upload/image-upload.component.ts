@@ -4,10 +4,17 @@ import { UploadMetadata } from './before-upload.interface';
 
 import { ImageService } from './image.service';
 import { Style } from './style';
+import { UploadFormComponent } from './upload-form/upload-form.component';
 
 export class FileHolder {
   public pending: boolean = false;
   public serverResponse: { status: number, response: any };
+
+  public imageName: string;
+  public imageDescription: string;
+  public latitude: number;
+  public longitude: number;
+  public safetyWarning: string;
 
   constructor(public src: string, public file: File) {
   }
@@ -20,7 +27,10 @@ export class FileHolder {
 })
 export class ImageUploadComponent implements OnInit, OnChanges {
 
-  files: FileHolder[] = [];
+  imageName: string = 'test name';
+  imageDescription: string = 'test description';
+
+  @Input() files: FileHolder[] = [];
   fileCounter: number = 0;
   fileOver: boolean = false;
   showFileTooLargeMessage: boolean = false;
@@ -53,6 +63,11 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @ViewChild('input')
   private inputElement: ElementRef;
   private pendingFilesCounter: number = 0;
+
+  @ViewChild(UploadFormComponent)
+  private uploadFormComponent: UploadFormComponent;
+
+  parentMessage = "message from parent";
 
   constructor(private imageService: ImageService) {
   }
@@ -165,6 +180,8 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
         const fileHolder: FileHolder = new FileHolder(event.target.result, beforeUploadResult.file);
+        fileHolder.imageDescription = "Image desc.";
+
         this.uploadSingleFile(fileHolder, beforeUploadResult.url, beforeUploadResult.formData);
         this.files.push(fileHolder);
       }, false);

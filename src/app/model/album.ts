@@ -3,4 +3,5 @@ export interface Album {
   name: string;
   defaultImageUrl: string;
   imagesCount: number;
+  region: string;
 }

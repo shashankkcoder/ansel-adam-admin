@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./blank-page.component.scss']
 })
 export class BlankPageComponent implements OnInit {
+
+	email: string = "example@gg.com";
+	address: string = "my address";
+
 	constructor() { }
 
 	ngOnInit() { }
@@ -17,5 +21,15 @@ export class BlankPageComponent implements OnInit {
 	onRemoved($event) {}
 
 	onUploadStateChanged($event) {}
+
+	log(firstName) {
+		console.log(firstName);
+	}
+
+	onKeyUp() {
+		console.log('this email: ' + this.email);
+		console.log('this address: ' + this.address);
+	}
+
 
 }

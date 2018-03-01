@@ -38,8 +38,7 @@ export class UploadphotosComponent implements OnInit {
     this.presssubmit = !this.presssubmit;
 
     console.log(this.files);
-
-
+    
   }
   onRemoved($event) {
     console.log('image removed');

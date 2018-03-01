@@ -45,41 +45,48 @@
 </div>
 <div *ngIf="press">
   <div *ngIf="!presssubmit">
-    <div class="images-container" style="background-color:white;padding:10px;">
-  <div class="box" *ngFor="let file of files" style="text-align:center;display:inline-block;padding-left:30px;">
-    <div class="card" style="width: 15rem;border:none;" >
-      <input type="text" class="bottom-card-border" placeholder="Enter photo name">
 
-      <div class="img-ul-image" style="background-color:#F5F5F5;width:100%;margin:0px;border-left:1px solid grey;border-right:1px solid grey;"[ngStyle]="{'background-image': 'url('+ file.src +')'}"></div>
-      <textarea class="bottom-card-border"style="resize: none;" rows="4" cols="50" placeholder="Describe"></textarea>
-      <div class="location  bottom-card-border" style="text-align:left;background-color:#F5F5F5;border-left:1px solid grey;border-right:1px solid grey;">
-        &nbsp;Add coordinates
-        <div class="row form-input">
-          <div class="col-sm-5 location"style="margin:0px 0px 5px 5px;padding-right:0px;">
-            <input type="text" class="form-control" placeholder="">
+
+    <!-- <div class="images-container" style="background-color:white;padding:10px;">
+      <div class="box" *ngFor="let file of files" style="text-align:center;display:inline-block;padding-left:30px;">
+        <div class="card" style="width: 15rem;border:none;">
+          <input type="text" [(ngModel)]="imageName" class="bottom-card-border" placeholder="Enter photo name">
+
+          <div class="img-ul-image" style="background-color:#F5F5F5;width:100%;margin:0px;border-left:1px solid grey;border-right:1px solid grey;"
+            [ngStyle]="{'background-image': 'url('+ file.src +')'}"></div>
+          <textarea class="bottom-card-border" style="resize: none;" rows="4" cols="50" placeholder="Describe" [(ngModel)]="imageDescription"></textarea>
+          <div class="location bottom-card-border" style="text-align:left;background-color:#F5F5F5;border-left:1px solid grey;border-right:1px solid grey;">
+            &nbsp;Add coordinates
+            <div class="row form-input">
+              <div class="col-sm-5 location" style="margin:0px 0px 5px 5px;padding-right:0px;">
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="col-sm-5 location" style="margin:0px 5px 0px 5px;padding-right:0px;">
+                <input type="text" class="form-control" placeholder="">
+              </div>
+            </div>
           </div>
-          <div class="col-sm-5 location"style="margin:0px 5px 0px 5px;padding-right:0px;">
-            <input type="text" class="form-control" placeholder="">
-          </div>
+          <textarea class="bottom-card-border" style="resize: none;" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
         </div>
       </div>
-      <textarea class="bottom-card-border"style="resize: none;" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
-    </div>
-    </div>
-  </div>
-    
+    </div> -->
+
+    <app-upload-form *ngFor="let file of files" [childMessage]="parentMessage" [file]="file">
+    </app-upload-form>
+
   </div>
 </div>
 <div *ngIf=press>
-<div *ngIf="presssubmit">
-<div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
+  <div *ngIf="presssubmit">
+    <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
 
-    <div class="images-container" style="background-color:white;padding:10px;">
+      <div class="images-container" style="background-color:white;padding:10px;">
         <div class="box" *ngFor="let file of files" style="text-align:center;display:inline-block;padding-left:30px;">
-   <div class="img-ul-image" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
-     </div>
-   </div>
-    </div>
+          <div class="img-ul-image" [ngStyle]="{'background-image': 'url('+ file.src +')'}">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
+</div>
+

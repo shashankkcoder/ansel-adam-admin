@@ -6,7 +6,6 @@ import { AllPhotosRoutingModule } from './all-photos-routing.module';
 import { AllPhotosComponent } from './all-photos.component';
 import { UploadphotosComponent } from './uploadphotos/uploadphotos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UploadFormComponent } from './uploadphotos/upload-form/upload-form.component';
 
 @NgModule({
   imports: [
@@ -15,6 +14,6 @@ import { UploadFormComponent } from './uploadphotos/upload-form/upload-form.comp
     ImageUploadModule,
     NgbModule
   ],
-  declarations: [AllPhotosComponent, UploadphotosComponent, UploadFormComponent]
+  declarations: [AllPhotosComponent, UploadphotosComponent]
 })
 export class AllPhotosModule { }
