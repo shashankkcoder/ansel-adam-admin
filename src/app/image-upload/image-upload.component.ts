@@ -67,6 +67,8 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   @ViewChild(UploadFormComponent)
   private uploadFormComponent: UploadFormComponent;
 
+  uploadedForm: any;
+
   parentMessage = "message from parent";
 
   constructor(private imageService: ImageService) {
@@ -205,5 +207,15 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     } else {
       this.uploadFinished.emit(fileHolder);
     }
+  }
+
+  viewFiles() {
+    console.log('view files');
+    this.uploadedForm = this.uploadFormComponent.file;
+    console.log(this.uploadFormComponent.file);
+  }
+
+  viewInput(input) {
+    console.log(input);
   }
 }

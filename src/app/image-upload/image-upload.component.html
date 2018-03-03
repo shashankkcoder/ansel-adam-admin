@@ -71,8 +71,12 @@
       </div>
     </div> -->
 
-    <app-upload-form *ngFor="let file of files" [childMessage]="parentMessage" [file]="file">
-    </app-upload-form>
+    <div *ngFor="let file of files">
+      <app-upload-form [childMessage]="parentMessage" [file]="file" (onInputUpdate)="viewInput($event)">
+      </app-upload-form>
+    </div>
+
+    <button class="btn btn-primary" (click)="viewFiles()">View files</button>
 
   </div>
 </div>

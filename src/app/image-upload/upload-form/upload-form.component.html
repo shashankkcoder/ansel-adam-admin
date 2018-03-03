@@ -24,7 +24,7 @@
 <div class="images-container" style="background-color:white;padding:10px;">
   <div class="box" style="text-align:center;display:inline-block;padding-left:30px;">
     <div class="card" style="width: 15rem;border:none;">
-      <input type="text" [(ngModel)]="imageName" class="bottom-card-border" placeholder="Enter photo name" (keyup.enter)="showFile()">
+      <input type="text" #name [(ngModel)]="imageName" class="bottom-card-border" placeholder="Enter photo name" (input)="updateForm()">
 
       <!-- <div class="img-ul-image" style="background-color:#F5F5F5;width:100%;margin:0px;border-left:1px solid grey;border-right:1px solid grey;"
         [ngStyle]="{'background-image': 'url('+ file.src +')'}">
