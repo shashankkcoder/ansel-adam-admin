@@ -1,20 +1,16 @@
-<div class="card" style="text-align:center;border:1px solid lightgrey;margin-bottom: 10px;">
+<div class="card box" style="text-align:center;border:1px solid lightgrey;margin-bottom: 10px;">
   <input type="text" style="width:100%" [(ngModel)]="imageName" class="bottom-card-border" placeholder="Enter photo name" (input)="updateForm()">
 
   <img style="height:150px;" [src]="file.src" alt="Card image cap">
 
-  <textarea [(ngModel)]="imageDescription" class="bottom-card-border" style="resize: none;" rows="4" cols="50" placeholder="Write description"
-    (input)="updateForm()"></textarea>
-  <div class="location bottom-card-border" style="text-align:left;background-color:#F5F5F5;border-left:1px solid grey;border-right:1px solid grey;">
-    &nbsp;Add coordinates
-    <div class="row form-input">
-      <div class="col-sm-5 location" style="margin:0px 0px 5px 5px;">
-        <input type="text" [(ngModel)]="latitude" class="form-control" placeholder="Latitude" (input)="updateForm()">
-      </div>
-      <div class="col-sm-5 location" style="margin:0px 5px 0px 5px;">
-        <input type="text" [(ngModel)]="longitude" class="form-control" placeholder="Longitude" (input)="updateForm()">
-      </div>
-    </div>
+  <textarea [(ngModel)]="imageDescription" style="resize: none;" rows="4" cols="50" placeholder="Write description" (input)="updateForm()">
+  </textarea>
+  <span>&nbsp;Add coordinates</span>
+
+  <div class="input-group">
+    <input type="text" [(ngModel)]="latitude" class="form-control" placeholder="Latitude" (input)="updateForm()">
+    <span class="input-group-addon">&nbsp;&nbsp;</span>
+    <input type="text" [(ngModel)]="longitude" class="form-control" placeholder="Longitude" (input)="updateForm()">
   </div>
-  <textarea class="bottom-card-border" style="resize: none;" rows="4" cols="50" placeholder="Write Safety Warning"></textarea>
+  <textarea [(ngModel)]="safetyWarning" style="resize: none;" rows="4" cols="50" placeholder="Write safety warning"></textarea>
 </div>

@@ -31,4 +31,16 @@ export class ImageService {
     formData.append(partName, image);
     return this.http.post(url, formData, options);
   }
+
+  uploadMiscImage(url, formData) {
+    return this.http
+      .post(url, formData)
+      .map(response => {});
+      // .subscribe(
+      //   data => console.log('file uploaded successfully'),
+      //   error => console.log(error)
+      // );
+  }
+
+
 }

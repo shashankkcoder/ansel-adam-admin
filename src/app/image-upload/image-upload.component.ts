@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs/Rx';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
-import { Headers, Response } from '@angular/http';
+import { Headers, Response, Http } from '@angular/http';
 import { UploadMetadata } from './before-upload.interface';
 
 import { ImageService } from './image.service';
@@ -61,14 +62,14 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   private inputElement: ElementRef;
   private pendingFilesCounter: number = 0;
 
-  @ViewChild(UploadFormComponent)
-  private uploadFormComponent: UploadFormComponent;
+  // @ViewChild(UploadFormComponent)
+  // private uploadFormComponent: UploadFormComponent;
 
   uploadedForm: any;
 
   parentMessage = "message from parent";
 
-  constructor(private imageService: ImageService) {
+  constructor(private imageService: ImageService, private http: Http) {
   }
 
   ngOnInit() {
@@ -215,20 +216,43 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   
 
-  viewInput(input) {
-    
-    // Add file if it is not already in the list
+  updateInput(input) {
+    // Add file only if it is not already in the list
     if (this.uploadFileHolders.find(x => x.file.name === input.file.name) == null) {
       this.uploadFileHolders.push(input);
     }
-
-    console.log(this.uploadFileHolders);
   }
 
   submitAllFiles() {
+    let observables: Observable<any>[] = [];
+
     for (let file of this.uploadFileHolders) {
       console.log(file);
+
+      let formData = new FormData();
+
+      if (file.imageName) {
+        formData.append('name', file.imageName);
+      }
+      if (file.imageDescription) {
+        formData.append('description', file.imageDescription);
+      }
+      if (file.safetyWarning) {
+        formData.append('cautionMessage', file.safetyWarning);
+      }
+
+      formData.append('file[]', file.file);
+
+      observables.push(
+        this.imageService.uploadMiscImage('http://34.204.68.134:9090/anseladams/upload', formData)
+      );
     }
+    
+    Observable.forkJoin(observables)
+          .subscribe(dataArray => {
+      alert('All images uploaded successfully!');
+    });
+
   }
 
 

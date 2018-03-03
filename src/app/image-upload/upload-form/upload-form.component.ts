@@ -13,6 +13,7 @@ export class UploadFormComponent implements OnInit {
   imageDescription: string = '';
   latitude: number;
   longitude: number;
+  safetyWarning: string;
 
   @Input() childMessage: string;
 
@@ -24,18 +25,14 @@ export class UploadFormComponent implements OnInit {
   }
 
   updateForm() {
-    console.log("updating form ");
-    
     // Only update data if image names are different
     this.file.imageName = this.imageName;
     this.file.imageDescription = this.imageDescription;
     this.file.latitude = this.latitude;
     this.file.longitude = this.longitude;
+    this.file.safetyWarning = this.safetyWarning;
     
     this.onInputUpdate.emit(this.file);
-  }
-
-  showFile() {
   }
 
 }
