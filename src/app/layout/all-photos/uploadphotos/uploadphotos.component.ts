@@ -15,6 +15,7 @@ export class UploadphotosComponent implements OnInit {
   public next = false;
   public presssubmit = false;
   public showsubmit = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -37,8 +38,7 @@ export class UploadphotosComponent implements OnInit {
     this.showsubmit = !this.showsubmit;
     this.presssubmit = !this.presssubmit;
 
-    console.log(this.files);
-    
+    this.child.submitAllFiles();
   }
   onRemoved($event) {
     console.log('image removed');

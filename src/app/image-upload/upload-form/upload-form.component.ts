@@ -9,15 +9,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class UploadFormComponent implements OnInit {
 
   @Input() file: FileHolder;
-  imageName: string;
-  imageDescription: string = 'test description child';
-  latitude: string = 'test latitude';
-  longitude: string = 'test longitude';
+  imageName: string = '';
+  imageDescription: string = '';
+  latitude: number;
+  longitude: number;
 
   @Input() childMessage: string;
 
   @Output() onInputUpdate: EventEmitter<any> = new EventEmitter<any>();
-  @Input() files: FileHolder[] = [];
 
   constructor() { }
 
@@ -28,29 +27,15 @@ export class UploadFormComponent implements OnInit {
     console.log("updating form ");
     
     // Only update data if image names are different
+    this.file.imageName = this.imageName;
+    this.file.imageDescription = this.imageDescription;
+    this.file.latitude = this.latitude;
+    this.file.longitude = this.longitude;
     
-    if (this.files.includes(this.file)) {
-      this.file.imageName = this.imageName;
-      this.file.imageDescription = this.imageDescription;
-    } else {
-      this.file.imageName = this.imageName;
-      this.file.imageDescription = this.imageDescription;
-      this.files.push(this.file);
-    }
-    
-    this.onInputUpdate.emit(this.files);
-    // console.log(this.file.imageDescription);
-    // console.log(this.file.imageName);
+    this.onInputUpdate.emit(this.file);
   }
 
   showFile() {
-    this.file.imageName = this.imageName;
-    this.file.imageDescription = this.imageDescription;
-    console.log('imageName: ' + this.imageName);
-    console.log('imageDescription: ' + this.imageDescription);
-    console.log('latitude: ' + this.latitude);
-    console.log('longitude: ' + this.longitude);
-    console.log(this.file);
   }
 
 }

@@ -27,9 +27,6 @@ export class FileHolder {
 })
 export class ImageUploadComponent implements OnInit, OnChanges {
 
-  imageName: string = 'test name';
-  imageDescription: string = 'test description';
-
   @Input() files: FileHolder[] = [];
   fileCounter: number = 0;
   fileOver: boolean = false;
@@ -182,7 +179,6 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
         const fileHolder: FileHolder = new FileHolder(event.target.result, beforeUploadResult.file);
-        fileHolder.imageDescription = "Image desc.";
 
         this.uploadSingleFile(fileHolder, beforeUploadResult.url, beforeUploadResult.formData);
         this.files.push(fileHolder);
@@ -211,11 +207,29 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   viewFiles() {
     console.log('view files');
-    this.uploadedForm = this.uploadFormComponent.file;
-    console.log(this.uploadFormComponent.file);
+    console.log('before');
+    console.log(this.uploadFileHolders);
   }
 
+  uploadFileHolders: FileHolder[] = this.files;
+
+  
+
   viewInput(input) {
-    console.log(input);
+    
+    // Add file if it is not already in the list
+    if (this.uploadFileHolders.find(x => x.file.name === input.file.name) == null) {
+      this.uploadFileHolders.push(input);
+    }
+
+    console.log(this.uploadFileHolders);
   }
+
+  submitAllFiles() {
+    for (let file of this.uploadFileHolders) {
+      console.log(file);
+    }
+  }
+
+
 }

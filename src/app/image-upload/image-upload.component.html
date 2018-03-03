@@ -71,9 +71,12 @@
       </div>
     </div> -->
 
-    <div *ngFor="let file of files">
-      <app-upload-form [childMessage]="parentMessage" [file]="file" (onInputUpdate)="viewInput($event)">
-      </app-upload-form>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let file of files; let i = index">
+        <app-upload-form [childMessage]="parentMessage" [file]="file" (onInputUpdate)="viewInput($event)">
+        </app-upload-form>
+        <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
+      </div>
     </div>
 
     <button class="btn btn-primary" (click)="viewFiles()">View files</button>

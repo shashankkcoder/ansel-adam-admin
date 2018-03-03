@@ -20,7 +20,6 @@ export class AllPhotosComponent implements OnInit {
         images => {
           this.images = images;
           this.count = this.images.length;
-          console.log(this.count);
         },
         error => console.log('Error :: ' + error)
       );
