@@ -1,3 +1,4 @@
+import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { UploadphotosComponent } from './uploadphotos/uploadphotos.component';
 import { AllPhotosComponent } from './all-photos.component';
 import { NgModule } from '@angular/core';
@@ -10,9 +11,12 @@ const routes: Routes = [
     // component: AllPhotosComponent,
     children: [
       { path: 'uploadphoto', component: UploadphotosComponent }, //loadChildren: './uploadphotos/uploadphotos.module#UploadphotosModule' },
-      { path : '', component: AllPhotosComponent } 
+      { path : '', component: AllPhotosComponent }
     ]
-  }];
+  },
+  { path: 'details/:id', component: PhotoDetailsComponent }
+
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,9 +1,9 @@
+import { ImageService } from './../service/image.service';
 import { Observable } from 'rxjs/Rx';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { Headers, Response, Http } from '@angular/http';
 import { UploadMetadata } from './before-upload.interface';
 
-import { ImageService } from './image.service';
 import { Style } from './style';
 import { UploadFormComponent } from './upload-form/upload-form.component';
 

@@ -1,0 +1,11 @@
+<p>
+  photo-details works!
+</p>
+
+<div *ngIf="image$ | async; let image$;">
+  {{ image$.imageId }} <br>
+  {{ image$.name }} <br>
+  <img height=150px width=200px [src]="image$.url" >
+
+</div>
+  

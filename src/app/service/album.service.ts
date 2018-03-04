@@ -14,17 +14,5 @@ export class AlbumService extends DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
-  // getAlbums (): Observable<Album[]> {
-  //   return this.http
-  //     .get(this.apiUrl)
-  //     .map((response: Response) => {
-  //       return <Album[]>response.json();
-  //     })
-  //     .catch(this.handleError);
-  // }
-
-  // private handleError(error: Response) {
-  //   return Observable.throw(error.statusText);
-  // }
 }
 

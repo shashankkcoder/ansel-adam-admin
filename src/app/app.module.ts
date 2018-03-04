@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
-import { ImageService } from './image-upload/image.service';
+import { ImageService } from './service/image.service';
+// import { ImageService } from './image-upload/image.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

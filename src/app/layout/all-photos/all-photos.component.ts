@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -12,7 +13,7 @@ export class AllPhotosComponent implements OnInit {
   images: any[];
   count: number;
 
-  constructor(private allPhotosService: AllPhotosService) { }
+  constructor(private allPhotosService: AllPhotosService, private route: Router) { }
 
   getAllImages(): void {
     this.allPhotosService.getAll()
@@ -27,6 +28,11 @@ export class AllPhotosComponent implements OnInit {
 
   ngOnInit() {
     this.getAllImages();
+  }
+
+  viewDetails(id) {
+    console.log('clicked');
+    this.route.navigateByUrl('all-photos/details' + id);
   }
 
 }
