@@ -29,7 +29,6 @@
 
       <ng-container *ngFor="let image of images; let i = index">
         <div class="col" style="padding-left:10px;">
-          <button class="btn btn-primary" (click)="viewDetails(image.imageId)">Details</button>
           <a [routerLink]="['/all-photos/details', image.imageId]">
             <div class="card card-columns" >
               <img class="card-img-top" [src]="image.url" height="150px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap"> 

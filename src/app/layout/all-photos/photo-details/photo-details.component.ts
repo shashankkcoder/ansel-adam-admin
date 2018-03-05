@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PhotoDetailsComponent implements OnInit {
 
   id: number;
-  image: Image;
+  // image: Image;
   image$: Observable<Image>;
 
   constructor(private route: ActivatedRoute, private imageService: ImageService) { }
@@ -27,7 +27,6 @@ export class PhotoDetailsComponent implements OnInit {
     });
 
     this.image$ = this.imageService.getImageWithId(this.id);
-    
     // this.image$.subscribe(image => {
     //     this.image = image;
     //   },

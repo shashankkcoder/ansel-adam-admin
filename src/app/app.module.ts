@@ -1,3 +1,4 @@
+import { AuthService } from './service/auth.service';
 import { MapRegionsService } from './service/map-regions.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -43,7 +44,7 @@ export function createTranslateLoader(http: HttpClient) {
 		FormsModule
 	],
 	declarations: [AppComponent],
-	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService ],
+	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService, AuthService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
