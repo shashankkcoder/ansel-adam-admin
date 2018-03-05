@@ -31,8 +31,8 @@ export class AllPhotosComponent implements OnInit {
   }
 
   viewDetails(id) {
-    console.log('clicked');
-    this.route.navigateByUrl('all-photos/details' + id);
+    this.route.navigate(['details/' + id]);
+    // this.route.navigateByUrl('/all-photos/details/' + id);
   }
 
 }
