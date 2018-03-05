@@ -1,7 +1,58 @@
 <!-- <div *ngIf="image$ | async; let image$;"> -->
-<div *ngIf="image$ | async as image">
-  {{ image.imageId }} <br>
-  {{ image.name }} <br>
-  <img height=150px width=200px [src]="image.url" >
+<div class="row" style="padding-bottom:0px;">
+  <h3 style="padding:20px 20px 0 20px;"> Edit photos details</h3>
+</div>
 
+<div *ngIf="image$ | async as image">
+  <div class="edit-profile-container" style="background-color:white;padding:10px;margin-right:60px;">
+    <img class="card-img-top" [src]="image.url" style="display:block;min-height:200px;max-height:300px;max-width:200px;min-width:100px;margin-left:auto;margin-right:auto;padding:20px;">
+    <form style="display:block;margin-left:auto;margin-right:auto;padding:40px;font-size:20px;">
+      <div class="row">
+        <span class="text-right col-sm-3">Photo Name:</span>
+        <input class="col-sm-8" type="text" name="photoname" placeholder="Image name" value="{{ image.name }}">
+        <br>
+      </div>
+      <div class="row">
+        <span class="text-right col-sm-3">Description:</span>
+        <textarea class="col-sm-8" placeholder="Add a description for the image" value="{{ image.description }}"></textarea>
+      </div>
+      <div class="row">
+        <span class="text-right col-sm-3">Coordinates:</span>
+        <div class="col-sm-4" style="padding-left:0px;">
+          <input type="text" class="col-sm-12" placeholder="Latitude" value="{{ image.latitude }}" style="padding-right:0px;">
+        </div>
+        <div class="col-sm-4" style="padding-right:0px;">
+          <input type="text" class="col-sm-12" placeholder="Longitude" value="{{ image.latitude }}">
+        </div>
+      </div>
+      <div class="row">
+        <span class=" text-right col-sm-3">Safety Warning:</span>
+        <textarea class="col-sm-8" placeholder="Add safety warning..." value="image.cautionMessage"></textarea>
+      </div>
+      <hr>
+      <div class="row">
+        <span class=" text-right col-sm-3"> Map Region :</span>
+        <div class=" col-sm-9" style="padding-left:0px;">
+          <span style="background-color:#D9D9D9;padding:4px 6px;">{{ image.region.name ? image.region.name : "N/A" }}</span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <span class=" text-right col-sm-3">Album:</span>
+        <div class=" col-sm-9" style="padding-left:0px;">
+          <span style="background-color:#D9D9D9;padding:4px 6px;">{{ image.album ? image.album.name : "N/A" }}</span>
+        </div>
+        <br>
+        <br>
+      </div>
+      <div class="row">
+        <div class="text-right col-sm-6">
+          <button class="submit-button col-sm-6" (click)=updateImage(image.imageId)>Submit</button>
+        </div>
+        <div class="text-left col-sm-6" style="padding-left:50px;">
+          <button class="cancel-button col-sm-6">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

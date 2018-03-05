@@ -13,7 +13,9 @@ export class PhotoDetailsComponent implements OnInit {
 
   id: number;
   // image: Image;
-  image$: Observable<Image>;
+  // image$: Observable<Image>;
+  image$: any;
+  image: Image;
 
   constructor(private route: ActivatedRoute, private imageService: ImageService) { }
 
@@ -27,12 +29,17 @@ export class PhotoDetailsComponent implements OnInit {
     });
 
     this.image$ = this.imageService.getImageWithId(this.id);
+
     // this.image$.subscribe(image => {
     //     this.image = image;
     //   },
     //   error => console.log('Error :: ' + error)
     // );
     
+  }
+
+  updateImage(id) {
+    console.log('updating image with id: ' + id);
   }
 
 }

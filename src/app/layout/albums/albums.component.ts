@@ -27,4 +27,8 @@ export class AlbumsComponent implements OnInit {
   ngOnInit() {
     this.getAlbums();
   }
+
+  deleteimage() {
+    
+  }
 }
