@@ -1,12 +1,12 @@
 .img-ul-image {    
   background: center center no-repeat;
-  background-size: cover;
+  background-size: contain;
   display: inline-block;
-  // float: left;
+  float: left;
   /* height: 86px; */
   height: 150px;
-  width: 200px;
-  // margin: 6px;
+  margin: 6px;
   position: relative;
   /* width: 86px; */
+  width: 200px;
 }

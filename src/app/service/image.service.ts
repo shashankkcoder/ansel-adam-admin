@@ -46,7 +46,7 @@ export class ImageService {
 
   getImageWithId(id) {
     return this.http.get(this.apiUrl + '/' + id).map(response => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     });
   }
