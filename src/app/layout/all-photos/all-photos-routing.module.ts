@@ -11,7 +11,7 @@ const routes: Routes = [
     // component: AllPhotosComponent,
     children: [
       { path: 'uploadphoto', component: UploadphotosComponent }, //loadChildren: './uploadphotos/uploadphotos.module#UploadphotosModule' },
-      { path : '', component: AllPhotosComponent }
+      { path : '', component: AllPhotosComponent },
     ]
   },
   { path: 'details/:id', component: PhotoDetailsComponent }

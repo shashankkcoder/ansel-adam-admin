@@ -23,10 +23,8 @@
           </select>
           <i class="fa fa-angle-down"></i>
     </div>
-    
    </div>
     <div class="row">
-
       <ng-container *ngFor="let image of images; let i = index">
         <div class="col" style="padding-left:10px;">
           <a [routerLink]="['/all-photos/details', image.imageId]">
@@ -40,17 +38,10 @@
                   <br>
                   <p style="font-size: 10px">{{ image.createdDate | date: 'MMMM.dd.yyyy'}}</p>
                 </div>
-
               </div>
-              <!-- <div class="card-body">
-                <h4 class="card-title">{{ image.imageId }}&nbsp;{{ image.name }}</h4>
-                <p class="card-text">{{ image.imagesCount }} photos </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div> -->
             </div>
           </a>
         </div>
-
         <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div>
       </ng-container>
     </div>
