@@ -35,4 +35,10 @@ export class AllPhotosComponent implements OnInit {
     // this.route.navigateByUrl('/all-photos/details/' + id);
   }
 
+  editfile() {
+    
+  }
+  deletefile() {
+  }
+
 }

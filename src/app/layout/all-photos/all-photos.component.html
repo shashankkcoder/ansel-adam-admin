@@ -27,10 +27,22 @@
     <div class="row">
       <ng-container *ngFor="let image of images; let i = index">
         <div class="col" style="padding-left:10px;">
-          <a [routerLink]="['/all-photos/details', image.imageId]">
+          <!-- <a [routerLink]="['/all-photos/details', image.imageId]"> -->
             <div class="card card-columns" >
               <img class="card-img-top" [src]="image.url" height="150px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap"> 
+              
+              <div class ="options "style="padding:5px;position:absolut;margin:0px -15px;bottom:0;text-align:center;">
+                <img class="image-option" src="assets/images/edit@2x.png" (click)="viewDetails(image.imageId)" style="margin:5px ;height:20px;">
+                <img class="image-option" src="assets/images/delete@3x.png"(click)="deletefile()" style="margin:5px ;height:20px;">
+              </div>
               <div class="overlay">
+                <div class="container-checkbox">
+                  <div class="round">
+                    <input type="checkbox" id="checkbox" />
+                    <label for="checkbox"></label>
+                  </div>
+                </div> 
+
                 <div class="text">
                     <div *ngIf="image.region">
                       <span><i class="fa fa-map-marker" style="font-size:20px;color:orange"></i>&nbsp;{{ image.region.name }}</span>
@@ -40,7 +52,7 @@
                 </div>
               </div>
             </div>
-          </a>
+          <!-- </a> -->
         </div>
         <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div>
       </ng-container>

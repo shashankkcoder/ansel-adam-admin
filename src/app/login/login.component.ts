@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
 			if (response.userAccessToken && response.isAdmin === true) {
 				localStorage.setItem('userAccessToken', response.userAccessToken);
 				localStorage.setItem('isLoggedin', 'true');
+				localStorage.setItem('fullName', response.name);
 
-				this.router.navigateByUrl('/all-photos');
+				this.router.navigateByUrl('/map-regions');
 			} else {
 				this.router.navigateByUrl('/login');
 			}
