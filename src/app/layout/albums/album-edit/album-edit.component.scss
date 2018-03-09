@@ -2,11 +2,15 @@
   background: center center no-repeat;
   background-size: contain;
   display: inline-block;
-  float: left;
+  text-align: left;
   /* height: 86px; */
   height: 150px;
   margin: 6px;
   position: relative;
   /* width: 86px; */
   width: 200px;
+}
+
+.album-edit {
+  font-size: 24px;
 }

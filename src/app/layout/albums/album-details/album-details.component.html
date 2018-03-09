@@ -3,7 +3,7 @@
     <div class="col-3 img-ul-image" [ngStyle]="{'background-image': 'url('+ album.defaultImageUrl +')'}">
     </div>
     <div class="col-7">
-      <span>{{ album.name ? album.name : "N/A" }} <button class="btn btn-secondary">Edit</button></span>
+      <span>{{ album.name ? album.name : "N/A" }} <a [routerLink]="['/albums/edit', album.albumId]">Edit</a></span>
       <br>
       Description: {{ album.description ? album.description : "N/A" }}
     </div>
