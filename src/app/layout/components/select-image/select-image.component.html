@@ -1,0 +1,24 @@
+<div class="card card-columns">
+  <img class="card-img-top" [src]="image.url" height="150px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+
+  <div class="overlay" [class.selected]="selected">
+    <div class="container-checkbox" >
+      <my-check-box [isSelected]="false" (click)="onSelect(image.imageId)"></my-check-box>
+    </div>
+
+    <div class="text">
+      <div *ngIf="image.region">
+        <span>
+          <i class="fa fa-map-marker" style="font-size:20px;color:orange"></i>&nbsp;{{ image.region.name }}
+        </span>
+      </div>
+      <br>
+      <p style="font-size: 10px">{{ image.createdDate | date: 'MMMM.dd.yyyy'}}</p>
+    </div>
+
+    <div class ="options">
+      <img class="image-option" src="assets/images/edit@2x.png" (click)="viewDetails(image.imageId)" style="margin:5px;height:10px;">
+      <img class="image-option" src="assets/images/delete@3x.png"(click)="deletefile()" style="margin:5px;height:10px;">
+    </div>
+  </div>
+</div>

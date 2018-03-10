@@ -1,6 +1,8 @@
+import { MyCheckBoxComponent } from './../components/my-check-box/my-check-box.component';
+import { Image } from './../../model/image';
 import { Router } from '@angular/router';
 import { AllPhotosService } from './../../service/all-photos.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -12,6 +14,10 @@ export class AllPhotosComponent implements OnInit {
 
   images: any[];
   count: number;
+  selectedImagesId: string[] = [];
+  selected: boolean = false;
+
+  @ViewChild(MyCheckBoxComponent) myCheckBoxComponent: MyCheckBoxComponent
 
   constructor(private allPhotosService: AllPhotosService, private route: Router) { }
 
@@ -30,15 +36,18 @@ export class AllPhotosComponent implements OnInit {
     this.getAllImages();
   }
 
-  viewDetails(id) {
-    this.route.navigate(['details/' + id]);
-    // this.route.navigateByUrl('/all-photos/details/' + id);
-  }
+  
 
-  editfile() {
-    
-  }
-  deletefile() {
+  addToSelectedList(id) {
+    let index = this.selectedImagesId.indexOf(id);
+
+    if (index !== -1) {
+      this.selectedImagesId.splice(index, 1);
+    } else {
+      this.selectedImagesId.push(id);
+    }
+
+    console.log('current list: ' + this.selectedImagesId);
   }
 
 }
