@@ -3,6 +3,10 @@ http://localhost:4200
 Access key: AKIAIM6KUICBIWK527NQ
 Secret key: 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
 
+#Matthew
+accessKey=AKIAJBDQYNNMNVMKMAWQ
+secretKey=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
+
 Ansel Adams admin
 $ ng build --aot --prod
 
@@ -10,6 +14,8 @@ $ ng build --aot --prod
 $ aws configure
 $ aws s3 sync --acl public-read --sse --delete [path to static files] s3://ansel-adams-admin
 $ aws s3 sync --acl public-read --sse --delete ./dist/. s3://ansel-adams-admin
+
+$ aws s3 sync --acl public-read --sse --delete ./dist/. s3://admin-anseladams.com
 
 # AWS Cloud Front invalidation
 $ aws cloudfront create-invalidation --distribution-id E34505EJ1W20BS --paths "/*"
