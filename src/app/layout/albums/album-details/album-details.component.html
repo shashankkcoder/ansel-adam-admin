@@ -1,18 +1,20 @@
 <div class="container-fluid" style="padding-bottom: 20px;">
-  <div class="row" *ngIf="album$ | async as album" style="margin-top: 20px;">
+  <div class="row size" *ngIf="album$ | async as album">
     <div class="col-3 img-ul-image" [ngStyle]="{'background-image': 'url('+ album.defaultImageUrl +')'}">
     </div>
     <div class="col-7">
-      <span>{{ album.name ? album.name : "N/A" }} <a [routerLink]="['/albums/edit', album.albumId]">Edit</a></span>
+      <span>{{ album.name ? album.name : "N/A" }}
+        <button class="option">Edit Profile</button>
+      </span>
       <br>
-      Description: {{ album.description ? album.description : "N/A" }}
+      <br> Description: {{ album.description ? album.description : "N/A" }}
     </div>
     <div class="col-2">
-      <button class="btn btn-secondary">Public</button>
+      <button class="option">Public</button>
     </div>
   </div>
 </div>
-  
+
 <div class="container-fluid" style="background-color:white;">
   <div class="row" style="padding:20px">
     <div class="col">
