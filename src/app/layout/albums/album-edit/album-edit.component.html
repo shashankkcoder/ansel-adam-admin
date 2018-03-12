@@ -1,37 +1,38 @@
-<div class="container-fluid album-edit" style="background-color:white;padding:20px;" *ngIf="album$ | async as album">
-  <div class="row" style="margin-top: 20px;">
-    <div class="col-2 pull-right">
-      <span class="pull-right">Cover Image:</span> <br>
-      <input type='file' style="display: none" id="imgId" />
-      <label for="imgId" class="btn pull-right row"style="color:#95933D;padding-right:15px;padding-bottom:0px;">Change Image</label>
-    </div>
-    <div class="col-4 img-ul-image pull-left" [ngStyle]="{'background-image': 'url('+ album.defaultImageUrl +')'}">
-    </div>
-  </div>
-
-  <br>
-
-  <form>
-    <div class="form-group row text-right">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Album Name: </label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" id="albumName" name="albumName" [(ngModel)]="album.name" placeholder="Add album name">
+<div class="row" style="padding-bottom:0px;" >
+  <h3 style="padding:20px 20px 0 20px;"> Edit album profile</h3>
+</div>
+<div class="edit-profile-container" style="background-color:white;padding:10px;margin-right:60px;" *ngIf="album$ | async as album">
+  <!-- <img class="card-img-top" src="assets/images/slider3.jpg"style="display:block;min-height:200px;max-height:300px;max-width:200px;min-width:100px;margin-left:auto;margin-right:auto;padding:20px;"> -->
+  <form style="display:block;margin-left:auto;margin-right:auto;padding:40px;font-size:20px;">
+    <div class="row">
+      <div class="col-sm-3">
+        <span class="pull-right row" style="padding-right:15px;padding-bottom:0px;">Cover Image:</span>
+        <input type='file' style="display: none" id="imgInp" />
+        <label for="imgInp" class="btn pull-right row" style="color:#95933D;padding-right:15px;padding-bottom:0px;">Change Image</label>
+      </div>
+      <div class="col-sm-3">
+        <img id="blah" [src]="album.defaultImageUrl" alt="your image" style="height:150px;width:150px" />
       </div>
     </div>
-    <div class="form-group row text-right">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Description: </label>
-      <div class="col-sm-9">
-        <textarea type="text" class="form-control" id="albumDesc" name="albumDesc" [(ngModel)]="album.description" placeholder="Add album description"></textarea>
-      </div>
+    <div class="row">
+      <span class="text-right col-sm-3">Album Name:</span>
+      <input class="col-sm-8" type="text" name="albumName" [(ngModel)]="album.name" placeholder="Add album name">
+      <br>
     </div>
-    <div class="form-group row">
-      <div class="col-sm-6 text-right">
-        <button type="button" class="btn btn-primary" (click)="onSubmit(album.albumId, album.name, album.description)">Submit</button>
+    <div class="row">
+      <span class="text-right col-sm-3"> Description:</span>
+      <textarea class="col-sm-8" name="albumDesc" [(ngModel)]="album.description" placeholder="Add album description"></textarea>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="text-right col-sm-6">
+        <button class="submit-button col-sm-6" (click)="onSubmit(album.albumId, album.name, album.description)">Submit</button>
       </div>
-      <div class="col-sm-6 text-left">
-        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      <div class="text-left col-sm-6" style="padding-left:50px;">
+        <button class="cancel-button col-sm-6" (click)="onCancel()">Cancel</button>
       </div>
     </div>
   </form>
-
 </div>
