@@ -1,3 +1,5 @@
+import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
+import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +13,9 @@ import { AlbumEditComponent } from './album-edit/album-edit.component';
   imports: [
     CommonModule,
     AlbumsRoutingModule,
-    FormsModule
+    FormsModule,
+    SelectImageModule,
+    MyCheckBoxModule
   ],
   declarations: [AlbumsComponent, AlbumDetailsComponent, AlbumEditComponent]
 })

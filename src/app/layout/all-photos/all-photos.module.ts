@@ -1,5 +1,5 @@
-import { SelectImageComponent } from './../components/select-image/select-image.component';
-import { MyCheckBoxComponent } from './../components/my-check-box/my-check-box.component';
+import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
+import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
 import { ImageUploadModule } from './../../image-upload/image-upload.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,8 +16,10 @@ import { LayoutModule } from '../layout.module';
     CommonModule,
     AllPhotosRoutingModule,
     ImageUploadModule,
-    NgbModule
+    NgbModule,
+    MyCheckBoxModule,
+    SelectImageModule
   ],
-  declarations: [AllPhotosComponent, UploadphotosComponent, PhotoDetailsComponent, MyCheckBoxComponent, SelectImageComponent]
+  declarations: [AllPhotosComponent, UploadphotosComponent, PhotoDetailsComponent]
 })
 export class AllPhotosModule { }

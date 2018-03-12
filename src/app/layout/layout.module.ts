@@ -1,3 +1,5 @@
+import { MyCheckBoxModule } from './../shared/modules/my-check-box/my-check-box.module';
+import { SelectImageModule } from './../shared/modules/select-image/select-image.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,7 +17,9 @@ import { ImageUploadModule } from '../image-upload/image-upload.module';
         LayoutRoutingModule,
         TranslateModule,
         NgbDropdownModule.forRoot(),
-        ImageUploadModule
+        ImageUploadModule,
+        SelectImageModule,
+        MyCheckBoxModule
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
 })

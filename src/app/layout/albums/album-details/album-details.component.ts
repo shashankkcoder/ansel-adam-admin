@@ -15,6 +15,7 @@ export class AlbumDetailsComponent implements OnInit {
   id: number;
   album$: Observable<Album>;
   images$: Observable<Image[]>;
+  selectedImagesId: string[] = [];
 
   constructor(private route: ActivatedRoute, private albumService: AlbumService) { }
 
@@ -27,6 +28,18 @@ export class AlbumDetailsComponent implements OnInit {
     this.album$ = this.albumService.getAlbumWithId(this.id);
 
     this.images$ = this.albumService.getImagesWithAlbumId(this.id);
+  }
+
+  addToSelectedList(id) {
+    let index = this.selectedImagesId.indexOf(id);
+
+    if (index !== -1) {
+      this.selectedImagesId.splice(index, 1);
+    } else {
+      this.selectedImagesId.push(id);
+    }
+
+    console.log('current list: ' + this.selectedImagesId);
   }
 
 }

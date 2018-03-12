@@ -36,8 +36,6 @@ export class AllPhotosComponent implements OnInit {
     this.getAllImages();
   }
 
-  
-
   addToSelectedList(id) {
     let index = this.selectedImagesId.indexOf(id);
 
