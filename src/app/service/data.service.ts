@@ -44,6 +44,9 @@ export class DataService {
 
   handleError(error: Response) {
     if (error.status === 404) {
+      alert('Not found');
+    }
+    if (error.status === 409) {
       alert('Already created');
     }
     if (error.status === 400) {
