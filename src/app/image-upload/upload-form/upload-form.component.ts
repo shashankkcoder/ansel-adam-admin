@@ -11,8 +11,8 @@ export class UploadFormComponent implements OnInit {
   @Input() file: FileHolder;
   imageName: string = '';
   imageDescription: string = '';
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   safetyWarning: string;
 
   @Input() childMessage: string;

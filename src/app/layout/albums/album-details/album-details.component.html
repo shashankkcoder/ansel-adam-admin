@@ -4,7 +4,7 @@
     </div>
     <div class="col-7">
       <span>{{ album.name ? album.name : "N/A" }}
-        <button class="option">Edit Profile</button>
+        <button class="option" [routerLink]="['/albums/edit', album.albumId]">Edit Profile</button>
       </span>
       <br>
       <br> Description: {{ album.description ? album.description : "N/A" }}
