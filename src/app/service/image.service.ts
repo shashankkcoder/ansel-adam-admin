@@ -1,14 +1,17 @@
+import { DataService } from './data.service';
 import { Image } from './../model/image';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class ImageService {
+export class ImageService extends DataService {
 
-  private apiUrl = 'http://34.204.68.134:9090/anseladams/images';
+  // private apiUrl = 'http://34.204.68.134:9090/anseladams/images';
 
-  constructor(private http: Http) { }
+  constructor(http: Http) {
+    super('http://34.204.68.134:9090/anseladams/images', http);
+  }
 
   public postImage(url: string, image: File, headers?: Headers | { [name: string]: any }, partName: string = 'image', customFormData?: { [name: string]: any }, withCredentials?: boolean): Observable<Response> {
     if (!url || url === '') {
@@ -52,6 +55,14 @@ export class ImageService {
       // console.log(response);
       return response.json();
     });
+  }
+
+  deleteImage(id) {
+    let image = { imageId: id };
+
+    this.delete(id).subscribe(response => {
+      console.log('image with id ' + id + ' has been deleted');
+    })
   }
 
 }

@@ -3,6 +3,6 @@ export interface Region {
   name: string,
   defaultImageUrl: string,
   imagesCount: number,
-  latitude: number,
-  longitude: number
+  latitude: string,
+  longitude: string
 }

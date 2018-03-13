@@ -12,17 +12,48 @@ export class DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
-  getAll(): Observable<Album[]> {
+  getAll(): Observable<any> {
     return this.http
       .get(this.apiUrl)
       .map((response: Response) => {
         // return <Album[]>response.json();
-        return <Album[]>response.json();
+        return response.json();
       })
       .catch(this.handleError);
   }
 
-  private handleError(error: Response) {
+  create(obj): Observable<any> {
+    return this.http
+      .post(this.apiUrl, obj)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+  delete(id) {
+    return this.http
+      .delete(this.apiUrl + '/' + id)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+  handleError(error: Response) {
+    if (error.status === 404) {
+      alert('Already created');
+    }
+    if (error.status === 400) {
+      alert('Bad request');
+    }
+    if (error.status === 500) {
+      alert('Server error');
+    }
+    console.log(error);
+
     return Observable.throw(error.statusText);
   }
 }

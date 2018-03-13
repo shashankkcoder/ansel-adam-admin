@@ -1,7 +1,9 @@
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MyCheckBoxComponent } from './../my-check-box/my-check-box.component';
 import { Image } from './../../../model/image';
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
+import { ImageService } from '../../../service/image.service';
 
 @Component({
   selector: 'select-image',
@@ -17,19 +19,22 @@ export class SelectImageComponent implements OnInit {
 
   @Output() selectedImage = new EventEmitter<any>();
 
-  constructor(private route: Router) { }
+  constructor(private router: Router, private imageService: ImageService) { }
 
   ngOnInit() {
   }
 
   viewDetails(id) {
     // this.route.navigate(['details/' + id]);
-    this.route.navigateByUrl('/all-photos/details/' + id);
+    this.router.navigateByUrl('/all-photos/details/' + id);
   }
 
-  editfile() {
-  }
-  deletefile() {
+  deleteImage(id) {
+    if(confirm("Are you sure to delete this image?")) {
+      this.imageService.deleteImage(id);
+    }
+
+    location.reload();
   }
 
   onSelect(id) {

@@ -5,8 +5,8 @@ export interface Image {
   imageId: number;
   name: string;
   description: string;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   s3Key: string;
   url: string;
   cautionMessage: string;
