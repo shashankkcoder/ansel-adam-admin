@@ -1,5 +1,5 @@
+import { MyImage } from './../model/MyImage';
 import { DataService } from './data.service';
-import { Image } from './../model/image';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -38,7 +38,7 @@ export class ImageService extends DataService {
     return this.http.post(url, formData, options);
   }
 
-  uploadMiscImage(url, formData) : Observable<Image> {
+  uploadMiscImage(url, formData) : Observable<MyImage> {
     return this.http
       .post(url, formData)
       .map(response => {
@@ -50,7 +50,7 @@ export class ImageService extends DataService {
       // );
   }
 
-  getImageWithId(id) {
+  getImageWithId(id): Observable<MyImage> {
     return this.http.get(this.apiUrl + '/' + id).map(response => {
       // console.log(response);
       return response.json();
@@ -63,6 +63,15 @@ export class ImageService extends DataService {
     this.delete(id).subscribe(response => {
       console.log('image with id ' + id + ' has been deleted');
     })
+  }
+
+  updateImage(id, updateImage) {
+    this.update(id, updateImage).subscribe(response => {
+      console.log('image with id ' + id + ' has been updated');
+    })
+
+
+
   }
 
 }

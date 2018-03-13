@@ -1,4 +1,4 @@
-import { Image } from './../model/image';
+import { MyImage } from './../model/MyImage';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -22,7 +22,7 @@ export class AlbumService extends DataService {
     });
   }
 
-  getImagesWithAlbumId(id): Observable<Image[]> {
+  getImagesWithAlbumId(id): Observable<MyImage[]> {
     let apiAlbumUrl = 'http://34.204.68.134:9090/anseladams/albums';
 
     return this.http.get(apiAlbumUrl + '/' + id + '/images').map(response => {

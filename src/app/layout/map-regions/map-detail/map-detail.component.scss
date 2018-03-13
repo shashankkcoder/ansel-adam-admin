@@ -1,0 +1,127 @@
+
+// .card-img-top
+// {
+//     background-color: lightgrey;
+//     padding: 0px 10px 0px;
+//     min-width: 100px;
+//     min-height: 150px;
+    
+// }
+// .card
+// {
+//   border:none;
+// }
+// .overlay {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     height: 100%;
+//     width: 100%;
+//     opacity: 0;
+//     transition: .5s ease;
+//     background-color:#2f363e;
+//   }
+  
+//   .card:hover .overlay {
+//     opacity: 0.8;
+//   }
+//   .options
+//   {
+//      opacity:0;
+//   }
+// .image-option
+// {
+//   cursor: pointer;
+// }
+//  .card:hover .options{
+//     background-color: black;
+//     opacity: 1;
+//     z-index: 100;
+//     transition: .5s ease;
+//  }
+//  .round {
+//     position: relative;
+//     left:15px;
+//     top:15px;
+//   }
+  
+//   .round label {
+//     background-color: #fff;
+//     border: 1px solid #ccc;
+//     border-radius: 50%;
+//     cursor: pointer;
+//     height: 15px;
+//     left: 0;
+//     position: absolute;
+//     top: 0;
+//     width: 16px;
+//     background-color: #8C8C8C;
+//   }
+  
+//   .round label:after {
+//     border: 2px solid #fff;
+//     border-top: none;
+//     border-right: none;
+//     content: "";
+//     height: 5px;
+//     left:2px;
+//     opacity: 0;
+//     position: absolute;
+//     top:2px;
+//     transform: rotate(-45deg);
+//     width: 10px;
+   
+//   }
+  
+//   .round input[type="checkbox"] {
+//     visibility: hidden;
+//   }
+  
+//   .round input[type="checkbox"]:checked + label {
+//     background-color: #66bb6a;
+//     border-color: #66bb6a;
+//   }
+  
+//   .round input[type="checkbox"]:checked + label:after {
+//     opacity: 1;
+//   }
+  
+
+  
+//   .container-checkbox {
+//     margin: 0 auto;
+//   }
+.img-ul-image {    
+  background: center center no-repeat;
+  background-size: cover;
+  display: inline-block;
+  // float: left;
+  /* height: 86px; */
+  height: 150px;
+  width: 200px;
+  // margin: 6px;
+  position: relative;
+  /* width: 86px; */
+}
+.option 
+{
+  border:1px solid #CFCFCF;
+  padding:0px 11px; background-color: transparent;
+  font-size: 16px;
+  margin-left: 7px;
+}
+.size{
+font-size:24px;
+margin-top: 20px;
+margin-bottom: 17px;
+}
+.settings-button{
+  border:none;
+  background-color:transparent; 
+}
+a{
+  color:#4D4D4D; 
+  text-decoration: none;
+}

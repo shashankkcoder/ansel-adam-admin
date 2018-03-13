@@ -1,5 +1,5 @@
+import { MyImage } from './../../../model/MyImage';
 import { Observable } from 'rxjs/Observable';
-import { Image } from './../../../model/image';
 import { Album } from './../../../model/album';
 import { AlbumService } from './../../../service/album.service';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,7 @@ export class AlbumDetailsComponent implements OnInit {
 
   id: number;
   album$: Observable<Album>;
-  images$: Observable<Image[]>;
+  images$: Observable<MyImage[]>;
   selectedImagesId: string[] = [];
 
   constructor(private route: ActivatedRoute, private albumService: AlbumService) { }

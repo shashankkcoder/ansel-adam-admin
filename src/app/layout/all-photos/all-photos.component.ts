@@ -1,4 +1,3 @@
-import { Image } from './../../model/image';
 import { Router } from '@angular/router';
 import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';

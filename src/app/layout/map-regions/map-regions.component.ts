@@ -27,4 +27,8 @@ export class MapRegionsComponent implements OnInit {
     this.getRegions();
   }
 
+  deleteimage() {
+    
+  }
+
 }

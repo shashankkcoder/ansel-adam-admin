@@ -35,6 +35,20 @@ body {
   opacity: 0.5;
 }
 
+.options {
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  // transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
+  // -ms-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, 0%);
+  text-align: center;
+}
+
 .text {
   color: white;
   font-size: 14px;

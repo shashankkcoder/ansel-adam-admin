@@ -1,3 +1,9 @@
+import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
+import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
+import { EditMapprofileComponent } from './edit-mapprofile/edit-mapprofile.component';
+import { EditPhotoMapComponent } from './edit-photo-map/edit-photo-map.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,8 +13,11 @@ import { MapRegionsComponent } from './map-regions.component';
 @NgModule({
   imports: [
     CommonModule,
-    MapRegionsRoutingModule
+    MapRegionsRoutingModule,
+    FormsModule,
+    MyCheckBoxModule,
+    SelectImageModule
   ],
-  declarations: [MapRegionsComponent]
+  declarations: [MapRegionsComponent, MapDetailComponent, EditPhotoMapComponent, EditMapprofileComponent]
 })
 export class MapRegionsModule { }

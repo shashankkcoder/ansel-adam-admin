@@ -1,7 +1,7 @@
 import { Region } from './region';
 import { Album } from './album';
 
-export interface Image {
+export interface MyImage {
   imageId: number;
   name: string;
   description: string;

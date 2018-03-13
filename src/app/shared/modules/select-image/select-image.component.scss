@@ -8,18 +8,6 @@
   cursor: pointer;
 }
 
-.options {
-  width: 100%;
-  margin: 0;
-  opacity: 0;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
 .card:hover .options{
   background-color: black;
   position: absolute;

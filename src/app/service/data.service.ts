@@ -42,6 +42,16 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  update(id, updateImage) {
+    return this.http
+      .patch(this.apiUrl + '/' + id, updateImage)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
   handleError(error: Response) {
     if (error.status === 404) {
       alert('Already created');
