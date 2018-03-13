@@ -1,9 +1,9 @@
-import { MyCheckBoxComponent } from './../components/my-check-box/my-check-box.component';
 import { Image } from './../../model/image';
 import { Router } from '@angular/router';
 import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { MyCheckBoxComponent } from '../../shared/modules/my-check-box/my-check-box.component';
 
 @Component({
   selector: 'app-all-photos',

@@ -13,8 +13,8 @@ export class FileHolder {
 
   public imageName: string;
   public imageDescription: string;
-  public latitude: number;
-  public longitude: number;
+  public latitude: string;
+  public longitude: string;
   public safetyWarning: string;
 
   constructor(public src: string, public file: File) {
@@ -237,19 +237,31 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       if (file.imageDescription) {
         formData.append('description', file.imageDescription);
       }
+      if (file.imageDescription) {
+        formData.append('latitude', file.latitude);
+        formData.append
+      }
+      if (file.imageDescription) {
+        formData.append('longitude', file.longitude);
+      }
       if (file.safetyWarning) {
         formData.append('cautionMessage', file.safetyWarning);
       }
 
       formData.append('file[]', file.file);
 
-      observables.push(
-        this.imageService.uploadMiscImage('http://34.204.68.134:9090/anseladams/upload', formData)
-      );
+
+      let image$ = this.imageService.uploadMiscImage('http://34.204.68.134:9090/anseladams/upload', formData);
+      
+      image$.subscribe(response => {
+        console.log(response);
+      });
+
+      observables.push(image$);
     }
     
     Observable.forkJoin(observables)
-          .subscribe(dataArray => {
+    .subscribe(dataArray => {
       alert('All images uploaded successfully!');
     });
 

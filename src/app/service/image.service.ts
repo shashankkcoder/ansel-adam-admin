@@ -1,3 +1,4 @@
+import { Image } from './../model/image';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -34,10 +35,12 @@ export class ImageService {
     return this.http.post(url, formData, options);
   }
 
-  uploadMiscImage(url, formData) {
+  uploadMiscImage(url, formData) : Observable<Image> {
     return this.http
       .post(url, formData)
-      .map(response => {});
+      .map(response => {
+        return response.json();
+      });
       // .subscribe(
       //   data => console.log('file uploaded successfully'),
       //   error => console.log(error)
