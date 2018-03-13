@@ -1,3 +1,4 @@
+import { ImageActionsModule } from './../../shared/modules/image-actions/image-actions.module';
 import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
 import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
 import { ImageUploadModule } from './../../image-upload/image-upload.module';
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     FormsModule,
     MyCheckBoxModule,
-    SelectImageModule
+    SelectImageModule,
+    ImageActionsModule
   ],
   declarations: [AllPhotosComponent, UploadphotosComponent, PhotoDetailsComponent]
 })

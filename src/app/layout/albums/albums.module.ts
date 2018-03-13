@@ -8,6 +8,7 @@ import { AlbumsRoutingModule } from './albums-routing.module';
 import { AlbumsComponent } from './albums.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumEditComponent } from './album-edit/album-edit.component';
+import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { AlbumEditComponent } from './album-edit/album-edit.component';
     AlbumsRoutingModule,
     FormsModule,
     SelectImageModule,
-    MyCheckBoxModule
+    MyCheckBoxModule,
+    ImageActionsModule
   ],
   declarations: [AlbumsComponent, AlbumDetailsComponent, AlbumEditComponent]
 })

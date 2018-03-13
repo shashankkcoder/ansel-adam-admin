@@ -6,6 +6,7 @@
 
 .image-option {
   cursor: pointer;
+  z-index: 75;
 }
 
 .card:hover .options{
@@ -13,7 +14,7 @@
   position: absolute;
   bottom: 0;
   opacity: 1;
-  z-index: 100;
+  z-index: 50;
   transition: .5s ease;
 }
 
