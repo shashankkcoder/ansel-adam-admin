@@ -18,7 +18,7 @@ export class EditMapprofileComponent implements OnInit {
   Longitude:string;
   regionDescription: string;
   regionId:string;
-  constructor(private route: ActivatedRoute, private regionService: MapRegionsService) { }
+  constructor(private route: ActivatedRoute, private regionService: MapRegionsService, private location: Location) { }
   url:string;
   region: Region;
 
@@ -59,5 +59,8 @@ export class EditMapprofileComponent implements OnInit {
       "longitude" + Longitude 
     );
   }
-  onCancel(){}
+
+  onCancel() {
+    this.location.back();
+  }
 }

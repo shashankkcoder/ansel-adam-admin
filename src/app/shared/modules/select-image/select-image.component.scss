@@ -6,7 +6,11 @@
 
 .image-option {
   cursor: pointer;
+  position: relative;
+  height: 40%;
+  top: 50%;
   z-index: 75;
+  transform: translateY(-50%);
 }
 
 .card:hover .options{

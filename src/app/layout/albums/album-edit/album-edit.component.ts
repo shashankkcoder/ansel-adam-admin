@@ -39,6 +39,5 @@ export class AlbumEditComponent implements OnInit {
 
   onCancel() {
     this.location.back();
-    // this.router.navigateByUrl('/albums');
   }
 }

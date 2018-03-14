@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { ImageService } from './../../../service/image.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-photo-details',
@@ -19,14 +20,14 @@ export class PhotoDetailsComponent implements OnInit {
   cautionMessage: string;
   year: string;
 
-  image$: Observable<MyImage>;  
+  image$: Observable<MyImage>;
 
-  constructor(private route: ActivatedRoute, private imageService: ImageService) { }
+  constructor(private route: ActivatedRoute, private imageService: ImageService, private location: Location) { }
 
   ngOnInit() {
     // not allows to navigate to the same page
     // let id = this.route.snapshot.paramMap.get('id');
-    
+
     // allows navigate to the same page
     this.route.paramMap.subscribe(params => {
       this.id = +params.get('id');
@@ -41,10 +42,10 @@ export class PhotoDetailsComponent implements OnInit {
       this.longitude = image.longitude;
       this.cautionMessage = image.cautionMessage;
       this.year = image.year;
-      },
+    },
       error => console.log('Error :: ' + error)
     );
-    
+
   }
 
   updateImage(id) {
@@ -71,6 +72,10 @@ export class PhotoDetailsComponent implements OnInit {
     console.log('new values: ' + JSON.stringify(updateImage));
 
     this.imageService.updateImage(id, updateImage);
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
 }

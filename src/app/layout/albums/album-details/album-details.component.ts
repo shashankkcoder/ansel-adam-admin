@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { MyImage } from './../../../model/MyImage';
 import { Observable } from 'rxjs/Observable';
 import { Album } from './../../../model/album';
@@ -17,7 +18,7 @@ export class AlbumDetailsComponent implements OnInit {
   images$: Observable<MyImage[]>;
   selectedImagesId: string[] = [];
 
-  constructor(private route: ActivatedRoute, private albumService: AlbumService) { }
+  constructor(private route: ActivatedRoute, private albumService: AlbumService, private location: Location) { }
 
   ngOnInit() {
     // allows navigate to the same page
@@ -40,6 +41,10 @@ export class AlbumDetailsComponent implements OnInit {
     }
 
     console.log('current list: ' + this.selectedImagesId);
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
 }
