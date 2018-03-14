@@ -61,7 +61,7 @@ export class ImageService extends DataService {
     let image = { imageId: id };
 
     this.delete(id).subscribe(response => {
-      console.log('image with id ' + id + ' has been deleted');
+      console.log('image with id ' + id + ' has been deleted');      
     })
   }
 
@@ -70,8 +70,6 @@ export class ImageService extends DataService {
       console.log('image with id ' + id + ' has been updated');
       alert('Image details have been saved!');
     })
-
-
 
   }
 

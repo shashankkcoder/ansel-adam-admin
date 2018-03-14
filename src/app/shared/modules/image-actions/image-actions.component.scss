@@ -25,3 +25,15 @@
   transform: translateY(-50%);
   z-index: 201;
 }
+
+.hide {
+  opacity: 0;
+}
+
+.action-1:hover ~ .hide {
+  opacity: 1;
+}
+
+.hide:hover {
+  opacity: 1;
+}

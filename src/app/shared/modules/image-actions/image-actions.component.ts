@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-actions.component.scss']
 })
 export class ImageActionsComponent implements OnInit {
-
+  checked = false;
+  indeterminate = false;
+  align = 'start';
+  disabled = false;
+  
   constructor() { }
 
   ngOnInit() {
