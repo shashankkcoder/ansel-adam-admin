@@ -9,12 +9,19 @@
   z-index: 99;
   // width: 1440px;
   border: 1px solid #C3C3C3;
-  // background-color: #FFFFFF;
-  background-color: rgba(201, 204, 200, 0.404);
+  background-color: #FFFFFF;
   box-shadow: 0 0 21px 0 rgba(117,117,117,0.5);
 }
 
 .image-option {
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  top: 50%;
   cursor: pointer;
+  height: 26px;
+  width: 22px;
+  vertical-align: middle;
+  transform: translateY(-50%);
   z-index: 150;
 }
