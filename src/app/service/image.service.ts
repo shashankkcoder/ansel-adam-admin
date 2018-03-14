@@ -68,6 +68,7 @@ export class ImageService extends DataService {
   updateImage(id, updateImage) {
     this.update(id, updateImage).subscribe(response => {
       console.log('image with id ' + id + ' has been updated');
+      alert('Image details have been saved!');
     })
 
 

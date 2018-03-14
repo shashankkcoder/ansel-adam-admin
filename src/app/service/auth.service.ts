@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
-export class AuthService {
+export class AppAuthService {
 
   apiUrl: string = 'http://34.204.68.134:9090/anseladams/users/authentication';
   userProfile: User;

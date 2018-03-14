@@ -27,8 +27,10 @@ export class MapRegionsComponent implements OnInit {
     this.getRegions();
   }
 
-  deleteimage() {
-    
+  deleteRegion(id) {
+    if (confirm('Are you sure to delete this region with id ' + id + ' and all images associated with it?')) {
+     
+    }
   }
 
 }

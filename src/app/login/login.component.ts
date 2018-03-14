@@ -1,4 +1,4 @@
-import { AuthService } from './../service/auth.service';
+import { AppAuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 	password: string;
 	userAccessToken: string;
 
-	constructor(public router: Router, private auth: AuthService) { }
+	constructor(public router: Router, private auth: AppAuthService) { }
 
 	ngOnInit() { }
 

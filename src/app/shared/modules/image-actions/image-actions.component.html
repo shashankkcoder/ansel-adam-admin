@@ -1,4 +1,20 @@
 <div class="image-actions text-center">
-  <img class="image-option" src="assets/images/add-to-group@2x.png" (click)="addTo()">
-  <img class="image-option" src="assets/images/trash-darkgrey@2x.png" (click)="deleteImages()">
+  <!-- <img class="image-option" src="assets/images/add-to-group@2x.png" (click)="addTo()"> -->
+  <!-- <img class="image-option" src="assets/images/trash-darkgrey@2x.png" (click)="deleteImages()"> -->
+  <div ngbDropdown placement="top-right" class="image-option d-inline-block">
+    <img src="assets/images/add-to-group@2x.png" (click)="addTo()" class="image-option" ngbDropdownToggle>
+    <!-- <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropup</button> -->
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button class="dropdown-item" ngbDropdownToggle>Action - 1</button>
+      <ul ngbDropdownMenu aria-labelledby="dropdownBasic3">
+          <button class="dropdown-item">Another Action</button>
+      </ul>
+      <button class="dropdown-item">Another Action</button>
+      <button class="dropdown-item">Something else is here</button>
+    </div>
+  </div>
+  <div ngbDropdown class="image-option d-inline-block">
+    <img src="assets/images/trash-darkgrey@2x.png" class="image-option" (click)="deleteImages()">
+  </div>
+
 </div>

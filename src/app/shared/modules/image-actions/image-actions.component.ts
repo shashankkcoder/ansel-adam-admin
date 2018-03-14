@@ -18,6 +18,8 @@ export class ImageActionsComponent implements OnInit {
   }
 
   deleteImages() {
-
+    if (confirm('Are you sure to delete these images ')) {
+     
+    }
   }
 }

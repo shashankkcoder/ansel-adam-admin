@@ -28,7 +28,9 @@ export class AlbumsComponent implements OnInit {
     this.getAlbums();
   }
 
-  deleteimage() {
-    
+  deleteAlbum(id) {
+    if (confirm('Are you sure to delete this album with id ' + id + ' and all images associated with it?')) {
+     
+    }
   }
 }
