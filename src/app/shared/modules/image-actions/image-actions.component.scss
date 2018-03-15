@@ -1,0 +1,39 @@
+.image-actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // color: black;
+  height: 100px;
+  width: 100%;
+  z-index: 200;
+  // width: 1440px;
+  border: 1px solid #C3C3C3;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 21px 0 rgba(117,117,117,0.5);
+}
+
+.image-option {
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+  height: 26px;
+  width: 22px;
+  // vertical-align: middle;
+  transform: translateY(-50%);
+  z-index: 201;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.action-1:hover ~ .hide {
+  opacity: 1;
+}
+
+.hide:hover {
+  opacity: 1;
+}

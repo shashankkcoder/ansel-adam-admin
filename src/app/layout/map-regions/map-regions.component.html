@@ -1,44 +1,26 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-6">
-      <h2 class="text-left">Map Regions</h2>
-    </div>
-    <div class="col-sm-6">
-      <h4 class="text-right">Add New Region&nbsp;
-        <i class="fa fa-plus-circle"></i>
-      </h4>
-    </div>
+      <div class="col-sm-6">
+        <h2 class="text-left">Map Regions Overview</h2>
+      </div>
   </div>
-  <!-- <div class="images-container"style="background-color:white;padding:10px;"> -->
   <div class="row">
     <ng-container *ngFor="let region of regions; let i = index">
       <div class="col-4" style="padding-left:30px;">
+          <a [routerLink]="['/map-regions/map-detail',region.regionId]">
         <div class="card card-columns">
-          <img class="card-img-top" [src]="region.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'"
-            alt="Card image cap">
+          <img class="card-img-top" [src]="region.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">&nbsp;{{ region.name }}</h4>
             <p class="card-text">{{ region.imagesCount }} photos </p>
           </div>
           <div class="overlay">
-            <a class="top-right">
-              <i class="fa fa-trash" aria-hidden="true" style="font-size:36px"></i>
-            </a>
-            <div class="text">
-              <br>
-              <p style="font-size: 10px">Hovered</p>
-            </div>
+            <div class="delete-icon" (click)="deleteRegion(region.regionId)"><img class="card-img-top"src="assets/images/delete@3x.png"></div>
           </div>
-          <!-- <div class="card-body">
-              <h4 class="card-title">{{ image.imageId }}&nbsp;{{ image.name }}</h4>
-              <p class="card-text">{{ image.imagesCount }} photos </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div> -->
         </div>
+      </a>
       </div>
-
-      <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-    </ng-container>
-
+     <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+  </ng-container>
   </div>
 </div>

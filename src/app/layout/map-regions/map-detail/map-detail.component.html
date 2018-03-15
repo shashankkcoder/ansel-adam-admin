@@ -1,0 +1,49 @@
+<div class="container-fluid" style="padding-bottom: 20px;">
+    <div class="row size" *ngIf="Region$ | async as region" >
+      <div class="col-3 img-ul-image" [ngStyle]="{'background-image': 'url('+ region.defaultImageUrl +')'}">
+      </div>
+      <div class="col-7">
+        <span>{{ region.name ? region.name : "N/A" }} 
+          
+          <button class="option"><a [routerLink]="['/map-regions/editmapprofile', region.regionId]">Edit Profile</a></button></span>
+          <span><button class="settings-button"><img  src="assets/images/Settings@3x.png" style="height:25px;"></button></span>
+        <br><br>
+        Description: {{ region.description ? region.description : "N/A" }}
+      </div>
+     
+    </div>
+  </div>
+    
+  <div class="container-fluid" style="background-color:white;">
+    <div class="row" style="padding:20px">
+      <div class="col">
+        <h5 class="text-left">{{ (images$ | async)?.length }} Photos</h5>
+      </div>
+    </div>
+  
+    <div class="row">
+      <ng-container *ngFor="let image of images$ | async; let i = index">
+        <div class="col col-lg-3">
+           <!-- <a [routerLink]="['/all-photos/details', image.imageId]"> 
+            <div class="card card-columns">
+              <img class="card-img-top" [src]="image.url" height="150px" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+              <div class="overlay">
+                <div class="text">
+                  <div *ngIf="image.region">
+                    <span>
+                      <i class="fa fa-map-marker" style="font-size:20px;color:orange"></i>&nbsp;{{ image.region.name }}</span>
+                  </div>
+                  <br>
+                  <p style="font-size: 10px">{{ image.createdDate | date: 'MMMM.dd.yyyy'}}</p>
+                </div>
+              </div>
+            </div>
+           </a>  -->
+          <select-image [image]="image" (selectedImage)="addToSelectedList($event)">
+          </select-image>
+        </div>
+        <!-- <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div> -->
+      </ng-container>
+    </div>
+  </div>
+  

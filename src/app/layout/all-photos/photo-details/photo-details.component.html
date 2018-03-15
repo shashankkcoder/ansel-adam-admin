@@ -9,25 +9,33 @@
     <form style="display:block;margin-left:auto;margin-right:auto;padding:40px;font-size:20px;">
       <div class="row">
         <span class="text-right col-sm-3">Photo Name:</span>
-        <input class="col-sm-8" type="text" name="photoname" placeholder="Image name" value="{{ image.name }}">
+        <input class="col-sm-8" type="text" name="name" [(ngModel)]="name" placeholder="Image name">
+        <!-- value="{{ image.name }}" -->
+        <br>
+      </div>
+      <div class="row">
+        <span class="text-right col-sm-3">Year:</span>
+        <input class="col-sm-8" type="text" name="year" [(ngModel)]="year" placeholder="Image year">
+        <!-- value="{{ image.year }}" -->
         <br>
       </div>
       <div class="row">
         <span class="text-right col-sm-3">Description:</span>
-        <textarea class="col-sm-8" placeholder="Add a description for the image" value="{{ image.description }}"></textarea>
+        <textarea class="col-sm-8" placeholder="Add a description for the image" name="description" [(ngModel)]="description"></textarea>
+        <!-- value="{{ image.description }}" -->
       </div>
       <div class="row">
         <span class="text-right col-sm-3">Coordinates:</span>
         <div class="col-sm-4" style="padding-left:0px;">
-          <input type="text" class="col-sm-12" placeholder="Latitude" value="{{ image.latitude }}" style="padding-right:0px;">
+          <input type="text" class="col-sm-12" placeholder="Latitude" name="latitude" [(ngModel)]="latitude" style="padding-right:0px;">
         </div>
         <div class="col-sm-4" style="padding-right:0px;">
-          <input type="text" class="col-sm-12" placeholder="Longitude" value="{{ image.latitude }}">
+          <input type="text" class="col-sm-12" placeholder="Longitude" name="longitude" [(ngModel)]="longitude">
         </div>
       </div>
       <div class="row">
         <span class=" text-right col-sm-3">Safety Warning:</span>
-        <textarea class="col-sm-8" placeholder="Add safety warning..." value="image.cautionMessage"></textarea>
+        <textarea class="col-sm-8" placeholder="Add safety warning..." name="cautionMessage" [(ngModel)]="cautionMessage"></textarea>
       </div>
       <hr>
       <div class="row">
@@ -50,7 +58,7 @@
           <button class="submit-button col-sm-6" (click)=updateImage(image.imageId)>Submit</button>
         </div>
         <div class="text-left col-sm-6" style="padding-left:50px;">
-          <button class="cancel-button col-sm-6">Cancel</button>
+          <button class="cancel-button col-sm-6" (click)="onCancel()">Cancel</button>
         </div>
       </div>
     </form>

@@ -1,0 +1,48 @@
+
+  <div class="row" style="padding-bottom:0px;" >
+      <h3 style="padding:20px 20px 0 20px;"> Edit Map region profile</h3>
+    </div>
+    <div class="edit-profile-container" style="background-color:white;padding:10px;margin-right:60px;" *ngIf="Region$ | async as region">
+      <!-- <img class="card-img-top" src="assets/images/slider3.jpg"style="display:block;min-height:200px;max-height:300px;max-width:200px;min-width:100px;margin-left:auto;margin-right:auto;padding:20px;"> -->
+      <form style="display:block;margin-left:auto;margin-right:auto;padding:40px;font-size:20px;">
+        <div class="row">
+          <div class="col-sm-3">
+            <span class="pull-right row" style="padding-right:15px;padding-bottom:0px;">Cover Image:</span><br>
+            <input type='file' style="display: none" id="imgInp"  (change)="readUrl($event)">
+            <label for="imgInp" class="btn pull-right row" style="color:#95933D;padding-right:15px;">Change Image</label>
+          </div>
+          <div class="col-sm-3">
+            <img id="blah" [src]="url" alt="your image" style="height:150px;width:150px" />
+          </div>
+        </div>
+        <div class="row">
+          <span class="text-right col-sm-3">Region  Name:</span>
+          <input class="col-sm-8" type="text" name="regionName" [(ngModel)]="region.name" placeholder="Add region name">
+          <br>
+        </div>
+        <div class="row">
+            <span class="text-right col-sm-3"> Location:</span>
+            <div class="col-sm-4" style="padding-left:0px;">
+            <input type="text" class="col-sm-12" name="Latitude" [(ngModel)]="region.latitude" placeholder="latitude" style="padding-right:0px;">
+            </div>
+            <div class="col-sm-4"style="padding-right:0px;">
+            <input type="text" class="col-sm-12" name="Longitude" [(ngModel)]="region.longitude" placeholder="Longitude">
+            </div>
+         </div>    
+        <div class="row">
+          <span class="text-right col-sm-3"> Description:</span>
+          <textarea class="col-sm-8" name="regionDesc" [(ngModel)]="region.description" placeholder="Add region description"></textarea>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div class="text-right col-sm-6">
+            <button class="submit-button col-sm-6" (click)="onSubmit(region.regionId, region.name, region.description,region.latitude,region.longitude)">Submit</button>
+          </div>
+          <div class="text-left col-sm-6" style="padding-left:50px;">
+            <button class="cancel-button col-sm-6" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../../../service/auth.service';
+import { AppAuthService } from '../../../service/auth.service';
 
 @Component({
     selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
     fullName: string;
 
-    constructor(private translate: TranslateService, public router: Router, public authService: AuthService) {
+    constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');

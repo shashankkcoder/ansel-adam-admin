@@ -1,7 +1,7 @@
+import { MyImage } from './../../../model/MyImage';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { MyCheckBoxComponent } from './../my-check-box/my-check-box.component';
-import { Image } from './../../../model/image';
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
 import { ImageService } from '../../../service/image.service';
 
@@ -12,7 +12,7 @@ import { ImageService } from '../../../service/image.service';
 })
 export class SelectImageComponent implements OnInit {
 
-  @Input() image: Image;
+  @Input() image: MyImage;
   selected: boolean;
   
   @ViewChild(MyCheckBoxComponent) myCheckBoxComponent: MyCheckBoxComponent
@@ -32,9 +32,12 @@ export class SelectImageComponent implements OnInit {
   deleteImage(id) {
     if(confirm("Are you sure to delete this image?")) {
       this.imageService.deleteImage(id);
+
+      alert('Image with id ' + id + ' has been deleted.');
+
+      location.reload();
     }
 
-    location.reload();
   }
 
   onSelect(id) {

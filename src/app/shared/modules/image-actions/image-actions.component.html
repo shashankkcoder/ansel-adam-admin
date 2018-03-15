@@ -1,0 +1,24 @@
+<div class="image-actions text-center">
+  <!-- <img class="image-option" src="assets/images/add-to-group@2x.png" (click)="addTo()"> -->
+  <!-- <img class="image-option" src="assets/images/trash-darkgrey@2x.png" (click)="deleteImages()"> -->
+  
+  <button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+
+  <mat-menu #animals="matMenu" yPosition="above">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Regions</button>
+    <button mat-menu-item [matMenuTriggerFor]="invertebrates">Albums</button>
+  </mat-menu>
+
+  <mat-menu #vertebrates="matMenu">
+    <button mat-menu-item>Region 1</button>
+    <button mat-menu-item>Region 2</button>
+    <button mat-menu-item>Region 3</button>
+  </mat-menu>
+
+  <mat-menu #invertebrates="matMenu">
+    <button mat-menu-item>Album 1</button>
+    <button mat-menu-item>Album 2</button>
+    <button mat-menu-item>Album 3</button>
+  </mat-menu>
+
+</div>

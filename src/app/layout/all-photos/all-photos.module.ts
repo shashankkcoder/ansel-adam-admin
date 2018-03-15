@@ -1,3 +1,4 @@
+import { ImageActionsModule } from './../../shared/modules/image-actions/image-actions.module';
 import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
 import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
 import { ImageUploadModule } from './../../image-upload/image-upload.module';
@@ -10,6 +11,7 @@ import { UploadphotosComponent } from './uploadphotos/uploadphotos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { LayoutModule } from '../layout.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,8 +19,10 @@ import { LayoutModule } from '../layout.module';
     AllPhotosRoutingModule,
     ImageUploadModule,
     NgbModule,
+    FormsModule,
     MyCheckBoxModule,
-    SelectImageModule
+    SelectImageModule,
+    ImageActionsModule
   ],
   declarations: [AllPhotosComponent, UploadphotosComponent, PhotoDetailsComponent]
 })
