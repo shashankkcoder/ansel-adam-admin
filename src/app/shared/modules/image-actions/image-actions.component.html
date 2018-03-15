@@ -1,24 +1,25 @@
 <div class="image-actions text-center">
-  <!-- <img class="image-option" src="assets/images/add-to-group@2x.png" (click)="addTo()"> -->
-  <!-- <img class="image-option" src="assets/images/trash-darkgrey@2x.png" (click)="deleteImages()"> -->
+  <img class="image-option" [matMenuTriggerFor]="actions" src="assets/images/add-to-group@2x.png">
+  <img class="image-option" src="assets/images/trash-darkgrey@2x.png" (click)="deleteImages()">
   
-  <button mat-button [matMenuTriggerFor]="animals">Animal index</button>
+  <!-- <button mat-button [matMenuTriggerFor]="animals">Animal index</button> -->
 
-  <mat-menu #animals="matMenu" yPosition="above">
+  <mat-menu #actions="matMenu" yPosition="above">
+    <button mat-menu-item><strong>ADD TO:</strong></button>
     <button mat-menu-item [matMenuTriggerFor]="vertebrates">Regions</button>
     <button mat-menu-item [matMenuTriggerFor]="invertebrates">Albums</button>
   </mat-menu>
 
-  <mat-menu #vertebrates="matMenu">
-    <button mat-menu-item>Region 1</button>
-    <button mat-menu-item>Region 2</button>
-    <button mat-menu-item>Region 3</button>
+  <mat-menu #vertebrates="matMenu" yPosition="above">
+    <ng-container *ngFor="let region of regions">
+      <button mat-menu-item (click)="addToRegion(region.regionId)">{{ region.name }}</button>
+    </ng-container>
   </mat-menu>
 
-  <mat-menu #invertebrates="matMenu">
-    <button mat-menu-item>Album 1</button>
-    <button mat-menu-item>Album 2</button>
-    <button mat-menu-item>Album 3</button>
+  <mat-menu #invertebrates="matMenu" yPosition="above">
+    <ng-container *ngFor="let album of albums">
+      <button mat-menu-item (click)="addToAlbum(album.albumId)">{{ album.name }}</button>
+    </ng-container>
   </mat-menu>
 
 </div>

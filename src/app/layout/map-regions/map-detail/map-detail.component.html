@@ -41,9 +41,12 @@
            </a>  -->
           <select-image [image]="image" (selectedImage)="addToSelectedList($event)">
           </select-image>
+          
         </div>
         <!-- <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div> -->
       </ng-container>
     </div>
+
+    <image-actions *ngIf="selectedImagesId.length != 0"></image-actions>
   </div>
   

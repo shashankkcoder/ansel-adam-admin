@@ -70,7 +70,18 @@ export class ImageService extends DataService {
       console.log('image with id ' + id + ' has been updated');
       alert('Image details have been saved!');
     })
+  }
 
+  updateImageAlbum(imageId, albumId) {
+    this._updateImageAlbum(imageId, albumId).subscribe(response => {
+      console.log('image with id ' + imageId + ' has been added to album ' + albumId);
+    });
+  }
+
+  updateImageRegion(imageId, regionId) {
+    this._updateImageRegion(imageId, regionId).subscribe(response => {
+      console.log('image with id ' + imageId + ' has been added to region ' + regionId);
+    });
   }
 
 }

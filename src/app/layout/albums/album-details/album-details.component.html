@@ -47,6 +47,6 @@
       <!-- <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div> -->
     </ng-container>
 
-    <image-actions *ngIf="selectedImagesId.length != 0"></image-actions>
+    <image-actions *ngIf="selectedImagesId.length != 0" [imageIds]="selectedImagesId"></image-actions>
   </div>
 </div>

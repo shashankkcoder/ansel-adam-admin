@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 
 import { MapRegionsRoutingModule } from './map-regions-routing.module';
 import { MapRegionsComponent } from './map-regions.component';
+import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { MapRegionsComponent } from './map-regions.component';
     MapRegionsRoutingModule,
     FormsModule,
     MyCheckBoxModule,
-    SelectImageModule
+    SelectImageModule,
+    ImageActionsModule
   ],
   declarations: [MapRegionsComponent, MapDetailComponent, EditPhotoMapComponent, EditMapprofileComponent]
 })

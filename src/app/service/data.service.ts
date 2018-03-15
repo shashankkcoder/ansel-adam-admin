@@ -52,6 +52,26 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  _updateImageAlbum(imageId, albumId) {
+    return this.http
+      .patch(this.apiUrl + '/' + imageId + '/album/' + albumId, null)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+  _updateImageRegion(imageId, regionId) {
+    return this.http
+      .patch(this.apiUrl + '/' + imageId + '/region/' + regionId, null)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
   handleError(error: Response) {
     if (error.status === 404) {
       alert('Not found');
