@@ -19,11 +19,36 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
+import {
+	SocialLoginModule,
+	AuthServiceConfig,
+	GoogleLoginProvider,
+	FacebookLoginProvider,
+} from "angular5-social-login";
+
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
-    // for development
-    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-5/master/dist/assets/i18n/', '.json');
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+	// for development
+	// return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-5/master/dist/assets/i18n/', '.json');
+	return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+// Configs 
+export function getAuthServiceConfigs() {
+	let config = new AuthServiceConfig(
+		[
+			{
+				id: FacebookLoginProvider.PROVIDER_ID,
+				// provider: new FacebookLoginProvider("2100179203342485")
+				provider: new FacebookLoginProvider("2027550003941038")
+			},
+			{
+				id: GoogleLoginProvider.PROVIDER_ID,
+				provider: new GoogleLoginProvider("610210342160-kdkei8m42k5ut2ghjafqsr0chuqgf026.apps.googleusercontent.com")
+			},
+		]
+	);
+	return config;
 }
 
 @NgModule({
@@ -33,18 +58,22 @@ export function createTranslateLoader(http: HttpClient) {
 		BrowserAnimationsModule,
 		HttpClientModule,
 		TranslateModule.forRoot({
-				loader: {
-						provide: TranslateLoader,
-						useFactory: createTranslateLoader,
-						deps: [HttpClient]
-				}
+			loader: {
+				provide: TranslateLoader,
+				useFactory: createTranslateLoader,
+				deps: [HttpClient]
+			}
 		}),
 		AppRoutingModule,
 		HttpModule,
-		FormsModule
+		FormsModule,
+		SocialLoginModule
 	],
 	declarations: [AppComponent],
-	providers: [ AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService, AppAuthService ],
+	providers: [AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService, AppAuthService, {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+  }],
 	bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

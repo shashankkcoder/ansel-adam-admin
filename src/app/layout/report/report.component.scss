@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+li {
+    float: left;
+}
+.report,.heading
+{background-color:white;
+}
+.report:hover{
+    background-color:#F1F1F1;
+}
+tr{
+    padding:20px;
+}
+.type{
+    visibility: hidden;
+}
+.report:hover .type{
+    visibility: visible;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+th{
+    
+    padding:5px;
+}
+.container
+{
+    color:#4A4A4A;
+}
+
+
+table
+{color:#9B9B9B;
+}
+.type
+{
+    color:#4A4A4A;
+}

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ImageService } from './../service/image.service';
 import { Observable } from 'rxjs/Observable';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
@@ -70,7 +71,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
   parentMessage = "message from parent";
 
-  constructor(private imageService: ImageService, private http: Http) {
+  constructor(private imageService: ImageService, private http: Http, private router:Router) {
   }
 
   ngOnInit() {
@@ -267,5 +268,14 @@ export class ImageUploadComponent implements OnInit, OnChanges {
     });
   }
 
+  addto()
+  {
+    console.log("add to function called....");
+  }
+  checkin()
+  {
+    this.router.navigateByUrl('/all-photos');
+    
+  }
 
 }

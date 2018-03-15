@@ -206,3 +206,21 @@ label.img-ul-button input[type=file] {
     transform: rotate(360deg);
   }
 }
+
+.submit-button ,.cancel-button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color:#4A90E2;
+}
+
+.cancel-button {
+    background-color: #D8D8D8
+}
