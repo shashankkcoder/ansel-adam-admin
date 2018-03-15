@@ -1,8 +1,9 @@
 import { ImageService } from './../service/image.service';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { Headers, Response, Http } from '@angular/http';
 import { UploadMetadata } from './before-upload.interface';
+import { forkJoin } from 'rxjs/observable/forkJoin';
 
 import { Style } from './style';
 import { UploadFormComponent } from './upload-form/upload-form.component';
@@ -260,11 +261,10 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       observables.push(image$);
     }
     
-    Observable.forkJoin(observables)
+    forkJoin(observables)
     .subscribe(dataArray => {
       alert('All images uploaded successfully!');
     });
-
   }
 
 
