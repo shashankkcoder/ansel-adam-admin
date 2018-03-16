@@ -7,7 +7,7 @@ import { Album } from '../model/album';
 
 @Injectable()
 export class DataService {
-  // private apiUrl = 'http://34.204.68.134:9090/anseladams';
+  // private apiUrl = 'http://18.144.43.217:9090/anseladams';
   constructor(public apiUrl: string, public http: Http) {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }

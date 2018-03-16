@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class AppAuthService {
 
-  authUrl: string = 'http://34.204.68.134:9090/anseladams/users/authentication';
-  registerUrl: string = 'http://34.204.68.134:9090/anseladams/users';
+  authUrl: string = 'http://18.144.43.217:9090/anseladams/users/authentication';
+  registerUrl: string = 'http://18.144.43.217:9090/anseladams/users';
   userProfile: User;
 
   constructor(private http: HttpClient) { }
