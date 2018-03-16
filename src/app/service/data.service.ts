@@ -42,9 +42,9 @@ export class DataService {
       .catch(this.handleError);
   }
 
-  update(id, updateImage) {
+  update(id, updateObject) {
     return this.http
-      .patch(this.apiUrl + '/' + id, updateImage)
+      .patch(this.apiUrl + '/' + id, updateObject)
       .map((response: Response) => {
         // return <Album[]>response.json();
         return response.json();
