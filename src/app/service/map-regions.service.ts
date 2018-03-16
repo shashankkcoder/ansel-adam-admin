@@ -9,12 +9,12 @@ import { DataService } from './data.service';
 export class MapRegionsService extends DataService {
 
   constructor(http: Http) {
-    super('http://34.204.68.134:9090/anseladams/regions', http);
+    super('http://18.144.43.217:9090/anseladams/regions', http);
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
   getRegionWithId(id) : Observable<Region> {
-    let apiRegionUrl = 'http://34.204.68.134:9090/anseladams/regions';
+    let apiRegionUrl = 'http://18.144.43.217:9090/anseladams/regions';
 
     return this.http.get(apiRegionUrl + '/' + id).map(response => {
       return <Region>response.json();
@@ -22,7 +22,7 @@ export class MapRegionsService extends DataService {
   }
 
   getImagesWithRegionId(id): Observable<MyImage[]> {
-    let apiRegionUrl = 'http://34.204.68.134:9090/anseladams/regions';
+    let apiRegionUrl = 'http://18.144.43.217:9090/anseladams/regions';
 
     return this.http.get(apiRegionUrl + '/' + id + '/images').map(response => {
       return response.json();
