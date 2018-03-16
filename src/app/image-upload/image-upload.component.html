@@ -56,7 +56,7 @@
   </div>
 </div>
 <div *ngIf=press>
-  <div *ngIf="presssubmit">
+  <div *ngIf="presssubmit" style="height:100%">
     <div *ngIf="preview" class="img-ul-container img-ul-hr-inline-group" [ngStyle]="style?.previewPanel">
       <div class="images-container" style="background-color:white;padding:10px;">
         {{ this.uploadFileHolders.length }} photos uploaded
@@ -70,7 +70,7 @@
             <button class="submit-button col-sm-10" (click)="addto()">"Add to album/map-region"</button>
           </div>
           <div class="text-left col-sm-6" style="padding-left:50px;">
-            <button class="cancel-button col-sm-10" (click)="checkin()">"Check-in All-pohtos</button>
+            <button class="cancel-button col-sm-10" (click)="checkin()">"Check-in All-photos"</button>
           </div>
         </div>
       </div>

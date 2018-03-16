@@ -3,7 +3,9 @@
     <div class="col-sm-6">
       <h2 class="text-left">Upload</h2>
     </div>
-
+    <div *ngIf="submitted" class="col-sm-6" >
+      <h2 class="text-left">Uploaded</h2>
+    </div>
     <div *ngIf="!uploadBox" class="col-sm-6">
       <div *ngIf="!next">
         <h4 (click)="mynext()" class="text-right" style="cursor: pointer;">Next&nbsp;

@@ -15,6 +15,7 @@ export class UploadphotosComponent implements OnInit {
   public next = false;
   public presssubmit = false;
   public showsubmit = false;
+  public submitted=false;
 
   constructor() { }
 

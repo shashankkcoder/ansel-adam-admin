@@ -44,7 +44,8 @@ export function getAuthServiceConfigs() {
 			},
 			{
 				id: GoogleLoginProvider.PROVIDER_ID,
-				provider: new GoogleLoginProvider("610210342160-kdkei8m42k5ut2ghjafqsr0chuqgf026.apps.googleusercontent.com")
+				// provider: new GoogleLoginProvider("610210342160-kdkei8m42k5ut2ghjafqsr0chuqgf026.apps.googleusercontent.com")
+				provider: new GoogleLoginProvider("926924233084-fvksj1h5vls8qihuut1ougtk1ia03ghl.apps.googleusercontent.com")
 			},
 		]
 	);

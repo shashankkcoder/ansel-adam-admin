@@ -68,8 +68,16 @@ export class ImageActionsComponent implements OnInit {
   }
   
   deleteImages() {
-    if (confirm('Are you sure to delete these images ')) {
-     
+    if (confirm('Are you sure to delete these selected images?')) {
+      for (let id of this.imageIds) {
+        // this.imageService.updateImageAlbum(id, albumId);
+        this.imageService.deleteImage(id);
+
+        console.log('deleting image ' + id);
+      }
+
+      alert('images deleted ' + this.imageIds);
+      location.reload();
     }
   }
 }
