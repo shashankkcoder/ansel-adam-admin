@@ -11,12 +11,14 @@
   </mat-menu>
 
   <mat-menu #vertebrates="matMenu" yPosition="above">
+    <button mat-menu-item >Create New Region</button> 
     <ng-container *ngFor="let region of regions">
       <button mat-menu-item (click)="addToRegion(region.regionId)">{{ region.name }}</button>
     </ng-container>
   </mat-menu>
 
   <mat-menu #invertebrates="matMenu" yPosition="above">
+    <button mat-menu-item >Create New Album</button>
     <ng-container *ngFor="let album of albums">
       <button mat-menu-item (click)="addToAlbum(album.albumId)">{{ album.name }}</button>
     </ng-container>

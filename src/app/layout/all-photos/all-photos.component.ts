@@ -24,7 +24,7 @@ export class AllPhotosComponent implements OnInit {
     this.allPhotosService.getAll()
       .subscribe(
         images => {
-          this.images = images;
+          this.images = images.content;
           this.count = this.images.length;
         },
         error => console.log('Error :: ' + error)

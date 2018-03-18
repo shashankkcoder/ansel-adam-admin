@@ -253,7 +253,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       formData.append('file[]', file.file);
 
 
-      let image$ = this.imageService.uploadMiscImage('http://34.204.68.134:9090/anseladams/upload', formData);
+      let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
       
       image$.subscribe(response => {
         console.log(response);

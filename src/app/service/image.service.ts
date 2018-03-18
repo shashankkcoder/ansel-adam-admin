@@ -7,10 +7,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ImageService extends DataService {
 
-  // private apiUrl = 'http://34.204.68.134:9090/anseladams/images';
+  // private apiUrl = 'http://18.144.43.217:9090/anseladams/images';
 
   constructor(http: Http) {
-    super('http://34.204.68.134:9090/anseladams/images', http);
+    super('http://18.144.43.217:9090/anseladams/images', http);
   }
 
   public postImage(url: string, image: File, headers?: Headers | { [name: string]: any }, partName: string = 'image', customFormData?: { [name: string]: any }, withCredentials?: boolean): Observable<Response> {
