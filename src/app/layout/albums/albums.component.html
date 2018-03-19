@@ -11,7 +11,7 @@
   </div>
   <div class="images-container" style="background-color:white;padding:10px;">
     <div class="row">
-      <ng-container *ngFor="let album of _albumsArray; let i = index">
+      <ng-container *ngFor="let album of albums$; let i = index">
         <div class="col-4" style="padding-left:30px;">
           <a class="class" [routerLink]="['/albums/details', album.albumId]">
             <div class="card card-columns">

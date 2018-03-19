@@ -21,7 +21,8 @@ export class AlbumNewComponent implements OnInit {
   albumDescription: string;
   imageFile: any;
   imageUrl: string;
-  
+  imageIds: any[] = [];
+  defaultImage: MyImage;
   selectedImages: MyImage[] = [];
 
   constructor(private route: ActivatedRoute,
@@ -32,23 +33,23 @@ export class AlbumNewComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    // this.album$ = this.albumService.getAlbumWithId(this.id);
-
-    // this.album$.subscribe(response => {
-    //   this.imageUrl = response.defaultImageUrl;
-    // });
-    
     console.log('receiving image ids: ' + this.multiSelectService.getSelectedImageIds());
-    let imageIds = this.multiSelectService.getSelectedImageIds();
-    
-    for (let id of imageIds) {
-      this.imageService.getImageWithId(id).subscribe(response => {
-        // console.log(response);
+    this.imageIds = this.multiSelectService.getSelectedImageIds();
+
+    if (this.imageIds.length > 0) {
+
+    }
+
+    this.imageIds.forEach((item, index) => {
+      // gather selected images
+      this.imageService.getImageWithId(item).subscribe(response => {
+        // first selected image
+        if (index === 0) {
+          this.defaultImage = response;
+        }
         this.selectedImages.push(response);
       });
-    }
-    
-    // console.log('received images: ' + this.selectedImages);
+    });
   }
 
   onFileChange(event) {
@@ -69,18 +70,30 @@ export class AlbumNewComponent implements OnInit {
   }
 
   onSubmit(albumName, albumDescription) {
-    console.log(this.imageFile);
-
-    // "defaultImageUrl": null,
+    // create new album
     let newAlbum = {
-      "name": albumName,
-      "description": albumDescription
-    };
+      "name": this.albumName,
+      "description": this.albumDescription,
+      "defaultImageUrl": this.defaultImage.url
+    }
 
-    alert('creating new album ' + newAlbum);
-    // this.albumService.updateAlbum(albumId, updateAlbum);
+    let newAlbumId = -1;
 
-    // alert("Album with id: " + albumId + " has been updated.");
+    let newAlbumResponse = this.albumService.createAlbum(newAlbum).subscribe(response => {
+      console.log('created new album ' + JSON.stringify(response));
+      newAlbumId = response.albumId;
+
+      // add selected images to the new album
+      this.imageIds.forEach((item, index) => {
+        // update images with the new album
+        this.imageService.updateImageAlbum(item, newAlbumId);
+      });
+    });
+
+    alert("New album created");
+
+    location.reload();
+    this.router.navigate(['/albums']);
   }
 
   onCancel() {

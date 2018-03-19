@@ -26,7 +26,6 @@ export class DataService {
     return this.http
       .post(this.apiUrl, obj)
       .map((response: Response) => {
-        // return <Album[]>response.json();
         return response.json();
       })
       .catch(this.handleError);
@@ -36,7 +35,6 @@ export class DataService {
     return this.http
       .delete(this.apiUrl + '/' + id)
       .map((response: Response) => {
-        // return <Album[]>response.json();
         return response.json();
       })
       .catch(this.handleError);
@@ -74,18 +72,19 @@ export class DataService {
 
   handleError(error: Response) {
     if (error.status === 404) {
-      alert('Not found');
+      alert('Not found: ' + error.json().message);
     }
     if (error.status === 409) {
-      alert('Already created');
+      alert('Already created: ' + error.json().message);
     }
     if (error.status === 400) {
-      alert('Bad request');
+      alert('Bad request: ' + error.json().message);
     }
     if (error.status === 500) {
-      alert('Server error');
+      alert('Server error: ' + error.json().message);
     }
-    console.log(error);
+    console.log(error.json().message);
+    // alert(error.json().message);
 
     return Observable.throw(error.statusText);
   }

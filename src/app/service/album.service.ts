@@ -37,5 +37,9 @@ export class AlbumService extends DataService {
     });
   }
 
+  createAlbum(album) : Observable<Album> {
+    return this.create(album);
+  }
+
 }
 

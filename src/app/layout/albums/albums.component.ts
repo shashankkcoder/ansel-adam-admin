@@ -9,7 +9,7 @@ import { Album } from '../../model/album';
 })
 export class AlbumsComponent implements OnInit {
 
-  _albumsArray: Album[];
+  albums$: Album[];
 
   constructor(private albumService: AlbumService) { }
 
@@ -17,8 +17,7 @@ export class AlbumsComponent implements OnInit {
     this.albumService.getAll()
       .subscribe(
         albums => {
-          this._albumsArray = albums;
-          console.log(this._albumsArray);
+          this.albums$ = albums;
         },
         error => console.log('Error :: ' + error)
       );
