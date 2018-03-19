@@ -1,0 +1,37 @@
+.img-ul-image {    
+  background: center center no-repeat;
+  background-size: contain;
+  display: inline-block;
+  text-align: left;
+  /* height: 86px; */
+  height: 150px;
+  margin: 6px;
+  position: relative;
+  /* width: 86px; */
+  width: 200px;
+}
+
+.album-edit {
+  font-size: 24px;
+}
+
+.submit-button ,.cancel-button{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.submit-button
+{
+  background-color:#4A90E2;
+}
+.cancel-button
+{
+  background-color: #D8D8D8
+}
+.row{
+  padding-bottom: 40px;
+}

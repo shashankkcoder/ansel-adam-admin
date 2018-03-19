@@ -1,3 +1,4 @@
+import { AlbumNewComponent } from './album-new/album-new.component';
 import { AlbumEditComponent } from './album-edit/album-edit.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { PhotoDetailsComponent } from './../all-photos/photo-details/photo-details.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: AlbumDetailsComponent
+  },
+  {
+    path: 'new',
+    component: AlbumNewComponent
   },
   {
     path: '',

@@ -1,9 +1,12 @@
+import { MultiSelectService } from './../../../service/multi-select.service';
+import { AlbumNewComponent } from './../../../layout/albums/album-new/album-new.component';
 import { ImageService } from './../../../service/image.service';
 import { MapRegionsService } from './../../../service/map-regions.service';
 import { AlbumService } from './../../../service/album.service';
 import { Region } from './../../../model/region';
 import { Album } from './../../../model/album';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'image-actions',
@@ -18,12 +21,16 @@ export class ImageActionsComponent implements OnInit {
 
   @Input() imageIds: string[];
 
+  @ViewChild(AlbumNewComponent) albumNewComponent: AlbumNewComponent;
+
   albums: Album[];
   regions: Region[];
   
   constructor(private imageService: ImageService,
               private albumService: AlbumService,
-              private mapRegionsService: MapRegionsService) { }
+              private mapRegionsService: MapRegionsService,
+              private multiSelectService: MultiSelectService,
+              private router: Router) { }
 
   ngOnInit() {
     this.albumService.getAll()
@@ -65,6 +72,12 @@ export class ImageActionsComponent implements OnInit {
       }
       console.log('added ' + this.imageIds + ' to album id ' + albumId);
     }
+  }
+
+  addToNewAlbum() {
+    this.multiSelectService.setSelectedImageIds(this.imageIds);
+
+    this.router.navigateByUrl("/albums/new");
   }
   
   deleteImages() {
