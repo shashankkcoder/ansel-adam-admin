@@ -1,3 +1,5 @@
+import { ImageService } from './../../../service/image.service';
+import { MyImage } from './../../../model/MyImage';
 import { MultiSelectService } from './../../../service/multi-select.service';
 import { Location } from '@angular/common';
 import { AlbumService } from './../../../service/album.service';
@@ -19,10 +21,13 @@ export class AlbumNewComponent implements OnInit {
   albumDescription: string;
   imageFile: any;
   imageUrl: string;
+  
+  selectedImages: MyImage[] = [];
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private albumService: AlbumService,
+    private imageService: ImageService,
     private multiSelectService: MultiSelectService,
     private location: Location) { }
 
@@ -33,7 +38,17 @@ export class AlbumNewComponent implements OnInit {
     //   this.imageUrl = response.defaultImageUrl;
     // });
     
-    console.log('receving image ids: ' + this.multiSelectService.getSelectedImageIds());
+    console.log('receiving image ids: ' + this.multiSelectService.getSelectedImageIds());
+    let imageIds = this.multiSelectService.getSelectedImageIds();
+    
+    for (let id of imageIds) {
+      this.imageService.getImageWithId(id).subscribe(response => {
+        // console.log(response);
+        this.selectedImages.push(response);
+      });
+    }
+    
+    // console.log('received images: ' + this.selectedImages);
   }
 
   onFileChange(event) {

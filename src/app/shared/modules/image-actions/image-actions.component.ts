@@ -1,5 +1,4 @@
 import { MultiSelectService } from './../../../service/multi-select.service';
-import { AlbumNewComponent } from './../../../layout/albums/album-new/album-new.component';
 import { ImageService } from './../../../service/image.service';
 import { MapRegionsService } from './../../../service/map-regions.service';
 import { AlbumService } from './../../../service/album.service';
@@ -20,8 +19,6 @@ export class ImageActionsComponent implements OnInit {
   disabled = false;
 
   @Input() imageIds: string[];
-
-  @ViewChild(AlbumNewComponent) albumNewComponent: AlbumNewComponent;
 
   albums: Album[];
   regions: Region[];

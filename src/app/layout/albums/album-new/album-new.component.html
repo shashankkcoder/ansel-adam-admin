@@ -23,8 +23,19 @@
         <br>
       </div>
       <div class="row">
-        <span class="text-right col-sm-3"> Description:</span>
+        <span class="text-right col-sm-3">Description:</span>
         <textarea class="col-sm-8" name="albumDesc" [(ngModel)]="albumDescription" placeholder="Add album description"></textarea>
+      </div>
+      <div class="row">
+        <span class="text-right col-sm-3">Selected Photos:</span>
+        <div class="row">
+          <ng-container *ngFor="let image of selectedImages; let i = index">
+            <div class="col-3">
+              <img class="selected-img" [src]="image.url" alt="Selected Image">
+            </div>
+            <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
+          </ng-container>
+        </div>
       </div>
       <br>
       <br>
