@@ -255,10 +255,6 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
       let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
       
-      image$.subscribe(response => {
-        console.log(response);
-      });
-
       observables.push(image$);
     }
     
@@ -275,7 +271,6 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   checkin()
   {
     this.router.navigateByUrl('/all-photos');
-    
   }
 
 }
