@@ -34,7 +34,8 @@ export class PhotoDetailsComponent implements OnInit {
     });
 
     this.image$ = this.imageService.getImageWithId(this.id);
-
+    console.log('get photo details ' + this.id);
+    
     this.image$.subscribe(image => {
       this.name = image.name;
       this.description = image.description;

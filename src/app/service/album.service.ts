@@ -30,5 +30,16 @@ export class AlbumService extends DataService {
     });
   }
 
+  updateAlbum(id, updateAlbum) {
+    return this.update(id, updateAlbum).subscribe(response => {
+      console.log(response);
+      console.log('album updated');
+    });
+  }
+
+  createAlbum(album) : Observable<Album> {
+    return this.create(album);
+  }
+
 }
 

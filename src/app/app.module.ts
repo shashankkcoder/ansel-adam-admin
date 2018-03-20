@@ -1,3 +1,4 @@
+import { MultiSelectService } from './service/multi-select.service';
 import { AppAuthService } from './service/auth.service';
 import { MapRegionsService } from './service/map-regions.service';
 import { NgModule } from '@angular/core';
@@ -71,7 +72,7 @@ export function getAuthServiceConfigs() {
 		SocialLoginModule
 	],
 	declarations: [AppComponent],
-	providers: [AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService, AppAuthService, {
+	providers: [AuthGuard, AlbumService, AllPhotosService, MapRegionsService, ImageService, AppAuthService, MultiSelectService, {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
   }],
