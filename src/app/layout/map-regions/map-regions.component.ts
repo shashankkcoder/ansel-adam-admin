@@ -17,7 +17,6 @@ export class MapRegionsComponent implements OnInit {
     .subscribe(
         regions => {
           this.regions = regions;
-          console.log(this.regions);
         },
         error => console.log('Error :: ' + error)
       );
@@ -32,7 +31,10 @@ export class MapRegionsComponent implements OnInit {
     event.stopPropagation();
     
     if (confirm('Are you sure to delete this region with id ' + id + ' and all images associated with it?')) {
-     
+      this.mapRegionsService.deleteRegion(id).subscribe(response => {
+        alert('Region with id ' + id + ' has been deleted.');
+        location.reload();
+      })
     }
   }
 

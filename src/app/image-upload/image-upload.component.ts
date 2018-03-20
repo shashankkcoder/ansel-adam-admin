@@ -239,11 +239,10 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       if (file.imageDescription) {
         formData.append('description', file.imageDescription);
       }
-      if (file.imageDescription) {
+      if (file.latitude) {
         formData.append('latitude', file.latitude);
-        formData.append
       }
-      if (file.imageDescription) {
+      if (file.longitude) {
         formData.append('longitude', file.longitude);
       }
       if (file.safetyWarning) {
@@ -251,7 +250,6 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       }
 
       formData.append('file[]', file.file);
-
 
       let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
       

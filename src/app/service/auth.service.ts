@@ -20,7 +20,7 @@ export class AppAuthService {
         'password': password
       })
     };
-
+    
     return this.http.post(this.authUrl, this.userProfile, httpOptions).map(response => {
       return response;
     })

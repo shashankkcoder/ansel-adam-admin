@@ -1,7 +1,7 @@
 import { MyImage } from './../../../model/MyImage';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Region} from './../../../model/region';
+import { Region } from './../../../model/region';
 import { ActivatedRoute } from '@angular/router';
 import { MapRegionsService } from './../../../service/map-regions.service';
 @Component({
@@ -21,9 +21,9 @@ export class MapDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = +params.get('id');
-  });
-  this.Region$ = this.regionService.getRegionWithId(this.id);
-    console.log(this.Region$);
+    });
+    
+    this.Region$ = this.regionService.getRegionWithId(this.id);
     this.images$ = this.regionService.getImagesWithRegionId(this.id);
   }
 

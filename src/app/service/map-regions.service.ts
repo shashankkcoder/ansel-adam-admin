@@ -40,4 +40,8 @@ export class MapRegionsService extends DataService {
     return this.create(region);
   }
 
+  deleteRegion(id) {
+    return this.delete(id);
+  }
+
 }
