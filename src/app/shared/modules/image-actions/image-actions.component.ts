@@ -76,6 +76,12 @@ export class ImageActionsComponent implements OnInit {
 
     this.router.navigateByUrl("/albums/new");
   }
+
+  addToNewRegion() {
+    this.multiSelectService.setSelectedImageIds(this.imageIds);
+
+    this.router.navigateByUrl("/map-regions/new");
+  }
   
   deleteImages() {
     if (confirm('Are you sure to delete these selected images?')) {

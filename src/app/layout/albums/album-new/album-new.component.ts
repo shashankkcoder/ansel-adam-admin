@@ -36,10 +36,6 @@ export class AlbumNewComponent implements OnInit {
     console.log('receiving image ids: ' + this.multiSelectService.getSelectedImageIds());
     this.imageIds = this.multiSelectService.getSelectedImageIds();
 
-    if (this.imageIds.length > 0) {
-
-    }
-
     this.imageIds.forEach((item, index) => {
       // gather selected images
       this.imageService.getImageWithId(item).subscribe(response => {
@@ -64,9 +60,6 @@ export class AlbumNewComponent implements OnInit {
 
       reader.readAsDataURL(event.target.files[0]);
     }
-  }
-
-  loadImages(imageIds) {
   }
 
   onSubmit(albumName, albumDescription) {

@@ -29,4 +29,15 @@ export class MapRegionsService extends DataService {
     });
   }
 
+  updateRegion(id, updateRegion) {
+    return this.update(id, updateRegion).subscribe(response => {
+      console.log(response);
+      console.log('region updated');
+    });
+  }
+
+  createRegion(region) : Observable<Region> {
+    return this.create(region);
+  }
+
 }
