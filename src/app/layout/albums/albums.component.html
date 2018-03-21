@@ -3,39 +3,33 @@
     <div class="col-sm-6">
       <h2 class="text-left">Album Overview</h2>
     </div>
-    <!-- <div class="col-sm-6">
-      <h4 class="text-right">Upload New photos&nbsp;
-        <img src="assets/images/UPLOAD BOTTON@2x.png"style="width:30px;margin:auto;">
-      </h4>
-    </div> -->
   </div>
-  <div class="images-container" style="background-color:white;padding:10px;">
-    <div class="row">
-      <ng-container *ngFor="let album of albums$; let i = index">
-        <div class="col-4" style="padding-left:30px;">
-          <a class="class" [routerLink]="['/albums/details', album.albumId]">
-            <div class="card card-columns">
-              <img class="card-img-top" [src]="album.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'"
-                alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">{{ album.name }}</h4>
-                <p class="card-text">{{ album.imagesCount }} photos </p>
+  <!-- <div class="images-container" style="background-color:white;padding:10px;"> -->
+  <div class="row">
+    <ng-container *ngFor="let album of albums$; let i = index">
+      <div class="col-4" style="padding-left:30px;">
+        <a class="class" [routerLink]="['/albums/details', album.albumId]">
+          <div class="card card-columns">
+            <img class="card-img-top" [src]="album.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'"
+              alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">{{ album.name }}</h4>
+              <p class="card-text">{{ album.imagesCount }} photos </p>
+            </div>
+            <div class="overlay">
+              <div class="delete-icon" (click)="deleteAlbum(album.albumId)">
+                <img class="card-img-top" src="assets/images/delete@3x.png">
               </div>
-              <div class="overlay">
-                <div class="delete-icon" (click)="deleteAlbum(album.albumId)">
-                  <img class="card-img-top" src="assets/images/delete@3x.png">
-                </div>
-                <div class="text">
-                  <br>
-                  <!-- <p style="font-size: 10px">Hovered</p> -->
-                </div>
+              <div class="text">
+                <br>
+                <!-- <p style="font-size: 10px">Hovered</p> -->
               </div>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
+      </div>
 
-        <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-      </ng-container>
-
-    </div>
+      <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+    </ng-container>
   </div>
+</div>
