@@ -44,6 +44,8 @@ export class LoginComponent implements OnInit {
 
 		this.socialAuthService.signIn(socialPlatformProvider).then(
 			(userData) => {
+				console.log(userData);
+				
 				if (socialPlatform === 'google') {
 					this.auth.googleDetail(userData.idToken).subscribe(response => {
 						if (response.admin === true) {
