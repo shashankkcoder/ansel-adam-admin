@@ -80,6 +80,9 @@ export class AppAuthService {
     if (error.status === 400) {
       alert('Bad request');
     }
+    if (error.status === 401) {
+      alert('Unauthorized: Invalid username or password!');
+    }
     if (error.status === 500) {
       alert('Server error');
     }
