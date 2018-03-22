@@ -36,23 +36,47 @@ export class LoginComponent implements OnInit {
 
 	socialSignIn(socialPlatform: string) {
 		let socialPlatformProvider;
-		console.log("before login" + socialPlatformProvider);
 		if (socialPlatform == "facebook") {
 			socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-			// localStorage.setItem('isLoggedin','true');
-			console.log('navigating');
-
 		} else if (socialPlatform == "google") {
-			// localStorage.setItem('isLoggedin','true');			
 			socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
 		}
-		this.router.navigateByUrl('/map-regions');
 
 		this.socialAuthService.signIn(socialPlatformProvider).then(
 			(userData) => {
-				console.log(socialPlatform + " sign in data : ", userData);
-				// Now sign-in with userData
-				console.log("after login" + socialPlatformProvider);
+				if (socialPlatform === 'google') {
+					this.auth.googleDetail(userData.idToken).subscribe(response => {
+						if (response.admin === true) {
+							// Now sign-in with userData
+						localStorage.setItem('userAccessToken', response.userAccessToken);
+						localStorage.setItem('isLoggedin', 'true');
+						localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
+
+							this.router.navigateByUrl('/map-regions');
+						} else {
+							alert('Not an admin account');
+							this.router.navigateByUrl('/login');
+						}
+					});
+				}
+
+				if (socialPlatform === 'facebook') {
+					this.auth.facebookDetail(userData.token).subscribe(response => {
+						if (response.admin === true) {
+								// Now sign-in with userData
+							localStorage.setItem('userAccessToken', response.userAccessToken);
+							localStorage.setItem('isLoggedin', 'true');
+							localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
+
+							this.router.navigateByUrl('/map-regions');
+						} else {
+							alert('Not an admin account');
+							this.router.navigateByUrl('/login');
+						}
+					});
+				}
+
+				console.log("after login " + socialPlatformProvider);
 			}
 		);
 	}

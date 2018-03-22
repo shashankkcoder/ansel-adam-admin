@@ -27,6 +27,34 @@ export class AppAuthService {
     .catch(this.handleError);
   }
 
+  googleDetail(idToken) {
+    let googleAuthUrl = 'http://18.144.43.217:9090/anseladams/google/user/detail';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'idToken': idToken
+      })
+    };
+    
+    return this.http.get(googleAuthUrl, httpOptions).map(response => {
+      return response;
+    })
+    .catch(this.handleError);
+  }
+  
+  facebookDetail(userAccessToken) {
+    let facebookAuthUrl = 'http://18.144.43.217:9090/anseladams/facebook/user/detail';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'userAccessToken': userAccessToken
+      })
+    };
+    
+    return this.http.get(facebookAuthUrl, httpOptions).map(response => {
+      return response;
+    })
+    .catch(this.handleError);
+  }
+
   register(fullName, email, password) {
     const httpOptions = {
       headers: new HttpHeaders({
