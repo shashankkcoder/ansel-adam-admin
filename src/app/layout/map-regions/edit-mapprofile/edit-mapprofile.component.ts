@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormModule } from './../../form/form.module';
+// import { FormModule } from './../../form/form.module';
 import { Observable } from 'rxjs/Observable';
 import { Region} from './../../../model/region';
 import { ActivatedRoute } from '@angular/router';

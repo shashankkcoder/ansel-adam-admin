@@ -1,4 +1,4 @@
-import { FormModule } from './../../form/form.module';
+// import { FormModule } from './../../form/form.module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlbumService } from './../../../service/album.service';
 import { Album } from './../../../model/album';
