@@ -20,9 +20,9 @@ export class SignupComponent implements OnInit {
 	ngOnInit() { }
 
 	onRegister() {
-		this.auth.register(this.name, this.email, this.password).subscribe((response: Response) => {
+		this.auth.register(this.name, this.email, this.password).subscribe((response) => {
 			console.log(response);
-			if (response.status === 200) {
+			if (response.status === 'Success') {
 				alert("Your account has been created. Please check your email for verification.");
 			} else {
 				alert("Failed to create account");
