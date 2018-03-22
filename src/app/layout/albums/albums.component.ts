@@ -1,11 +1,13 @@
 import { AlbumService } from './../../service/album.service';
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../../model/album';
+import { routerTransition } from '../../router.animations';
 
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
-  styleUrls: ['./albums.component.scss']
+  styleUrls: ['./albums.component.scss'],
+  animations: [routerTransition()]
 })
 export class AlbumsComponent implements OnInit {
 

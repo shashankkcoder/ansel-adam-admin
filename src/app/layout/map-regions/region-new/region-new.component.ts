@@ -7,11 +7,13 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Region } from '../../../model/region';
 import { MapRegionsService } from '../../../service/map-regions.service';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-region-new',
   templateUrl: './region-new.component.html',
-  styleUrls: ['./region-new.component.scss']
+  styleUrls: ['./region-new.component.scss'],
+  animations: [routerTransition()]
 })
 export class RegionNewComponent implements OnInit {
 

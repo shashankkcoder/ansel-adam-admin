@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { MyCheckBoxModule } from './../shared/modules/my-check-box/my-check-box.module';
 import { SelectImageModule } from './../shared/modules/select-image/select-image.module';
 import { NgModule } from '@angular/core';

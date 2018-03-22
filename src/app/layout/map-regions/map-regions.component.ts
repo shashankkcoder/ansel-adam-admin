@@ -1,10 +1,12 @@
 import { MapRegionsService } from './../../service/map-regions.service';
 import { Component, OnInit } from '@angular/core';
+import { routerTransition } from '../../router.animations';
 
 @Component({
   selector: 'app-map-regions',
   templateUrl: './map-regions.component.html',
-  styleUrls: ['./map-regions.component.scss']
+  styleUrls: ['./map-regions.component.scss'],
+  animations: [routerTransition()]
 })
 export class MapRegionsComponent implements OnInit {
 
