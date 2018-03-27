@@ -12,9 +12,29 @@
         <a [routerLink]="['/all-photos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <img class="img-responsive" src="assets/images/all-photos-icon@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'All Photos' | translate }}
         </a>
-        <a [routerLink]="['/report']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <!-- <a [routerLink]="['/report']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <img class="img-responsive" src="assets/images/report@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Report' | translate }}
-        </a>
+        </a> -->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('report')">
+                <span>
+                    <img class="img-responsive" src="assets/images/report@2x.png" alt="app-logo" height="20px" width="20px">&nbsp; {{ 'Report' | translate }}</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'report'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/report']" class="list-group-item">
+                            <span>{{ 'Current' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/report/archived']" class="list-group-item">
+                            <span>{{ 'Archived' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
         <a [routerLink]="['/Settings']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <img class="img-responsive" src="assets/images/Settings@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Settings' | translate }}
         </a>

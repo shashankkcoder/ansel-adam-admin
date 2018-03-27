@@ -1,0 +1,31 @@
+<div class="container"style="padding:0px 50px;display:table">
+  <div class="row" style= "display: flex;align-items: center;" >
+    <div  class="col-sm-6">
+      <h3 class="text-left">Archived Overview </h3>
+    </div>
+    <div class="col-sm-6 text-right ">
+     Current: {{NoOfArchived}} Archived
+    </div>
+  </div>
+  <table style="width:100%;color:#9B9B9B">
+      <tr align="center" class="heading" height="80">
+        <th>Photo</th>
+        <th>Post By</th> 
+        <th>Reason</th>
+        <th>#OF FLAG</th>
+        <th>Date</th> 
+        <th>Report By</th>
+        <th> </th>
+      </tr>
+      <ng-container *ngFor="let archive of archived; let i = index">
+          <tr  align="center" class="archived"height ="130">
+              <td><img [src]="archive.profileImageUrl"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
+              <td >{{archive.name}}</td>
+              <td style="color:#D0021B">appropriate</td>
+              <td style="color:#F5A623">{{archive.flagsCount}}</td>
+              <td>{{archive.createdDate|date}}</td>
+              <td>{{archive.flaggerName}}</td>
+              <td><span class="restore" (click)="doRestore(archive.postId)">Restore</span></td> 
+         </tr>
+        </ng-container>
+    </table> 

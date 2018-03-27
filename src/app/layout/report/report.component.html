@@ -1,117 +1,54 @@
-<div class="container"style="padding:0px 50px;display:table" [@routerTransition]>
-<div class="row" style= "display: flex;align-items: center;" >
-  <div  class="col-sm-6">
-    <h3 class="text-left">Report Overview </h3>
+<div class="container"style="padding:0px 50px;display:table">
+  <div class="row" style= "display: flex;align-items: center;" >
+    <div  class="col-sm-6">
+      <h3 class="text-left">Report Overview </h3>
+    </div>
+    <div class="col-sm-6 text-right ">
+     Current: {{NoOfReport}} reports
+    </div>
   </div>
-  <div class="col-sm-6 text-right ">
-   Current: 3 reports
-  </div>
-</div>
-<table style="width:100%;color:#9B9B9B">
-  <!-- heading of table -->
-    <tr align="center" class="heading" height="80">
-      <th>Photo</th>
-      <th>Post By</th> 
-      <th>Reason</th>
-      <th>#OF FLAG</th>
-      <th>Date</th> 
-      <th>Report By</th>
-      <th> </th>
-    </tr>
-    <!-- loop for no. of reports -->
-    
-    <tr  align="center" class="report"height ="130">
-      <td><img src="assets/images/slider3.jpg"style="width:91px;height:91px;margin-left:20px;"></td>
-      <td >Ash</td>
-     <!--  -->
-     <div class="option" *ngIf="!optionspan;then span else appropriate"></div>
-     <ng-template #span>
-      <td style="color:#F5A623">span</td>
-    </ng-template>
-    <ng-template #appropriate>
-        <td style="color:#D0021B">appropriate</td>
-    </ng-template>
-      <td style="color:#F5A623">2</td>
-      <td>date</td>
-      <td>saffy</td>
-
-      <div class="option" *ngIf="!optionspan;then option1 else option2"></div>
-       
-        <ng-template #option1>
-        <td><div class="type">
-          Spam<br>
-          Not Spam</div>
-        </td>  
-        </ng-template>
-        <ng-template #option2>
-        <td><div class="type">
-         Appropriate<br>
-         Inappropriate</div>
-        </td>  
-        </ng-template>
-     
-    </tr>
-    <tr  align="center" class="report"height ="130">
-      <td><img src="assets/images/slider2.jpg"style="width:91px;height:91px;margin-left:20px;"></td>
-      <td >oliveeee</td>
-     <!--  -->
-     <div class="option" *ngIf="!optionspan;then span else appropriate"></div>
-     <ng-template #span>
-      <td style="color:#F5A623">span</td>
-    </ng-template>
-    <ng-template #appropriate>
-        <td style="color:#D0021B">appropriate</td>
-    </ng-template>
-      <td style="color:#F5A623">2</td>
-      <td>date</td>
-      <td>saffy</td>
-
-      <div class="option" *ngIf="!optionspan;then option1 else option2"></div>
-       
-        <ng-template #option1>
-        <td><div class="type">
-          Spam<br>
-          Not Spam</div>
-        </td>  
-        </ng-template>
-        <ng-template #option2>
-        <td><div class="type">
-         Appropriate<br>
-         Inappropriate</div>
-        </td>  
-        </ng-template>
-     
-    </tr>
-    <tr  align="center" class="report"height ="130">
-      <td><img src="assets/images/slider1.jpg"style="width:91px;height:91px;margin-left:20px;"></td>
-      <td >Chi</td>
-     <!--  -->
-     <div class="option" *ngIf="optionspan;then span else appropriate"></div>
-     <ng-template #span>
-      <td style="color:#F5A623">span</td>
-    </ng-template>
-    <ng-template #appropriate>
-        <td style="color:#D0021B">appropriate</td>
-    </ng-template>
-      <td style="color:#F5A623">2</td>
-      <td>date</td>
-      <td>saffy</td>
-
-      <div class="option" *ngIf="optionspan;then option1 else option2"></div>
-       
-        <ng-template #option1>
-        <td><div class="type">
-          Spam<br>
-          Not Spam</div>
-        </td>  
-        </ng-template>
-        <ng-template #option2>
-        <td><div class="type">
-         Appropriate<br>
-         Inappropriate</div>
-        </td>  
-        </ng-template>
-     
-    </tr>
-  
-  </table>
+  <table style="width:100%;color:#9B9B9B">
+    <!-- heading of table -->
+      <tr align="center" class="heading" height="80">
+        <th>Photo</th>
+        <th>Post By</th> 
+        <th>Reason</th>
+        <th>#OF FLAG</th>
+        <th>Date</th> 
+        <th>Report By</th>
+        <th> </th>
+      </tr>
+      <ng-container *ngFor="let report of reports; let i = index">
+          <tr  align="center" class="report"height ="130">
+              <td><img [src]="report.profileImageUrl"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
+              <td >{{report.name}}</td>
+             <div class="option" *ngIf="!optionspan;then span else appropriate"></div>
+             <ng-template #span>
+              <td style="color:#F5A623">span</td>
+            </ng-template>
+            <ng-template #appropriate>
+                <td style="color:#D0021B">appropriate</td>
+            </ng-template>
+              <td style="color:#F5A623">{{report.flagsCount}}</td>
+              <td>{{report.createdDate|date}}</td>
+              <td>{{report.flaggerName}}</td>
+        
+              <div class="option" *ngIf="!optionspan;then option1 else option2"></div>
+               
+                <ng-template #option1>
+                <td><div class="type">
+                  Spam<br>
+                  Not Spam</div>
+                </td>  
+                </ng-template>
+                <ng-template #option2>
+                <td><div class="type">
+         <span (click)="Unflag(report.postId)">Appropriate</span><br>
+                <span (click)="ArchivePost(report.postId)">Inappropriate</span></div>
+                </td>  
+                </ng-template>
+             
+            </tr>
+        </ng-container>
+    </table> 
+ 
