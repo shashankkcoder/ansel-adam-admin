@@ -9,7 +9,6 @@ import { Album } from '../model/album';
 export class DataService {
   // private apiUrl = 'http://18.144.43.217:9090/anseladams';
   constructor(public apiUrl: string, public http: Http) {
-    // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
   getAll(): Observable<any> {

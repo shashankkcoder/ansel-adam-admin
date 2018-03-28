@@ -17,6 +17,7 @@ export class AlbumDetailsComponent implements OnInit {
   album$: Observable<Album>;
   images$: Observable<MyImage[]>;
   selectedImagesId: string[] = [];
+  isHidden: boolean;
 
   constructor(private route: ActivatedRoute, private albumService: AlbumService, private location: Location) { }
 
@@ -28,7 +29,25 @@ export class AlbumDetailsComponent implements OnInit {
 
     this.album$ = this.albumService.getAlbumWithId(this.id);
 
+    this.album$.subscribe(response => {
+      this.isHidden = response.hidden;
+    });
+
     this.images$ = this.albumService.getImagesWithAlbumId(this.id);
+  }
+
+  changeStatus(albumId) {
+    if (confirm('Are you sure to make this album ' + (this.isHidden ? 'public' : 'private') + '?')) {
+      this.isHidden = !this.isHidden;
+
+      let updateAlbum = {
+        "hidden": this.isHidden,
+      };
+
+      this.albumService.updateAlbum(albumId, updateAlbum);
+
+      alert("Album with id " + albumId + "status has been change to " + (this.isHidden ? "private" : "public"));
+    }
   }
 
   addToSelectedList(id) {

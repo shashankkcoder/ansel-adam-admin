@@ -1,6 +1,7 @@
 import { MyImage } from './../model/MyImage';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 // import 'rxjs/Rx';
 import { Album } from '../model/album';
@@ -14,6 +15,24 @@ export class AlbumService extends DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
   
+  getAlbumsIncludingHidden(): Observable<any> {
+    let albumUrl = 'http://18.144.43.217:9090/anseladams/api/albums/unhidden';
+    let token = localStorage.getItem('userAccessToken');
+
+    let headers = new Headers();
+    headers.append('Authorization', token);
+    headers.append('Access-Control-Allow-Headers', 'Content-Type, X-XSRF-TOKEN');
+    
+    let options = new RequestOptions({
+      headers: headers
+    });
+    
+    return this.http.get(albumUrl, options).map(response => {
+      return response.json();
+    })
+    .catch(this.handleError);
+  }
+
   getAlbumWithId(id) : Observable<Album> {
     let apiAlbumUrl = 'http://18.144.43.217:9090/anseladams/albums';
 

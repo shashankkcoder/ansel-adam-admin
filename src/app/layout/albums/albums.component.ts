@@ -16,7 +16,8 @@ export class AlbumsComponent implements OnInit {
   constructor(private albumService: AlbumService) { }
 
   getAlbums(): void {
-    this.albumService.getAll()
+    // this.albumService.getAll()
+    this.albumService.getAlbumsIncludingHidden()
       .subscribe(
         albums => {
           this.albums$ = albums;

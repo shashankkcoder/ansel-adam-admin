@@ -1,5 +1,5 @@
 <div class="container-fluid" style="padding-bottom: 20px;">
-  <div class="row size" *ngIf="album$ | async as album">
+  <div class="row size" *ngIf="album$ | async as album;">
     <div class="col-3 img-ul-image" [ngStyle]="{'background-image': 'url('+ album.defaultImageUrl +')'}">
     </div>
     <div class="col-7">
@@ -10,7 +10,7 @@
       <br> Description: {{ album.description ? album.description : "N/A" }}
     </div>
     <div class="col-2">
-      <button class="option">Public</button>
+      <button class="option" (click)="changeStatus(album.albumId)">{{ this.isHidden ? "Private" : "Public" }} </button>
     </div>
   </div>
 </div>
