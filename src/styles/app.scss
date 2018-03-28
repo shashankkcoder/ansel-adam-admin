@@ -75,3 +75,32 @@ body {
   max-height: 150px;
   max-width: 100%;
 }
+
+.submit-button ,.cancel-button{
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.submit-button
+{
+  background-color:#4A90E2;
+}
+.cancel-button
+{
+  background-color: #D8D8D8
+}
+.row{
+  padding-bottom: 10px;
+}
+
+.custom-selected-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: 100%;
+}

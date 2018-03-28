@@ -1,3 +1,4 @@
+import { RegionNewComponent } from './region-new/region-new.component';
 import { EditPhotoMapComponent } from './edit-photo-map/edit-photo-map.component';
 import { MapDetailComponent } from './map-detail/map-detail.component';
 import { MapRegionsComponent } from './map-regions.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'editmapprofile/:id',
     component: EditMapprofileComponent
+  },
+  {
+    path: 'new',
+    component: RegionNewComponent
   }
 ];
 

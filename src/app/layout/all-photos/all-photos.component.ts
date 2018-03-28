@@ -3,11 +3,13 @@ import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MyCheckBoxComponent } from '../../shared/modules/my-check-box/my-check-box.component';
+import { routerTransition } from '../../router.animations';
 
 @Component({
   selector: 'app-all-photos',
   templateUrl: './all-photos.component.html',
-  styleUrls: ['./all-photos.component.scss']
+  styleUrls: ['./all-photos.component.scss'],
+  animations: [routerTransition()]
 })
 export class AllPhotosComponent implements OnInit {
 

@@ -1,0 +1,34 @@
+
+.archived,.heading {
+ background-color:white;
+}
+.archived:hover {
+    background-color:#F1F1F1;
+}
+tr {
+    padding:20px;
+}
+.restore{
+    visibility: hidden;
+}
+.archived:hover .restore {
+    visibility: visible;
+    cursor: pointer;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+th {
+  padding:5px;
+}
+.container {
+    color:#4A4A4A;
+}
+
+table
+{color:#9B9B9B;
+}
+.type
+{
+    color:#4A4A4A;
+}

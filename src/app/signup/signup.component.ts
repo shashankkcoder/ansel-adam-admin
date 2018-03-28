@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Response } from '@angular/http';
 import { AppAuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,15 +16,16 @@ export class SignupComponent implements OnInit {
 	email: string;
 	password: string;
 
-	constructor(private auth: AppAuthService) { }
+	constructor(private auth: AppAuthService, private router: Router) { }
 
 	ngOnInit() { }
 
 	onRegister() {
-		this.auth.register(this.name, this.email, this.password).subscribe((response: Response) => {
+		this.auth.register(this.name, this.email, this.password).subscribe((response) => {
 			console.log(response);
-			if (response.status === 200) {
+			if (response.status === 'Success') {
 				alert("Your account has been created. Please check your email for verification.");
+				this.router.navigateByUrl('/login');
 			} else {
 				alert("Failed to create account");
 			}

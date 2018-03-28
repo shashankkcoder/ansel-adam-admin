@@ -34,7 +34,7 @@ export class ImageActionsComponent implements OnInit {
       .subscribe(
         albums => {
           this.albums = albums;
-          console.log(this.albums);
+          // console.log(this.albums);
         },
         error => console.log('Error :: ' + error)
       );
@@ -43,7 +43,7 @@ export class ImageActionsComponent implements OnInit {
     .subscribe(
         regions => {
           this.regions = regions;
-          console.log(this.regions);
+          // console.log(this.regions);
         },
         error => console.log('Error :: ' + error)
       );
@@ -75,6 +75,12 @@ export class ImageActionsComponent implements OnInit {
     this.multiSelectService.setSelectedImageIds(this.imageIds);
 
     this.router.navigateByUrl("/albums/new");
+  }
+
+  addToNewRegion() {
+    this.multiSelectService.setSelectedImageIds(this.imageIds);
+
+    this.router.navigateByUrl("/map-regions/new");
   }
   
   deleteImages() {

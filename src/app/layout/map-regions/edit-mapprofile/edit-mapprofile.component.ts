@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormModule } from './../../form/form.module';
+// import { FormModule } from './../../form/form.module';
 import { Observable } from 'rxjs/Observable';
 import { Region} from './../../../model/region';
 import { ActivatedRoute } from '@angular/router';
@@ -14,8 +14,8 @@ export class EditMapprofileComponent implements OnInit {
   id: number;
   Region$: Observable<Region>;
   regionName:string;
-  Lattitude:string;
-  Longitude:string;
+  latitude:string;
+  longitude:string;
   regionDescription: string;
   regionId:string;
   constructor(private route: ActivatedRoute, private regionService: MapRegionsService, private location: Location) { }
@@ -50,14 +50,26 @@ export class EditMapprofileComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
-  onSubmit(regionId, regionName, regionDescription,Latitude,Longitude){
-    console.log(
-      "regionId="+regionId +
-      "regionName="+regionName +
-      "regionDescription="+regionDescription +
-      "latitude=" + Latitude +
-      "longitude" + Longitude 
-    );
+  onSubmit(regionId, regionName, regionDescription, latitude, longitude){
+    // console.log(
+    //   "regionId="+regionId +
+    //   "regionName="+regionName +
+    //   "regionDescription="+regionDescription +
+    //   "latitude=" + latitude +
+    //   "longitude" + longitude 
+    // );
+
+    // "defaultImageUrl": null,
+    let updateRegion = {
+      "name": regionName,
+      "description": regionDescription,
+      "latitude": latitude,
+      "longitude": longitude
+    };
+
+    this.regionService.updateRegion(regionId, updateRegion);
+
+    alert("Region with id: " + regionId + " has been updated.");
   }
 
   onCancel() {

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MapRegionsRoutingModule } from './map-regions-routing.module';
 import { MapRegionsComponent } from './map-regions.component';
 import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
+import { RegionNewComponent } from './region-new/region-new.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { ImageActionsModule } from '../../shared/modules/image-actions/image-act
     SelectImageModule,
     ImageActionsModule
   ],
-  declarations: [MapRegionsComponent, MapDetailComponent, EditPhotoMapComponent, EditMapprofileComponent]
+  declarations: [MapRegionsComponent, MapDetailComponent, EditPhotoMapComponent, EditMapprofileComponent, RegionNewComponent]
 })
 export class MapRegionsModule { }
