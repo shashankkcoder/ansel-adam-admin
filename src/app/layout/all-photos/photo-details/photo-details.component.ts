@@ -13,6 +13,7 @@ import { Location } from '@angular/common';
 export class PhotoDetailsComponent implements OnInit {
 
   id: number;
+  imageId: number;
   name: string;
   description: string;
   latitude: string;
@@ -37,6 +38,7 @@ export class PhotoDetailsComponent implements OnInit {
     console.log('get photo details ' + this.id);
     
     this.image$.subscribe(image => {
+      this.imageId = image.imageId;
       this.name = image.name;
       this.description = image.description;
       this.latitude = image.latitude;
