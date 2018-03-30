@@ -11,6 +11,7 @@ export interface MyImage {
   url: string;
   cautionMessage: string;
   year: string;
+  fileName: string;
   region: Region;
   album: Album;
   location: string,
