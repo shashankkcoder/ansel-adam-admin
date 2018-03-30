@@ -10,6 +10,7 @@ import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
@@ -58,6 +59,7 @@ export function getAuthServiceConfigs() {
 		CommonModule,
 		BrowserModule,
 		BrowserAnimationsModule,
+		NgxPaginationModule,
 		HttpClientModule,
 		TranslateModule.forRoot({
 			loader: {

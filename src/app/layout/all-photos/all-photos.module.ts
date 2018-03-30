@@ -1,3 +1,4 @@
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ImageActionsModule } from './../../shared/modules/image-actions/image-actions.module';
 import { SelectImageModule } from './../../shared/modules/select-image/select-image.module';
 import { MyCheckBoxModule } from './../../shared/modules/my-check-box/my-check-box.module';
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MyCheckBoxModule,
     SelectImageModule,
-    ImageActionsModule
+    ImageActionsModule,
+    NgxPaginationModule
   ],
   declarations: [AllPhotosComponent, UploadphotosComponent, PhotoDetailsComponent]
 })
