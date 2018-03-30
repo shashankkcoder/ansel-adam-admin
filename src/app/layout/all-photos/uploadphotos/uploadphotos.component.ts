@@ -23,7 +23,7 @@ export class UploadphotosComponent implements OnInit {
   }
 
   onUploadFinished($event) {
-    console.log('file loaded!');
+    console.log('files loaded!');
     this.uploadBox = this.child.uploadBox;
     this.files = this.child.files;
   }
