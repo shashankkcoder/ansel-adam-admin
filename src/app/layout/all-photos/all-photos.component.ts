@@ -17,6 +17,7 @@ export class AllPhotosComponent implements OnInit {
   count: number;
   selectedImagesId: string[] = [];
   selected: boolean = false;
+  p: number = 1;
 
   @ViewChild(MyCheckBoxComponent) myCheckBoxComponent: MyCheckBoxComponent
 
