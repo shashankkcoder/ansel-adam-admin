@@ -1,6 +1,7 @@
 <div class="card box" style="text-align:center;border:1px solid lightgrey;margin-bottom: 10px;">
   <div>{{file.file.name}}</div>
   <input type="text" style="width:100%" [(ngModel)]="imageName" class="bottom-card-border" placeholder="Enter photo name" (input)="updateForm()">
+  <input type="text" style="width:100%" [(ngModel)]="year" class="bottom-card-border" placeholder="Year" (input)="updateForm()">
   <img style="height:150px;" [src]="file.src" alt="Card image cap">
 
   <textarea [(ngModel)]="imageDescription" style="resize: none;" rows="4" cols="50" placeholder="Write description" (input)="updateForm()">

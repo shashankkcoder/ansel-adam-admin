@@ -56,7 +56,7 @@ export class ImageActionsComponent implements OnInit {
 
         console.log('updated image ' + id);
       }
-      console.log('added ' + this.imageIds + ' to region id ' + regionId);
+      alert(this.imageIds + ' added to region id ' + regionId);
     }
   }
   
@@ -67,7 +67,7 @@ export class ImageActionsComponent implements OnInit {
 
         console.log('updated image ' + id);
       }
-      console.log('added ' + this.imageIds + ' to album id ' + albumId);
+      alert(this.imageIds + ' added to album id ' + albumId);
     }
   }
 

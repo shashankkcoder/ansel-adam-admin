@@ -11,6 +11,7 @@ export class UploadFormComponent implements OnInit {
   @Input() file: FileHolder;
   imageName: string = '';
   imageDescription: string = '';
+  year: string = '';
   latitude: string;
   longitude: string;
   safetyWarning: string;
@@ -28,6 +29,7 @@ export class UploadFormComponent implements OnInit {
     // Only update data if image names are different
     this.file.imageName = this.imageName;
     this.file.imageDescription = this.imageDescription;
+    this.file.year = this.year;
     this.file.latitude = this.latitude;
     this.file.longitude = this.longitude;
     this.file.safetyWarning = this.safetyWarning;

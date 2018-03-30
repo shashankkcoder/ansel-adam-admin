@@ -15,6 +15,7 @@ export class FileHolder {
 
   public imageName: string;
   public imageDescription: string;
+  public year: string;
   public latitude: string;
   public longitude: string;
   public safetyWarning: string;
@@ -239,6 +240,9 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       if (file.imageDescription) {
         formData.append('description', file.imageDescription);
       }
+      if (file.year) {
+        formData.append('year', file.year);
+      }
       if (file.latitude) {
         formData.append('latitude', file.latitude);
       }
@@ -268,6 +272,7 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   }
   checkin()
   {
+    location.reload();
     this.router.navigateByUrl('/all-photos');
   }
 
