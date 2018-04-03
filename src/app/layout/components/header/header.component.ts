@@ -10,7 +10,7 @@ import { AppAuthService } from '../../../service/auth.service';
 })
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
-    fullName: string;
+    fullName: string='Guest';
 
     constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService) {
 

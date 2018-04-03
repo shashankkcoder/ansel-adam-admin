@@ -7,11 +7,11 @@ import { TranslateService } from '@ngx-translate/core';
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
     isActive: boolean = false;
     showMenu: string = '';
     pushRightClass: string = 'push-right';
-
+    fullName:string;
     constructor(private translate: TranslateService, public router: Router) {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
@@ -28,7 +28,7 @@ export class SidebarComponent {
             }
         });
     }
-
+   
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -62,5 +62,8 @@ export class SidebarComponent {
 
     onLoggedout() {
         localStorage.removeItem('isLoggedin');
+    }
+    ngOnInit(){
+        this.fullName = localStorage.getItem('fullName');;
     }
 }
