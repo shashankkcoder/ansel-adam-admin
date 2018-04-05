@@ -20,7 +20,7 @@
       </tr>
       <ng-container *ngFor="let report of reports; let i = index">
           <tr  align="center" class="report"height ="130">
-              <td><img [src]="report.profileImageUrl"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
+              <td><img [src]="report.communityImage.url"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
               <td >{{report.name}}</td>
              <div class="option" *ngIf="!optionspan;then span else appropriate"></div>
              <ng-template #span>

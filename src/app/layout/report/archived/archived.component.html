@@ -19,7 +19,7 @@
       </tr>
       <ng-container *ngFor="let archive of archived; let i = index">
           <tr  align="center" class="archived"height ="130">
-              <td><img [src]="archive.profileImageUrl"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
+              <td><img [src]="archive.communityImage.url"style="width:91px;height:91px;margin-left:20px;"onerror="this.src='assets/images/default.png'"></td>
               <td >{{archive.name}}</td>
               <td style="color:#D0021B">appropriate</td>
               <td style="color:#F5A623">{{archive.flagsCount}}</td>
