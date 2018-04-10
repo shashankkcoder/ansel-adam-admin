@@ -21,7 +21,8 @@ const routes: Routes = [
             { path: 'map-regions', loadChildren: './map-regions/map-regions.module#MapRegionsModule' },
             { path: 'all-photos', loadChildren: './all-photos/all-photos.module#AllPhotosModule' },
             { path: 'blank2', loadChildren: './blank2/blank2.module#Blank2Module' },
-            { path: 'report', loadChildren: './report/report.module#ReportModule' }
+            { path: 'report', loadChildren: './report/report.module#ReportModule' },
+            { path: 'user-data', loadChildren: './user-data/user-data.module#UserDataModule' },
         ]
     }
 ];
