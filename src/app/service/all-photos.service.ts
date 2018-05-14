@@ -1,6 +1,9 @@
+import { MyImage } from './../model/MyImage';
 import { DataService } from './data.service';
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Headers, Http, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+
 
 @Injectable()
 export class AllPhotosService extends DataService {
@@ -10,4 +13,10 @@ export class AllPhotosService extends DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
+  getImagesOrderBy(qryStr): Observable<any> {
+    return this.http.get(this.apiUrl+ "?" +qryStr).map(response => {
+      // console.log(response);
+      return response.json();
+    });
+  }
 }

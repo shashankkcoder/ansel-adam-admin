@@ -33,7 +33,7 @@ export class AlbumsComponent implements OnInit {
   deleteAlbum(id) {
     event.preventDefault();
     event.stopPropagation();
-    
+
     if (confirm('Are you sure to delete this album with id ' + id + ' and all images associated with it?')) {
       this.albumService.deleteAlbum(id).subscribe(response => {
         alert('Album with id ' + id + ' has been deleted.');

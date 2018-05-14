@@ -255,14 +255,19 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
       formData.append('file[]', file.file);
 
+
       let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
-      
+      image$.subscribe(response => {
+        console.log(response);
+      });
+
       observables.push(image$);
     }
     
     forkJoin(observables)
     .subscribe(dataArray => {
       alert('All images uploaded successfully!');
+      window.location.href = 'all-photos';
     });
   }
 

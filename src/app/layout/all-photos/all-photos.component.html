@@ -17,19 +17,22 @@
         <h4 class="text-left">{{ count }} Photos</h4>
       </div>
       <div>
-        <select class="right" style="outline: none;background-color:white;">
-          <option value="most_recent">
+        <select class="right" style="outline: none;background-color:white;" (change)="getAllImagesOrderBy($event.target.value)">
+          <option value="recent">
             <h4>Most Recent</h4>
           </option>
-          <option value="Only_geolocation">
-            <h4>Only geolocation</h4>
+          <option value="a-z">
+            <h4>A - Z</h4>
           </option>
+          
+          
         </select>
         <i class="fa fa-angle-down"></i>
       </div>
     </div>
     <div class="row">
-      <ng-container *ngFor="let image of images | paginate: { itemsPerPage: 20, currentPage: p }; let i = index">
+      <!-- <ng-container *ngFor="let image of images | paginate: { itemsPerPage: 20, currentPage: p }; let i = index"> -->
+      <ng-container *ngFor="let image of images">
         <div class="colum20" style="padding:10px;">
           <!-- <a [routerLink]="['/all-photos/details', image.imageId]"> -->
           <select-image [image]="image" (selectedImage)="addToSelectedList($event)">
@@ -37,9 +40,9 @@
         </div>
         <!-- <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div> -->
       </ng-container>
-      <div class="col">
+<!--       <div class="col">
         <pagination-controls class="float-right" (pageChange)="p = $event"></pagination-controls>
-      </div>
+      </div> -->
     </div>
 
     <image-actions *ngIf="selectedImagesId.length != 0" [imageIds]="selectedImagesId"></image-actions>

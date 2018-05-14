@@ -34,6 +34,19 @@ export class AllPhotosComponent implements OnInit {
       );
   }
 
+  getAllImagesOrderBy(orderBy) : void {
+        var queryStr = "sort="+orderBy;
+        this.allPhotosService.getImagesOrderBy(queryStr)
+          .subscribe(
+            images => {
+                this.images = images.content;
+                this.count = this.images.length;
+            },
+            error =>
+               console.log('Error :: ' + error)
+          );
+    }
+
   ngOnInit() {
     this.getAllImages();
   }
