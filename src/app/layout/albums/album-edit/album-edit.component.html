@@ -8,8 +8,8 @@
       <div class="col-sm-3">
         <span class="pull-right row" style="padding-right:15px;padding-bottom:0px;">Cover Image:</span><br>
         <!-- <input type='file' style="display: none" id="imgInp" (change)="onFileChange(input.files)" #input/> -->
-        <input type='file' style="display: none" id="imgInp" (change)="onFileChange($event)" #input/>
-        <label for="imgInp" class="btn pull-right row" style="color:#95933D;padding-right:15px;">Change Image</label>
+        <!-- <input type='file' style="display: none" id="imgInp" (change)="onFileChange($event)" #input/> -->
+        <label for="imgInp" (click)="openGalleryModal()" class="btn pull-right row" style="color:#95933D;padding-right:15px;">Change Image</label>
       </div>
       <div class="col-sm-3">
         <!-- <img id="blah" [src]="album.defaultImageUrl" alt="your image" style="height:150px;width:150px" /> -->
@@ -37,4 +37,46 @@
       </div>
     </div>
   </form>
+
+	<div id="bootstrapModel" class="modal" role="dialog" [ngStyle]="{'display':display}">
+		<div class="modal-dialog" style="max-width: 730px;">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Album Gallery</h4>
+					<button type="button" class="close" (click)="closeGalleryModal()">&times;</button>
+				</div>
+				<!-- model body section -->
+				<div class="modal-body">
+					<div class="row">
+						<ng-container *ngFor="let image of images$ | async; let i = index">
+						<div class="col col-lg-3">
+							<!-- <div class="custom-card"> -->
+                <div class="card card-columns" (click)="selectedCoverImage(image)">
+                  <img class="selected-img" [src]="image.url" onerror="this.src='http://via.placeholder.com/300x200'" alt="Card image cap">
+                  <div class="overlay">
+                    <span class="glyphicon glyphicon-ok" style="border: 1px" >
+                      <i class="fa fa-check-circle"></i>
+                    </span>
+                    <div class="text">
+                      <div>
+                        <span>
+                          <i class="fa fa-map-marker" style="font-size:20px;color:orange"></i>&nbsp;{{ image.name }}
+                        </span>
+                      </div>
+                      <br>
+                      <p style="font-size: 10px">{{ image.createdDate | date: 'MMMM.dd.yyyy'}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+					</ng-container>
+				</div>
+				<!-- <div class="modal-footer">
+					<button type="button" class="btn btn-default" (click)="closeGalleryModal()">Ok</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
 </div>
