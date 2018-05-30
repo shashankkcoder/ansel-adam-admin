@@ -2,6 +2,8 @@ import { AlbumService } from './../../service/album.service';
 import { Component, OnInit } from '@angular/core';
 import { Album } from '../../model/album';
 import { routerTransition } from '../../router.animations';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-albums',
@@ -12,8 +14,14 @@ import { routerTransition } from '../../router.animations';
 export class AlbumsComponent implements OnInit {
 
   albums$: Album[];
+  searchParam: string = null;
 
-  constructor(private albumService: AlbumService) { }
+
+  constructor(private albumService: AlbumService, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.searchParam = params['search'];
+    });
+  }
 
   getAlbums(): void {
     // this.albumService.getAll()
@@ -26,8 +34,21 @@ export class AlbumsComponent implements OnInit {
       );
   }
 
+  getAlbumsByName(name) {
+    this.albumService.getAlbumsByName(name).subscribe(
+      albums => {
+        this.albums$ = albums;
+      },
+    error => console.log('Error :: ' + error));
+  }
+
   ngOnInit() {
-    this.getAlbums();
+    localStorage.setItem('selectedTab' , 'album');
+    if (this.searchParam != null) {
+      this.getAlbumsByName(this.searchParam);
+    } else {
+      this.getAlbums();
+    }
   }
 
   deleteAlbum(id) {

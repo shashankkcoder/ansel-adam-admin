@@ -15,6 +15,14 @@ export class AlbumService extends DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
   
+  getAlbumsByName(name): Observable<Album[]> {
+    let albumUrl = 'http://18.144.43.217:9090/anseladams/albums';
+
+    return this.http.get(albumUrl + '/' + name + '/search').map(response => {
+      return response.json();
+    });
+  }
+
   getAlbumsIncludingHidden(): Observable<any> {
     let albumUrl = 'http://18.144.43.217:9090/anseladams/api/albums/unhidden';
     let token = localStorage.getItem('userAccessToken');
