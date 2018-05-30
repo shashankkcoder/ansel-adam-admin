@@ -21,6 +21,14 @@ export class MapRegionsService extends DataService {
     });
   }
 
+  getRegionsByName(name): Observable<Region[]> {
+    let apiRegionUrl = 'http://18.144.43.217:9090/anseladams/regions';
+
+    return this.http.get(apiRegionUrl + '/' + name + '/search').map(response => {
+      return response.json();
+    });
+  }
+
   getImagesWithRegionId(id): Observable<MyImage[]> {
     let apiRegionUrl = 'http://18.144.43.217:9090/anseladams/regions';
 

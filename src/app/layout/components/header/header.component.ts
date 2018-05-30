@@ -53,9 +53,10 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('isLoggedin');
         localStorage.removeItem('fullName');
         localStorage.removeItem('userAccessToken');
+        localStorage.removeItem('selectedTab');
         // localStorage.setItem('fullName', this.authService.userProfile.name);
     }
-
+    
     changeLang(language: string) {
         this.translate.use(language);
     }
