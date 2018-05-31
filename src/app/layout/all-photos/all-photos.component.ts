@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AllPhotosService } from './../../service/all-photos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatePipe } from '@angular/common';
@@ -18,10 +18,15 @@ export class AllPhotosComponent implements OnInit {
   selectedImagesId: string[] = [];
   selected: boolean = false;
   p: number = 1;
+  searchParam: string = null;
 
   @ViewChild(MyCheckBoxComponent) myCheckBoxComponent: MyCheckBoxComponent
 
-  constructor(private allPhotosService: AllPhotosService, private route: Router) { }
+  constructor(private allPhotosService: AllPhotosService, private route: Router, private activatedRoute: ActivatedRoute) { 
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.searchParam = params['search'];
+    });
+  }
 
   getAllImages(): void {
     this.allPhotosService.getAll()
@@ -34,9 +39,13 @@ export class AllPhotosComponent implements OnInit {
       );
   }
 
-  getAllImagesOrderBy(orderBy) : void {
+  getAllImagesOrderBy(orderBy): void {
         var queryStr = "sort="+orderBy;
-        this.allPhotosService.getImagesOrderBy(queryStr)
+
+        if (this.searchParam != null) {
+          this.getAllImagesByNameOrderBy(queryStr, this.searchParam);
+        } else {
+          this.allPhotosService.getImagesOrderBy(queryStr)
           .subscribe(
             images => {
                 this.images = images.content;
@@ -45,10 +54,30 @@ export class AllPhotosComponent implements OnInit {
             error =>
                console.log('Error :: ' + error)
           );
+        }
     }
 
+    getAllImagesByNameOrderBy(orderBy, searchParam): void {
+      var queryStr = "sort=" + orderBy;
+      this.allPhotosService.getImagesByNameOrderBy(queryStr, searchParam)
+        .subscribe(
+          images => {
+              this.images = images.content;
+              this.count = this.images.length;
+          },
+          error =>
+             console.log('Error :: ' + error)
+        );
+  }
+
+
   ngOnInit() {
-    this.getAllImages();
+    localStorage.setItem('selectedTab' , 'all-photos');
+    if (this.searchParam != null && this.searchParam != '') {
+      this.getAllImagesByNameOrderBy('recent', this.searchParam);
+    } else {
+      this.getAllImages();
+    }
   }
 
   addToSelectedList(id) {

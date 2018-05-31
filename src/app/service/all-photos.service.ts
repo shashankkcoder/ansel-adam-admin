@@ -14,7 +14,14 @@ export class AllPhotosService extends DataService {
   }
 
   getImagesOrderBy(qryStr): Observable<any> {
-    return this.http.get(this.apiUrl+ "?" +qryStr).map(response => {
+    return this.http.get(this.apiUrl + "?" + qryStr).map(response => {
+      // console.log(response);
+      return response.json();
+    });
+  }
+
+  getImagesByNameOrderBy(qryStr, searchTerm): Observable<any> {
+    return this.http.get(this.apiUrl + "/" + searchTerm + "/search?" + qryStr).map(response => {
       // console.log(response);
       return response.json();
     });
