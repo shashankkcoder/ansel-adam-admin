@@ -42,7 +42,7 @@ export class MapRegionsComponent implements OnInit {
 
   ngOnInit() {
     localStorage.setItem('selectedTab' , 'location');
-    if (this.searchParam != null) {
+    if (this.searchParam != null && this.searchParam != '') {
       this.getRegionsByName(this.searchParam);
     } else {
       this.getRegions();

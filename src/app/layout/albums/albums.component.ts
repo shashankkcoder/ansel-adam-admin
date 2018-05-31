@@ -44,7 +44,7 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit() {
     localStorage.setItem('selectedTab' , 'album');
-    if (this.searchParam != null) {
+    if (this.searchParam != null && this.searchParam != '') {
       this.getAlbumsByName(this.searchParam);
     } else {
       this.getAlbums();
