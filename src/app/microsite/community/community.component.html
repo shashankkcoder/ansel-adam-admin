@@ -1,0 +1,83 @@
+<br><br><br><br>
+<div class="container-fluid">
+  <div class="row"style="color:grey">
+    <div class="col-md-6 col-sm-12">
+      <h2 class="text-left">Community Photos</h2>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h2 class="text-right">Most Recent</h2>
+    </div>
+  </div>
+</div>
+<br>
+<div class="posts-container">
+  <div class="row">
+    <ng-container *ngFor="let post of posts; let i = index">
+      <!-- <div > -->
+      <div *ngIf="post.isFlagged" class="col-4" >
+         
+<div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'>
+        <img class="card-img-top" [src]="post.communityImage.url"height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
+          <div class="overlay" >
+            <div  class="heart-liked "(click)="like()">
+              <i  class="fa"  [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    
+  
+    </ng-container>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-body " >
+    <div class="row">
+      <div class="col-6 img-container">
+      <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'" style="height:100%;">
+      </div>
+      <div class="col-6">
+      <div class="row">
+        <div class="col-1"style="padding:0px ;" >
+         <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'"style="width:100%;margin-top:5px;">
+        </div>
+        <div class="col-7">
+         {{postdetails.name}}<br>
+         {{postdetails.regionName}}
+        </div>
+      </div>
+     <br>
+      <div class="row">
+        {{postdetails.content}}
+      </div>
+      <br>
+      <div class="row">
+        <i class="col-sm-3 fa" (click)="like()" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
+       
+       
+        <i class="col-sm-3 fa fa-comment-o" aria-hidden="true" >&nbsp;{{postdetails.commentsCount}}</i>
+        
+        <i class="col-sm-3 fa fa-share" aria-hidden="true">&nbsp;</i>
+
+        <i class="col-sm-3 fa" (click)="flag()" [class.fa-flag-o]="!isFlagged" [class.fa-flag]="isFlagged" aria-hidden="true"></i>
+       
+      </div>
+      <hr>
+      <div class="row " style="padding-bottom:10px;"*ngFor="let comment of comments;">
+          <div class="col-sm-1"style="padding:0px ;">
+              <img class="circ"[src]="comment.profileImageUrl" onerror="this.src='assets/images/default.png'" style="width:100%;margin-top:5px;">
+          </div>
+          <div class="col-sm-7">
+             {{comment.name}}<br>
+             {{comment.content}}
+          </div>
+      </div>
+     <div class="row" style="padding-bottom:10px;">
+      <textarea class="col-sm-8" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment"></textarea>
+      <span (click)="submit(AddComment)">Send</span>
+     </div>
+   </div>
+  </div>
+</div>
+</ng-template>

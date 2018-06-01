@@ -11,6 +11,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
@@ -27,6 +28,8 @@ import {
 	GoogleLoginProvider,
 	FacebookLoginProvider,
 } from "angular5-social-login";
+import { MicrositeComponent } from './microsite/microsite.component';
+import { HeaderComponent } from './microsite/header/header.component';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {

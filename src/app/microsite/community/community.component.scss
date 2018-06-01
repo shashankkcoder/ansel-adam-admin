@@ -1,0 +1,43 @@
+.circ{
+    border-radius: 50%;
+}
+.card-post {
+    margin:0px; 
+}
+.row{
+    padding:0px 15px;
+}
+.col{
+    padding: 0px;
+}
+button{
+    border:none;
+}
+.fa-heart {
+    color:red;
+}
+.heart-liked {
+    color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    font-weight: bold;
+}
+.modal-body {
+    padding:0px;
+    top:30%;
+//    top:50%;
+}
+.modal{
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    top: 50%;
+    margin: 0 auto;
+}
+
+.img-container {
+    padding: 0px;
+    min-height: 200px;
+}
