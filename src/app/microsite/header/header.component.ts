@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppAuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  searchTerm: string = null;
+  fullName: string = 'Guest';
+
+  constructor(public authService: AppAuthService) { }
 
   ngOnInit() {
+    this.fullName = localStorage.getItem('fullName');
   }
 
-  searchClicked(searchTerm) {
+  onMicrositeFormSubmit(searchTerm) {
     window.location.href = 'microsite?search=' + searchTerm;
   }
 }
