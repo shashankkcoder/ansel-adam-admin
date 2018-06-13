@@ -16,7 +16,6 @@ export class AlbumsComponent implements OnInit {
   albums$: Album[];
   searchParam: string = null;
 
-
   constructor(private albumService: AlbumService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.searchParam = params['search'];
@@ -59,7 +58,18 @@ export class AlbumsComponent implements OnInit {
       this.albumService.deleteAlbum(id).subscribe(response => {
         alert('Album with id ' + id + ' has been deleted.');
         location.reload();
-      })
+      });
     }
   }
+
+  toggleSwitch(album) {
+    let isPublic: Boolean = false;
+    if (album.hidden) {
+      isPublic = false;
+    } else {
+      isPublic = true;
+    }
+
+    this.albumService.updateAlbumHiddenStatus(album.albumId, isPublic);
+ }
 }

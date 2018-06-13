@@ -59,6 +59,26 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  _updateAlbumHiddenStatus(albumId, hideIt) {
+    return this.http
+      .patch(this.apiUrl + '/' + albumId + '/' + hideIt, null)
+      .map((response: Response) => {
+        // return <Album[]>response.json();
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+  _updateRegionHiddenStatus(regionId, hideIt) {
+    return this.http
+      .patch(this.apiUrl + '/' + regionId + '/' + hideIt, null)
+      .map((response: Response) => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
+
   _updateImageRegion(imageId, regionId) {
     return this.http
       .patch(this.apiUrl + '/' + imageId + '/region/' + regionId, null)

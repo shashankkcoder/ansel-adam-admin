@@ -72,5 +72,12 @@ export class AlbumService extends DataService {
     });
   }
 
+  updateAlbumHiddenStatus(id, hideIt) {
+    return this._updateAlbumHiddenStatus(id, hideIt).subscribe(response => {
+      console.log(response);
+      console.log('album updated');
+    });
+  }
+
 }
 

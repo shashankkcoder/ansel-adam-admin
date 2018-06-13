@@ -23,7 +23,7 @@ export class MapRegionsComponent implements OnInit {
    }
 
   getRegions() {
-    this.mapRegionsService.getAll()
+    this.mapRegionsService.getRegionsIncludingHidden()
     .subscribe(
         regions => {
           this.regions = regions;
@@ -59,5 +59,16 @@ export class MapRegionsComponent implements OnInit {
       });
     }
   }
+
+  toggleSwitch(region) {
+   let isPublic: Boolean = false;
+    if (region.hidden) {
+      isPublic = false;
+    } else {
+      isPublic = true;
+    }
+
+    this.mapRegionsService.updateRegionHiddenStatus(region.regionId, isPublic);
+ }
 
 }

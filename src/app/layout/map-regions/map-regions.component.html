@@ -7,6 +7,11 @@
   <div class="row">
     <ng-container *ngFor="let region of regions; let i = index">
       <div class="col-4" style="padding-left:30px;">
+        <!-- Rounded switch -->
+        <label class="switch">
+            <input type="checkbox"  [checked]="!region.hidden" (change)="toggleSwitch(region)">
+            <span class="slider round"></span>
+        </label>  
         <a class="class" [routerLink]="['/map-regions/map-detail',region.regionId]">
           <div class="card card-columns">
             <img class="card-img-top" [src]="region.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'"

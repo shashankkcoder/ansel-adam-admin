@@ -13,6 +13,14 @@ export class MapRegionsService extends DataService {
     // http.get(this.apiUrl).subscribe(res => console.log(res.json()));
   }
 
+  getRegionsIncludingHidden(): Observable<Region[]> {
+    let regionUrl = 'http://18.144.43.217:9090/anseladams/regions/unhidden';
+    return this.http.get(regionUrl).map(response => {
+      return <Region[]>response.json();
+    });
+  }
+
+
   getRegionWithId(id) : Observable<Region> {
     let apiRegionUrl = 'http://18.144.43.217:9090/anseladams/regions';
 
@@ -52,4 +60,10 @@ export class MapRegionsService extends DataService {
     return this.delete(id);
   }
 
+  updateRegionHiddenStatus(id, hideIt) {
+    return this._updateRegionHiddenStatus(id, hideIt).subscribe(response => {
+      console.log(response);
+      console.log('album updated');
+    });
+  }
 }
