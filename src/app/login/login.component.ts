@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 				localStorage.setItem('userAccessToken', response.userAccessToken);
 				localStorage.setItem('isLoggedin', 'true');
 				localStorage.setItem('fullName', response.name);
-
+				localStorage.setItem('selectedTab', 'location');
 				this.router.navigateByUrl('/map-regions');
 			} else {
 				this.router.navigateByUrl('/login');
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 						localStorage.setItem('userAccessToken', response.userAccessToken);
 						localStorage.setItem('isLoggedin', 'true');
 						localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
-
+						localStorage.setItem('selectedTab', 'location');
 							this.router.navigateByUrl('/map-regions');
 						} else {
 							alert('Not an admin account');
@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
 							localStorage.setItem('userAccessToken', response.userAccessToken);
 							localStorage.setItem('isLoggedin', 'true');
 							localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
-
+							localStorage.setItem('selectedTab', 'location');
 							this.router.navigateByUrl('/map-regions');
 						} else {
 							alert('Not an admin account');

@@ -17,6 +17,7 @@ import { AlbumService } from './service/album.service';
 import { AllPhotosService } from './service/all-photos.service';
 import { ImageService } from './service/image.service';
 import {ProductsService} from './service/products.service';
+import {UserDataService  } from './service/userdata.service';
 // import { ImageService } from './image-upload/image.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -79,7 +80,7 @@ export function getAuthServiceConfigs() {
 	],
 	declarations: [AppComponent],
 	providers: [AuthGuard, AlbumService, AllPhotosService, MapRegionsService,
-		ImageService, AppAuthService, MultiSelectService, ProductsService, {
+		ImageService, AppAuthService, MultiSelectService, ProductsService, UserDataService, {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
   }],

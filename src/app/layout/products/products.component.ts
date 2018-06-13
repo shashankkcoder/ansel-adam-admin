@@ -26,8 +26,7 @@ export class ProductsComponent implements OnInit {
   getAllProducts() {
     this.productsService.getAll().subscribe(
         identifiers => {
-          debugger;
-          let tempArr: Products[] = [];
+          const tempArr: Products[] = [];
           identifiers.forEach(function (value) {
             if (value.productType == 'MAP') {
               tempArr.push(value);
@@ -35,13 +34,13 @@ export class ProductsComponent implements OnInit {
           });
           this.mapIdentfiers = tempArr;
 
-          let tempArr: Products[] = [];
+          const tempAlbumArr: Products[] = [];
           identifiers.forEach(function (value) {
             if (value.productType == 'ALBUM') {
-              tempArr.push(value);
+              tempAlbumArr.push(value);
             }
           });
-          this.albumIdentfiers = tempArr;
+          this.albumIdentfiers = tempAlbumArr;
         },
         error => console.log('Error :: ' + error)
       );
