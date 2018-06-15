@@ -16,7 +16,7 @@ export class UserDataComponent implements OnInit {
     todayCounts : 0,
     facebook : 0,
     instagram : 0,
-    twitter : 0
+    community : 0
   };
 
   appDownloadCounts: any = {
@@ -62,8 +62,8 @@ export class UserDataComponent implements OnInit {
        if (userShare.instagram) {
         this.shareStats['instagram'] = userShare.instagram;
        }
-       if (userShare.twitter) {
-        this.shareStats['twitter'] = userShare.twitter;
+       if (userShare.community) {
+        this.shareStats['community'] = userShare.community;
        }
        if (userShare.todayCounts) {
         this.shareStats['todayCounts'] = userShare.todayCounts;

@@ -4,4 +4,6 @@ export interface User {
   email: string;
   userAccessToken: string;
   isAdmin: boolean;
+  termsAccepted: boolean;
+  modifiedDate: number;
 }

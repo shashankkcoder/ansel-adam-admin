@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h4 class="text-left">
+        User Consent
+      </h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="consent-table-container">
+        <table class="consent-table">
+          <tr>
+              <th>User Name</th>
+              <th>Date</th>
+              <th>Consent</th>
+          </tr>
+          <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.modifiedDate}}</td>
+            <td>{{user.termsAccepted}}</td>
+          </tr>
+        </table>
+      </div>
+  </div>
+</div>

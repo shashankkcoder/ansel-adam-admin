@@ -1,8 +1,9 @@
-import { Http } from '@angular/http';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from './../model/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable()
 export class AppAuthService {
@@ -68,6 +69,13 @@ export class AppAuthService {
       return response;
     })
     .catch(this.handleError);
+  }
+
+  getAllUsers(): Observable<User[]> {
+    const allUsersApi = 'http://18.144.43.217:9090/anseladams/users';
+    return this.http.get(allUsersApi).map(response => {
+      return response.json();
+    });
   }
 
   private handleError(error: Response) {

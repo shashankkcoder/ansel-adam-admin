@@ -22,7 +22,9 @@ const routes: Routes = [
             { path: 'all-photos', loadChildren: './all-photos/all-photos.module#AllPhotosModule' },
             { path: 'blank2', loadChildren: './blank2/blank2.module#Blank2Module' },
             { path: 'report', loadChildren: './report/report.module#ReportModule' },
-            { path: 'user-data', loadChildren: './user-data/user-data.module#UserDataModule' }
+            { path: 'user-data', loadChildren: './user-data/user-data.module#UserDataModule' },
+            { path: 'userconsent', loadChildren: './userconsent/userconsent.module#UserConsentModule' }
+
             // { path: 'products', loadChildren: './products/products.module#ProductsModule' }
 
         ]
