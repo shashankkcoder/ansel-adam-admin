@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h4 class="text-left">
+        Products
+      </h4>
+    </div>
+  </div>
+  <div class="container">
+    <div *ngFor="let mapProduct of mapIdentfiers" class="row">
+      <div class="col">
+        <h5>{{mapProduct.identifier}}</h5>
+      </div>
+  </div>
+  </div>
+</div>

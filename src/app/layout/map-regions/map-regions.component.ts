@@ -16,9 +16,9 @@ export class MapRegionsComponent implements OnInit {
 
   constructor(private mapRegionsService: MapRegionsService, private route: ActivatedRoute) {
 
-    this.route.queryParams.subscribe(params => {
+    /*this.route.queryParams.subscribe(params => {
       this.searchParam = params['search'];
-    });
+    });*/
 
    }
 

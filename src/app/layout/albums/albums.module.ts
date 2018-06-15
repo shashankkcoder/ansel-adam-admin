@@ -10,6 +10,7 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumEditComponent } from './album-edit/album-edit.component';
 import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
 import { AlbumNewComponent } from './album-new/album-new.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { AlbumNewComponent } from './album-new/album-new.component';
     MyCheckBoxModule,
     ImageActionsModule
   ],
-  declarations: [AlbumsComponent, AlbumDetailsComponent, AlbumEditComponent, AlbumNewComponent]
+  declarations: [AlbumsComponent, AlbumDetailsComponent, AlbumEditComponent, AlbumNewComponent, ProductsComponent]
 })
 export class AlbumsModule { }

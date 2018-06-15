@@ -5,6 +5,7 @@ import { MapRegionsComponent } from './map-regions.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EditMapprofileComponent } from './edit-mapprofile/edit-mapprofile.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -12,20 +13,24 @@ const routes: Routes = [
     component: MapRegionsComponent
   },
   {
-    path:'map-detail/:id',
+    path: 'map-detail/:id',
     component: MapDetailComponent
   },
   {
-    path:'editphoto',
+    path: 'editphoto',
     component: EditPhotoMapComponent
   },
   {
-    path:'editmapprofile/:id',
+    path: 'editmapprofile/:id',
     component: EditMapprofileComponent
   },
   {
     path: 'new',
     component: RegionNewComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
   }
 ];
 

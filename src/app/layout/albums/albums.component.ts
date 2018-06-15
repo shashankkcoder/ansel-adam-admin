@@ -17,9 +17,9 @@ export class AlbumsComponent implements OnInit {
   searchParam: string = null;
 
   constructor(private albumService: AlbumService, private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
+    /*this.route.queryParams.subscribe(params => {
       this.searchParam = params['search'];
-    });
+    });*/
   }
 
   getAlbums(): void {

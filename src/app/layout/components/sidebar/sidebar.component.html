@@ -3,12 +3,51 @@
         <!-- <a [routerLink]="['/blank-page']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i>&nbsp;{{ 'Blank Page' | translate }}
         </a> -->
-        <a [routerLink]="['/map-regions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <img class="img-responsive" src="assets/images/map@2x.png" alt="app-logo" height="20px" width="20px"> &nbsp;{{ 'Map Regions' | translate }}
-        </a>
-        <a [routerLink]="['/albums']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('map-regions')">
+                <span>
+                    <img class="img-responsive" src="assets/images/map@2x.png" alt="app-logo" height="20px" width="20px">{{ 'Map Regions' | translate }}
+                </span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'map-regions'">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/map-regions']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            <span>{{ 'Map Regions' | translate }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/map-regions/products']" class="list-group-item">
+                            <span>{{ 'Products' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>  
+        </div>
+        <div class="nested-menu">
+                <a class="list-group-item" (click)="addExpandClass('albums')">
+                    <span>
+                        <img class="img-responsive" src="assets/images/album@2x.png" alt="app-logo" height="20px" width="20px">{{ 'Albums' | translate }}
+                    </span>
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'albums'">
+                    <ul class="submenu">
+                        <li>
+                            <a [routerLink]="['/albums']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                                <span>{{ 'Albums' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/albums/products']" class="list-group-item">
+                                <span>{{ 'Products' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>  
+            </div>                  
+        <!-- <a [routerLink]="['/albums']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <img class="img-responsive" src="assets/images/album@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'Albums'|translate }}
-        </a>
+        </a>-->
         <a [routerLink]="['/all-photos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <img class="img-responsive" src="assets/images/all-photos-icon@2x.png" alt="app-logo" height="20px" width="20px">&nbsp;{{ 'All Photos' | translate }}
         </a>

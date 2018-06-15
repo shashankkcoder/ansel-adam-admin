@@ -18,4 +18,10 @@ export class ProductsService extends DataService {
         return <Products>response.json();
         });
     }
+
+    getAllProductsByType(productType): Observable<Products[]> {
+      return this.http.get(this.apiUrl + '/' + productType).map(response => {
+      return <Products[]>response.json();
+      });
+  }
 }

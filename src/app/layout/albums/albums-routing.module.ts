@@ -5,6 +5,7 @@ import { PhotoDetailsComponent } from './../all-photos/photo-details/photo-detai
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AlbumsComponent } from './albums.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: '',
     component: AlbumsComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
   }
 ];
 
