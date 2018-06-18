@@ -16,8 +16,11 @@
           </tr>
           <tr *ngFor="let user of users">
             <td>{{user.name}}</td>
-            <td>{{user.modifiedDate}}</td>
-            <td>{{user.termsAccepted}}</td>
+            <td>{{user.modifiedDate | date: 'MM/dd/yyyy'}}</td>
+            <td>
+              <span *ngIf="user.termsAccepted">Accepted</span>
+              <span *ngIf="!user.termsAccepted">Declined</span>
+            </td> 
           </tr>
         </table>
       </div>

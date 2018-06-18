@@ -11,6 +11,7 @@ export class AppAuthService {
   authUrl: string = 'http://18.144.43.217:9090/anseladams/users/authentication';
   registerUrl: string = 'http://18.144.43.217:9090/anseladams/users';
   userProfile: User;
+  authorization: string = localStorage.getItem('userAccessToken');
 
   constructor(private http: HttpClient) { }
 
@@ -71,10 +72,15 @@ export class AppAuthService {
     .catch(this.handleError);
   }
 
-  getAllUsers(): Observable<User[]> {
-    const allUsersApi = 'http://18.144.43.217:9090/anseladams/users';
-    return this.http.get(allUsersApi).map(response => {
-      return response.json();
+  getAllUsers() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': this.authorization
+      })
+    };
+    const allUsersApi = 'http://18.144.43.217:9090/anseladams/api/users';
+    return this.http.get(allUsersApi, httpOptions).map(response => {
+      return response;
     });
   }
 
