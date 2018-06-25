@@ -26,11 +26,19 @@ export class LoginComponent implements OnInit {
 				localStorage.setItem('isLoggedin', 'true');
 				localStorage.setItem('fullName', response.name);
 				localStorage.setItem('selectedTab', 'location');
+				localStorage.setItem('isAdmin', 'true');
 				this.router.navigateByUrl('/map-regions');
 			} else {
-				this.router.navigateByUrl('/login');
+				// this.router.navigateByUrl('/login');
 
-				alert('Fail to login');
+				// alert('Fail to login');
+				localStorage.setItem('userAccessToken', response.userAccessToken);
+				localStorage.setItem('isLoggedin', 'true');
+				localStorage.setItem('fullName', response.name);
+				localStorage.setItem('selectedTab', 'microsite');
+				localStorage.setItem('selectedTab', 'location');
+				localStorage.setItem('isAdmin', 'false');
+				this.router.navigateByUrl('/microsite');
 			}
 		});
 	}
@@ -54,10 +62,17 @@ export class LoginComponent implements OnInit {
 						localStorage.setItem('isLoggedin', 'true');
 						localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
 						localStorage.setItem('selectedTab', 'location');
+						localStorage.setItem('isAdmin', 'true');
 							this.router.navigateByUrl('/map-regions');
 						} else {
-							alert('Not an admin account');
-							this.router.navigateByUrl('/login');
+							//alert('Not an admin account');
+							//this.router.navigateByUrl('/login');
+							localStorage.setItem('userAccessToken', response.userAccessToken);
+							localStorage.setItem('isLoggedin', 'true');
+							localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
+							localStorage.setItem('selectedTab', 'microsite');
+							localStorage.setItem('isAdmin', 'false');
+							this.router.navigateByUrl('/microsite');
 						}
 					});
 				}
@@ -70,10 +85,17 @@ export class LoginComponent implements OnInit {
 							localStorage.setItem('isLoggedin', 'true');
 							localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
 							localStorage.setItem('selectedTab', 'location');
+							localStorage.setItem('isAdmin', 'true');
 							this.router.navigateByUrl('/map-regions');
 						} else {
-							alert('Not an admin account');
-							this.router.navigateByUrl('/login');
+							// alert('Not an admin account');
+							// this.router.navigateByUrl('/login');
+							localStorage.setItem('userAccessToken', response.userAccessToken);
+							localStorage.setItem('isLoggedin', 'true');
+							localStorage.setItem('fullName', response.name ? response.name : 'Anonymous');
+							localStorage.setItem('selectedTab', 'microsite');
+							localStorage.setItem('isAdmin', 'false');
+							this.router.navigateByUrl('/microsite');
 						}
 					});
 				}

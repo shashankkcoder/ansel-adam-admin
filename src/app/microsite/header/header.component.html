@@ -10,10 +10,26 @@
 			<input class="form-control mr-sm-2"  [(ngModel)]="searchTerm" name="search" type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome; background-color: rgba(216,216,216,0.55);">
     </form>
   </div>
-  <div class="col-2 my-2 my-lg-0 text-center">
-   <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-    <img class="img-responsive header-list-icon" src="assets/images/account@2x.png" alt="app-logo" height="25px" width="25px">
-    <span *ngIf="fullName">{{ fullName }}</span>
-   </a>
- </div>
+  <div class="collapse navbar-collapse">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a href="javascript:void(0)" class="nav-link" (click)="hideShowRightMenu()">
+        <img class="img-responsive header-list-icon"  src="assets/images/account@2x.png" alt="app-logo" height="25px" width="25px">
+        <span *ngIf="fullName" >{{ fullName }}</span>
+      </a>
+      <div class="dropdown-menu-community" style="display: block;" *ngIf="needToShowDropDown">
+        <!-- <a class="dropdown-item" href="javascript:void(0)">
+          <i class="fa fa-fw fa-user"></i> Profile
+        </a>
+      
+        <a class="dropdown-item" href="javascript:void(0)">
+          <i class="fa fa-fw fa-gear"></i> Settings
+        </a> -->
+        <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+          <i class="fa fa-fw fa-power-off"></i> Log Out
+        </a>
+      </div>
+    </li>
+  </ul>
+  </div>
 </nav>

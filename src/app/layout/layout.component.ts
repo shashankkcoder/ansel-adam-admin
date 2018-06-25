@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
      myfunction()
     {
         var x= 5;

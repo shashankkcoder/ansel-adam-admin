@@ -8,7 +8,7 @@ const routes: Routes = [
         component: LayoutComponent,
         children: [
             // { path: '', redirectTo: 'dashboard' },
-            { path: '', redirectTo: 'map-regions' },
+            // { path: '', redirectTo: 'map-regions' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             // { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             // { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
@@ -24,9 +24,6 @@ const routes: Routes = [
             { path: 'report', loadChildren: './report/report.module#ReportModule' },
             { path: 'user-data', loadChildren: './user-data/user-data.module#UserDataModule' },
             { path: 'userconsent', loadChildren: './userconsent/userconsent.module#UserConsentModule' }
-
-            // { path: 'products', loadChildren: './products/products.module#ProductsModule' }
-
         ]
     }
 ];
