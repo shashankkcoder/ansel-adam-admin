@@ -5,13 +5,16 @@ import { MicrositeComponent } from './microsite.component';
 import { HeaderComponent } from './header/header.component';
 import { CommunityComponent } from './community/community.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MicrositeRoutingModule
+    MicrositeRoutingModule,
+    NgbModule.forRoot()
   ],
   declarations: [MicrositeComponent, HeaderComponent, CommunityComponent]
 })

@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-community',
@@ -26,8 +27,10 @@ export class CommunityComponent implements OnInit {
   postId:number;
   isClicked:boolean=false;
   searchParam: string = null;
-  // Content:any;
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+  likesCountMap: any = {};
+  Content:any;
+  constructor(private modalService: NgbModal, private http: HttpClient,
+    private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
       this.searchParam = params['search'];
     });
@@ -47,6 +50,14 @@ export class CommunityComponent implements OnInit {
        console.log(this.posts);
       //  console.log(this.reports[0].communityImage.latitude
       //  );
+
+      const likesCountMapTemp: any = {};
+      this.posts.forEach(function (value) {
+        // console.log(value);
+        likesCountMapTemp[value['postId']] = value['likesCount'];
+      });
+
+      this.likesCountMap = likesCountMapTemp;
     });
   }
 
@@ -67,9 +78,13 @@ export class CommunityComponent implements OnInit {
     });
   }
 
+  getLikesOnHoverByPostId(postId) {
+    this.likesCount = this.likesCountMap[postId];
+  }
   getcomment(postid, content) {
+    debugger;
     console.log(postid);
-    this.postId=postid;
+    this.postId = postid;
     let url = 'http://18.144.43.217:9090/anseladams/api/posts/';
 
     const httpOptions = {
@@ -86,16 +101,19 @@ export class CommunityComponent implements OnInit {
     this.isLiked=this.postdetails.isLiked;
     this.isFlagged=this.postdetails.isFlagged;
     if(content) {
-      //this.open(content);
+      this.Content = content;
+      this.open(content);
       this.http.get(url + postid + '/' + 'comments', httpOptions).subscribe(res => {
-        this.comments = res;  
+        this.comments = res;
         console.log(this.comments);
-        
       });
     }
     });
  }
-  submit(commentContent){
+  submit(commentContent) {
+    if (commentContent == '' || commentContent == null) {
+      return;
+    }
     let url = 'http://18.144.43.217:9090/anseladams/api/posts';
     console.log(commentContent)
         const httpOptions = {
@@ -109,10 +127,18 @@ export class CommunityComponent implements OnInit {
        console.log(httpOptions);
       const req=  this.http.post(url + '/'+ this.postId + '/comments',body,httpOptions ).subscribe(res=>{
           console.log(res);
-        })
-      // this.open(this.Content);
-;  }
-  like() {
+        });
+        // this.open(this.Content);
+  }
+
+open(content) {
+  this.modalService.open(content).result.then((result) => {
+    this.closeResult = `Closed with: `;
+  }, (reason) => {
+    this.closeResult = `Dismissed`;
+  });
+}
+  like(postId) {
     event.preventDefault();
     event.stopPropagation();
     if(!this.isLiked) {
@@ -127,9 +153,11 @@ export class CommunityComponent implements OnInit {
         'Authorization': this.authorization
       })
     };
-      this.http.patch(url+ '/' + this.postId + '/like',null, httpOptions).subscribe(response =>{
-      console.log(response);
-    })
+    this.http.patch(url+ '/' + postId + '/like',null, httpOptions).subscribe(response =>{
+        console.log(response);
+        this.likesCount = response['likesCount'];
+        this.likesCountMap[response['postId']] = response['likesCount'];
+    });
     this.isLiked=!this.isLiked;
     
   } 

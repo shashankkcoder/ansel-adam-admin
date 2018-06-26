@@ -15,11 +15,11 @@
     <ng-container *ngFor="let post of posts; let i = index">
       <!-- <div > -->
       <div *ngIf="post.isFlagged" class="col-4" >
-         
-<div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'>
+        <!-- <div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'> -->
+<div class="card card-columns" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId,content)'>
         <img class="card-img-top" [src]="post.communityImage.url"height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
           <div class="overlay" >
-            <div  class="heart-liked "(click)="like()">
+            <div  class="heart-liked "(click)="like(post.postId)">
               <i  class="fa"  [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
             </div>
           </div>
@@ -75,7 +75,7 @@
       </div>
      <div class="row" style="padding-bottom:10px;">
       <textarea class="col-sm-8" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment"></textarea>
-      <span (click)="submit(AddComment)">Send</span>
+      <span (click)="c('Closed');submit(AddComment);">Send</span>
      </div>
    </div>
   </div>

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 	onLoggedin() {
 		this.auth.authenticate(this.email, this.password).subscribe(response => {
-			if (response.userAccessToken && response.isAdmin === true) {
+			if (response.userAccessToken && response.admin === true) {
 				localStorage.setItem('userAccessToken', response.userAccessToken);
 				localStorage.setItem('isLoggedin', 'true');
 				localStorage.setItem('fullName', response.name);
