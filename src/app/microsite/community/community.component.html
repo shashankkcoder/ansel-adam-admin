@@ -14,10 +14,10 @@
   <div class="row">
     <ng-container *ngFor="let post of posts; let i = index">
       <!-- <div > -->
-      <div *ngIf="post.isFlagged" class="col-4" >
+      <div *ngIf="post.isFlagged" class="col-4 imageHolderWrap" >
         <!-- <div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'> -->
-<div class="card card-columns" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId,content)'>
-        <img class="card-img-top" [src]="post.communityImage.url"height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
+        <div class="card card-columns" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId)'>
+          <img class="card-img-top" [src]="post.communityImage.url" height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
           <div class="overlay" >
             <div  class="heart-liked "(click)="like(post.postId)">
               <i  class="fa"  [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
@@ -25,34 +25,31 @@
           </div>
         </div>
       </div>
-  
-    
-  
     </ng-container>
   </div>
 </div>
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-body " >
+<div *ngIf="showImageDetails" class="commentModalWrap">
+  <div class="modal-body commentModal" >
     <div class="row">
-      <div class="col-6 img-container">
-      <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'" style="height:100%;">
+      <div class="col-7 img-container">
+      <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'">
       </div>
-      <div class="col-6">
+      <div class="col-5 comment-container">
       <div class="row">
-        <div class="col-1"style="padding:0px ;" >
-         <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'"style="width:100%;margin-top:5px;">
+        <div class="col-2 imgWrap">
+         <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'">
         </div>
-        <div class="col-7">
-         {{postdetails.name}}<br>
-         {{postdetails.regionName}}
+        <div class="col-10 name_regionName">
+         <p class="postDetailsName">{{postdetails.name}}</p>
+         <p class="postDetailsRegion">{{postdetails.regionName}}</p>
         </div>
       </div>
      <br>
-      <div class="row">
+      <div class="row postDetails">
         {{postdetails.content}}
       </div>
       <br>
-      <div class="row">
+      <div class="row iconsRow">
         <i class="col-sm-3 fa" (click)="like()" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
        
        
@@ -64,20 +61,25 @@
        
       </div>
       <hr>
-      <div class="row " style="padding-bottom:10px;"*ngFor="let comment of comments;">
-          <div class="col-sm-1"style="padding:0px ;">
-              <img class="circ"[src]="comment.profileImageUrl" onerror="this.src='assets/images/default.png'" style="width:100%;margin-top:5px;">
-          </div>
-          <div class="col-sm-7">
-             {{comment.name}}<br>
-             {{comment.content}}
-          </div>
+      <div class="comments_SectionWrap">
+        <div class="row commentRow" *ngFor="let comment of comments;">
+            <div class="col-sm-2 imgWrap">
+                <img class="circ"[src]="comment.profileImageUrl" onerror="this.src='assets/images/default.png'">
+            </div>
+            <div class="col-sm-10 comment_name_content">
+               <p class="modal_commentName">{{comment.name}}</p>
+               <p class="modal_commentContent">{{comment.content}}</p>
+            </div>
+        </div>
       </div>
-     <div class="row" style="padding-bottom:10px;">
-      <textarea class="col-sm-8" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment"></textarea>
-      <span (click)="c('Closed');submit(AddComment);">Send</span>
+     <div class="row commentSection">
+      <hr class="bottomHr">
+      <div class="row inner_commentSection">
+        <textarea class="commentsTextArea col-sm-10" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment..."></textarea>
+        <span (click)="c('Closed');submit(AddComment);" class="sendSpan col-sm-2">Send</span>
+      </div>
      </div>
    </div>
   </div>
 </div>
-</ng-template>
+</div>

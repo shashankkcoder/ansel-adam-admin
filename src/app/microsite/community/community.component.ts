@@ -28,6 +28,7 @@ export class CommunityComponent implements OnInit {
   isClicked:boolean=false;
   searchParam: string = null;
   likesCountMap: any = {};
+  showImageDetails: Boolean = false;
   Content:any;
   constructor(private modalService: NgbModal, private http: HttpClient,
     private activatedRoute: ActivatedRoute) {
@@ -81,8 +82,7 @@ export class CommunityComponent implements OnInit {
   getLikesOnHoverByPostId(postId) {
     this.likesCount = this.likesCountMap[postId];
   }
-  getcomment(postid, content) {
-    debugger;
+  getcomment(postid) {
     console.log(postid);
     this.postId = postid;
     let url = 'http://18.144.43.217:9090/anseladams/api/posts/';
@@ -100,14 +100,15 @@ export class CommunityComponent implements OnInit {
     console.log(this.likesCount);
     this.isLiked=this.postdetails.isLiked;
     this.isFlagged=this.postdetails.isFlagged;
-    if(content) {
-      this.Content = content;
-      this.open(content);
+    //if(content) {
+      //this.Content = content;
+      // this.open(content);
+      this.showImageDetails = true;
       this.http.get(url + postid + '/' + 'comments', httpOptions).subscribe(res => {
         this.comments = res;
         console.log(this.comments);
       });
-    }
+    //}
     });
  }
   submit(commentContent) {
