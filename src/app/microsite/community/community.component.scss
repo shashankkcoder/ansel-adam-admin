@@ -38,6 +38,65 @@ button{
 }
 
 .img-container {
-    padding: 10px;
+    padding: 0.625em;
     min-height: 200px;
+}
+.commentModalWrap{
+    display: block;position: fixed;top: 23%;background: #fff;max-width: 60%;left: 23%;z-index: 1000;
+    .commentModal{
+        height:33.250em;
+        .imgWrap{
+            padding:0px;
+            .circ{width: 85%;margin-top:0.313em;}
+        }
+        .img-container{
+            padding:0 0.938em 0 0;
+            .card-img-top{
+                height:33.250em;
+            }
+        }
+        .comment-container{
+            padding-top:0.938em;
+            .name_regionName{
+                padding-top: 0.313em;
+                .postDetailsName{color:#4A4A4A;font-size: 1.250em;text-transform: capitalize;margin-bottom:0;}
+                .postDetailsRegion{font-size: 0.875em;color:#AAAAAA;text-transform: capitalize;margin-bottom:0;}
+            }
+            .comments_SectionWrap{
+                max-height: 248px;overflow-y:auto;overflow-x:hidden;
+                .commentRow{
+                    padding-bottom:0.625em;
+                    .comment_name_content{
+                        padding-top: 0.313em;
+                        .modal_commentName{color: #A0A0A0;text-transform: capitalize;font-size: 0.750em;margin-bottom:0;}
+                        .modal_commentContent{color: #747474;font-size: 0.875em;margin-bottom:0;}
+                    }
+                }
+            }
+            .commentSection{
+                position: absolute;width: 100%;bottom: 0.625em;color:#9D9D9D;padding-bottom:0.625em;
+                .commentsTextArea{resize: none;height: 2.188em;border-radius: 1.813em;background-color: #EFEFEF;font-size: 0.875em;padding: 0.188em 0.938em;display: inline-block;}
+                .commentsTextArea::placeholder{color:#9D9D9D;}
+                .sendSpan{cursor:pointer;vertical-align: top;display: inline-block;}
+                .bottomHr{width:100%;}
+                .inner_commentSection{width:100%;}
+            }
+            .postDetails{color:#838383;}
+            .iconsRow{
+                color:#9B9B9B;
+                i:before{cursor: pointer;}
+                .fa-heart{color:#9B9B9B;}
+            }
+        }
+    }
+}
+/* .modal-content{max-width: 70.250em;} */
+.posts-container{
+    .card-img-top{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        width: auto;
+    }
 }
