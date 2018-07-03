@@ -179,7 +179,13 @@ open(content) {
       console.log(response);
     })
   location.reload();
-  
+    
+  }
+
+  closeCommentModal() {
+    if (this.showImageDetails == true) {
+      this.showImageDetails = false;
+    }
   }
 
   ngOnInit() {

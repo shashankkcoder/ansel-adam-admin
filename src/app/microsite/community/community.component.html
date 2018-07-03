@@ -4,9 +4,9 @@
     <div class="col-md-6 col-sm-12">
       <h2 class="text-left">Community Photos</h2>
     </div>
-    <div class="col-md-6 col-sm-12">
+    <!-- <div class="col-md-6 col-sm-12">
       <h2 class="text-right">Most Recent</h2>
-    </div>
+    </div> -->
   </div>
 </div>
 <br>
@@ -28,58 +28,61 @@
     </ng-container>
   </div>
 </div>
-<div *ngIf="showImageDetails" class="commentModalWrap">
-  <div class="modal-body commentModal" >
-    <div class="row">
-      <div class="col-7 img-container">
-      <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'">
-      </div>
-      <div class="col-5 comment-container">
+<div *ngIf="showImageDetails">
+  <div class="commentModalWrap">
+    <div class="modal-body commentModal" >
       <div class="row">
-        <div class="col-2 imgWrap">
-         <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'">
+        <div class="col-7 img-container">
+        <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'">
         </div>
-        <div class="col-10 name_regionName">
-         <p class="postDetailsName">{{postdetails.name}}</p>
-         <p class="postDetailsRegion">{{postdetails.regionName}}</p>
+        <div class="col-5 comment-container">
+        <div class="row">
+          <div class="col-2 imgWrap">
+           <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'">
+          </div>
+          <div class="col-10 name_regionName">
+           <p class="postDetailsName">{{postdetails.name}}</p>
+           <p class="postDetailsRegion">{{postdetails.regionName}}</p>
+          </div>
         </div>
-      </div>
-     <br>
-      <div class="row postDetails">
-        {{postdetails.content}}
-      </div>
-      <br>
-      <div class="row iconsRow">
-        <i class="col-sm-3 fa" (click)="like()" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
-       
-       
-        <i class="col-sm-3 fa fa-comment-o" aria-hidden="true" >&nbsp;{{postdetails.commentsCount}}</i>
-        
-        <i class="col-sm-3 fa fa-share" aria-hidden="true">&nbsp;</i>
+       <br>
+        <div class="row postDetails">
+          {{postdetails.content}}
+        </div>
+        <br>
+        <div class="row iconsRow">
+          <i class="col-sm-3 fa" (click)="like()" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
+         
+         
+          <i class="col-sm-3 fa fa-comment-o" aria-hidden="true" >&nbsp;{{postdetails.commentsCount}}</i>
+          
+          <i class="col-sm-3 fa fa-share" aria-hidden="true">&nbsp;</i>
 
-        <i class="col-sm-3 fa" (click)="flag()" [class.fa-flag-o]="!isFlagged" [class.fa-flag]="isFlagged" aria-hidden="true"></i>
-       
-      </div>
-      <hr>
-      <div class="comments_SectionWrap">
-        <div class="row commentRow" *ngFor="let comment of comments;">
-            <div class="col-sm-2 imgWrap">
-                <img class="circ"[src]="comment.profileImageUrl" onerror="this.src='assets/images/default.png'">
-            </div>
-            <div class="col-sm-10 comment_name_content">
-               <p class="modal_commentName">{{comment.name}}</p>
-               <p class="modal_commentContent">{{comment.content}}</p>
-            </div>
+          <i class="col-sm-3 fa" (click)="flag()" [class.fa-flag-o]="!isFlagged" [class.fa-flag]="isFlagged" aria-hidden="true"></i>
+         
         </div>
-      </div>
-     <div class="row commentSection">
-      <hr class="bottomHr">
-      <div class="row inner_commentSection">
-        <textarea class="commentsTextArea col-sm-10" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment..."></textarea>
-        <span (click)="c('Closed');submit(AddComment);" class="sendSpan col-sm-2">Send</span>
-      </div>
+        <hr>
+        <div class="comments_SectionWrap">
+          <div class="row commentRow" *ngFor="let comment of comments;">
+              <div class="col-sm-2 imgWrap">
+                  <img class="circ"[src]="comment.profileImageUrl" onerror="this.src='assets/images/default.png'">
+              </div>
+              <div class="col-sm-10 comment_name_content">
+                 <p class="modal_commentName">{{comment.name}}</p>
+                 <p class="modal_commentContent">{{comment.content}}</p>
+              </div>
+          </div>
+        </div>
+       <div class="row commentSection">
+        <hr class="bottomHr">
+        <div class="row inner_commentSection">
+          <textarea class="commentsTextArea col-sm-10" name="albumDesc" [(ngModel)]="AddComment" placeholder="Write a comment..."></textarea>
+          <span (click)="c('Closed');submit(AddComment);" class="sendSpan col-sm-2">Send</span>
+        </div>
+       </div>
      </div>
-   </div>
+    </div>
   </div>
-</div>
+  </div>
+      <div class="commentModal-backdrop" (click)="closeCommentModal()"  *ngIf="showImageDetails">  </div>
 </div>
