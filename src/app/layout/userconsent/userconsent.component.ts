@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AppAuthService} from './../../service/auth.service';
-import { User } from '../../model/user';
+import { routerTransition } from '../../router.animations';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-userconsent',
@@ -9,9 +10,10 @@ import { User } from '../../model/user';
 })
 export class UserConsentComponent implements OnInit {
 
-  constructor(private appAuthService: AppAuthService) { }
+  users: any = [];
 
-  users: any = {};
+  constructor(private route: ActivatedRoute, private appAuthService: AppAuthService) { }
+
   ngOnInit() {
     this.getAllUsers();
   }

@@ -4,7 +4,7 @@ import { UserConsentComponent } from './userconsent.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: UserConsentComponent
   }
 ];

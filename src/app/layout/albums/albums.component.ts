@@ -15,7 +15,7 @@ export class AlbumsComponent implements OnInit {
 
   albums$: Album[];
   searchParam: string = null;
-
+  albumIsPublicMap: any = {};
   constructor(private albumService: AlbumService, private route: ActivatedRoute) {
     /*this.route.queryParams.subscribe(params => {
       this.searchParam = params['search'];
@@ -28,6 +28,11 @@ export class AlbumsComponent implements OnInit {
       .subscribe(
         albums => {
           this.albums$ = albums;
+          let albumIsPublicMapTemp: any =  {};
+          this.albums$.forEach(function(value) {
+            albumIsPublicMapTemp[value.albumId] = value.hidden;
+          });
+          this.albumIsPublicMap = albumIsPublicMapTemp;
         },
         error => console.log('Error :: ' + error)
       );
@@ -37,6 +42,11 @@ export class AlbumsComponent implements OnInit {
     this.albumService.getAlbumsByName(name).subscribe(
       albums => {
         this.albums$ = albums;
+        let albumIsPublicMapTemp: any =  {};
+        this.albums$.forEach(function(value) {
+          albumIsPublicMapTemp[value.albumId] = value.hidden;
+        });
+        this.albumIsPublicMap = albumIsPublicMapTemp;
       },
     error => console.log('Error :: ' + error));
   }
@@ -63,13 +73,16 @@ export class AlbumsComponent implements OnInit {
   }
 
   toggleSwitch(album) {
-    let isPublic: Boolean = false;
-    if (album.hidden) {
-      isPublic = false;
+   debugger;
+    let hideIt: Boolean = false;
+    if (!this.albumIsPublicMap[album.albumId]) {
+      this.albumIsPublicMap[album.albumId] = true;
+      hideIt = true;
     } else {
-      isPublic = true;
+      hideIt = false;
+      this.albumIsPublicMap[album.albumId] = false;
     }
 
-    this.albumService.updateAlbumHiddenStatus(album.albumId, isPublic);
+    this.albumService.updateAlbumHiddenStatus(album.albumId, hideIt);
  }
 }

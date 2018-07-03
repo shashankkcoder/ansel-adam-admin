@@ -10,7 +10,7 @@
         
         <!-- Rounded switch -->
         <label class="switch">
-            <input type="checkbox"  [checked]="!album.hidden" (change)="toggleSwitch(album)">
+            <input type="checkbox"  [checked]="!albumIsPublicMap[album.albumId]" (change)="toggleSwitch(album)">
             <span class="slider round"></span>
         </label>  
         <a class="class" [routerLink]="['/albums/details', album.albumId]">

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserconsentComponent } from './userconsent.component';
+import { UserConsentComponent } from './userconsent.component';
 
-describe('UserconsentComponent', () => {
-  let component: UserconsentComponent;
-  let fixture: ComponentFixture<UserconsentComponent>;
+describe('UserConsentComponent', () => {
+  let component: UserConsentComponent;
+  let fixture: ComponentFixture<UserConsentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserconsentComponent ]
+      declarations: [ UserConsentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserconsentComponent);
+    fixture = TestBed.createComponent(UserConsentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

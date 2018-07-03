@@ -13,7 +13,7 @@ export class MapRegionsComponent implements OnInit {
 
   regions: any[];
   searchParam: string = null;
-
+  regionIsPublicMap: any = {};
   constructor(private mapRegionsService: MapRegionsService, private route: ActivatedRoute) {
 
     /*this.route.queryParams.subscribe(params => {
@@ -27,6 +27,11 @@ export class MapRegionsComponent implements OnInit {
     .subscribe(
         regions => {
           this.regions = regions;
+          let regionIsPublicMapTemp: any =  {};
+          this.regions.forEach(function(value) {
+            regionIsPublicMapTemp[value.regionId] = value.hidden;
+          });
+          this.regionIsPublicMap = regionIsPublicMapTemp;
         },
         error => console.log('Error :: ' + error)
       );
@@ -36,6 +41,11 @@ export class MapRegionsComponent implements OnInit {
     this.mapRegionsService.getRegionsByName(name).subscribe(
       regions => {
         this.regions = regions;
+        let regionIsPublicMapTemp: any =  {};
+        this.regions.forEach(function(value) {
+          regionIsPublicMapTemp[value.regionId] = value.hidden;
+        });
+        this.regionIsPublicMap = regionIsPublicMapTemp;
     },
     error => console.log('Error :: ' + error));
   }
@@ -61,14 +71,16 @@ export class MapRegionsComponent implements OnInit {
   }
 
   toggleSwitch(region) {
-   let isPublic: Boolean = false;
-    if (region.hidden) {
-      isPublic = false;
+   let hideIt: Boolean = false;
+    if (!this.regionIsPublicMap[region.regionId]) {
+      this.regionIsPublicMap[region.regionId] = true;
+      hideIt = true;
     } else {
-      isPublic = true;
+      hideIt = false;
+      this.regionIsPublicMap[region.regionId] = false;
     }
 
-    this.mapRegionsService.updateRegionHiddenStatus(region.regionId, isPublic);
+    this.mapRegionsService.updateRegionHiddenStatus(region.regionId, hideIt);
  }
 
 }

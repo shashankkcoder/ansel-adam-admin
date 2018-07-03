@@ -9,7 +9,7 @@
       <div class="col-4" style="padding-left:30px;">
         <!-- Rounded switch -->
         <label class="switch">
-            <input type="checkbox"  [checked]="!region.hidden" (change)="toggleSwitch(region)">
+            <input type="checkbox" [checked]="!regionIsPublicMap[region.regionId]" (change)="toggleSwitch(region)">
             <span class="slider round"></span>
         </label>  
         <a class="class" [routerLink]="['/map-regions/map-detail',region.regionId]">

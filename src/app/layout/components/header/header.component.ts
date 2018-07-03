@@ -54,6 +54,8 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('fullName');
         localStorage.removeItem('userAccessToken');
         localStorage.removeItem('selectedTab');
+        // localStorage.removeItem('selectedTab');
+        localStorage.clear();
         // localStorage.setItem('fullName', this.authService.userProfile.name);
     }
     
