@@ -42,17 +42,17 @@ button{
     min-height: 200px;
 }
 .commentModalWrap{
-    display: block;position: fixed;top: 23%;background: #fff;max-width: 60%;left: 23%;z-index: 1000;
+    display: block;position: fixed;top: 23%;background: #fff;max-width: 50%;left: 23%;z-index: 1000; max-height: 430px;
     .commentModal{
-        height:33.250em;
+         max-height: 430px; 
         .imgWrap{
             padding:0px;
-            .circ{width: 85%;margin-top:0.313em;}
+            .circ{width: 85%;}
         }
         .img-container{
             padding:0 0.938em 0 0;
             .card-img-top{
-                height:33.250em;
+                height: 430px;
             }
         }
         .comment-container{
@@ -63,7 +63,7 @@ button{
                 .postDetailsRegion{font-size: 0.875em;color:#AAAAAA;text-transform: capitalize;margin-bottom:0;}
             }
             .comments_SectionWrap{
-                max-height: 248px;overflow-y:auto;overflow-x:hidden;
+                height:  100%;overflow-y:auto;overflow-x:hidden;max-height: 155px;
                 .commentRow{
                     padding-bottom:0.625em;
                     .comment_name_content{
@@ -73,6 +73,32 @@ button{
                     }
                 }
             }
+            /*
+             *  STYLE 4
+             */
+
+            .comments_SectionWrap::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+                background-color: #F5F5F5;
+                border-radius:10px;
+            }
+
+            .comments_SectionWrap::-webkit-scrollbar
+            {
+                width: 10px;
+                background-color: #F5F5F5;
+            }
+
+            .comments_SectionWrap::-webkit-scrollbar-thumb
+            {
+                background-color: #D8D8D8;
+                border: 2px solid #D8D8D8;
+            }
+             /*
+             *  STYLE 4
+             */
+
             .commentSection{
                 position: absolute;width: 100%;bottom: 0.625em;color:#9D9D9D;padding-bottom:0.625em;
                 .commentsTextArea{resize: none;height: 2.188em;border-radius: 1.813em;background-color: #EFEFEF;font-size: 0.875em;padding: 0.188em 0.938em;display: inline-block;}
@@ -88,9 +114,9 @@ button{
                 .fa-heart{color:#9B9B9B;}
             }
         }
+
     }
 }
-/* .modal-content{max-width: 70.250em;} */
 .posts-container{
     .card-img-top{
         display: block;
@@ -107,7 +133,8 @@ button{
     height: 100%;
     width: 120%;
     top: 0;
-    opacity: 0.9;
+    opacity: 0.7;
     margin-left: -10%;
 
 }
+
