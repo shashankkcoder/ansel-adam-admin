@@ -27,7 +27,7 @@ export class UserDataComponent implements OnInit {
 
   mapDownloadCounts: any = {
     todayCounts : 0,
-    totalCounts : 0
+    userDownloadCounts : 0
   };
 
 
@@ -78,8 +78,8 @@ export class UserDataComponent implements OnInit {
       if (mapDownload.todayCounts) {
         this.mapDownloadCounts['todayCounts'] = mapDownload.todayCounts;
        }
-       if (mapDownload.facebook) {
-        this.mapDownloadCounts['totalCounts'] = mapDownload.facebook;
+       if (mapDownload.allCounts) {
+        this.mapDownloadCounts['userDownloadCounts'] = mapDownload.allCounts;
        }
     });
   }
