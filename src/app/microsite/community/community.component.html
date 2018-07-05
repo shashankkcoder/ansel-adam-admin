@@ -14,7 +14,7 @@
   <div class="row">
     <ng-container *ngFor="let post of posts; let i = index">
       <!-- <div > -->
-      <div *ngIf="post.isFlagged" class="col-4 imageHolderWrap" >
+      <div *ngIf="!post.isFlagged" class="col-4 imageHolderWrap" >
         <!-- <div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'> -->
         <div class="card card-columns" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId)'>
           <img class="card-img-top" [src]="post.communityImage.url" height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
