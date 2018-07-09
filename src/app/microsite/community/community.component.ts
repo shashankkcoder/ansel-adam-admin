@@ -128,6 +128,8 @@ export class CommunityComponent implements OnInit {
        console.log(httpOptions);
       const req=  this.http.post(url + '/'+ this.postId + '/comments',body,httpOptions ).subscribe(res=>{
           console.log(res);
+          debugger;
+          this.showImageDetails = false;
         });
         // this.open(this.Content);
   }
