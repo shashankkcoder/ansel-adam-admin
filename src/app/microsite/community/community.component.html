@@ -16,8 +16,11 @@
       <!-- <div > -->
       <div *ngIf="!post.isFlagged" class="col-4 imageHolderWrap" >
         <!-- <div class="card card-columns"(mouseover)='getcomment(post.postId,false)' (click)='getcomment(post.postId,content)'> -->
-        <div class="card card-columns" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId)'>
-          <img class="card-img-top" [src]="post.communityImage.url" height="300px" onerror="this.src='http://via.placeholder.com/300x200'">
+        <div class="card card-columns" style="height:300px;display: flex;align-items: center;justify-content: center;" (mouseover)='getLikesOnHoverByPostId(post.postId)' (click)='getcomment(post.postId)'>
+          <img class="card-img-top" *ngIf="post.communityImage.waterMarkedUrl != ''" [src]="post.communityImage.waterMarkedUrl" onerror="this.src='http://via.placeholder.com/300x200'">
+          <img class="card-img-top" *ngIf="post.communityImage.waterMarkedUrl == '' && post.communityImage.croppedUrl != ''" [src]="post.communityImage.croppedUrl" onerror="this.src='http://via.placeholder.com/300x200'">
+          <img class="card-img-top" *ngIf="post.communityImage.waterMarkedUrl == '' && post.communityImage.croppedUrl == ''" [src]="post.communityImage.url" onerror="this.src='http://via.placeholder.com/300x200'">
+
           <div class="overlay" >
             <div  class="heart-liked "(click)="like(post.postId)">
               <i  class="fa"  [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
@@ -32,8 +35,10 @@
   <div class="commentModalWrap">
     <div class="modal-body commentModal" >
       <div class="row">
-        <div class="col-7 img-container">
-        <img class="card-img-top"[src]="postdetails.communityImage.url"  onerror="this.src='assets/images/default.png'">
+        <div class="col-7 img-container" style="height:430px;display: flex;align-items: center;justify-content: center;">
+          <img class="card-img-top"  *ngIf="postdetails.communityImage.waterMarkedUrl != ''" [src]="postdetails.communityImage.waterMarkedUrl"  onerror="this.src='assets/images/default.png'">
+        <img class="card-img-top" *ngIf="postdetails.communityImage.waterMarkedUrl == '' && postdetails.communityImage.croppedUrl != ''" [src]="postdetails.communityImage.croppedUrl"  onerror="this.src='assets/images/default.png'">
+        <img class="card-img-top" *ngIf="postdetails.communityImage.waterMarkedUrl == '' && postdetails.communityImage.croppedUrl == ''" [src]="postdetails.communityImage.url" onerror="this.src='assets/images/default.png'">
         </div>
         <div class="col-5 comment-container">
         <div class="row">

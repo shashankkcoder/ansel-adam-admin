@@ -52,7 +52,8 @@ button{
         .img-container{
             padding:0 0.938em 0 0;
             .card-img-top{
-                height: 430px;
+                //height: 430px;
+                max-height: 430px;
             }
         }
         .comment-container{
@@ -124,6 +125,7 @@ button{
         margin-right: auto;
         max-width: 100%;
         width: auto;
+        max-height:300px;
     }
 }
 

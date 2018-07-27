@@ -83,6 +83,7 @@ export class CommunityComponent implements OnInit {
     this.likesCount = this.likesCountMap[postId];
   }
   getcomment(postid) {
+    this.AddComment = '';
     console.log(postid);
     this.postId = postid;
     let url = 'http://18.144.43.217:9090/anseladams/api/posts/';
