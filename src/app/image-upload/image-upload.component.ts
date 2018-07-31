@@ -227,6 +227,8 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   }
 
   submitAllFiles() {
+    debugger
+
     let observables: Observable<any>[] = [];
 
     for (let file of this.uploadFileHolders) {
@@ -258,17 +260,19 @@ export class ImageUploadComponent implements OnInit, OnChanges {
 
       let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
       image$.subscribe(response => {
-        console.log(response);
+        //console.log(response);
+        alert('All images uploaded successfully!');
+        window.location.href = 'all-photos';
       });
 
       observables.push(image$);
     }
     
-    forkJoin(observables)
+     /*forkJoin(observables)
     .subscribe(dataArray => {
       alert('All images uploaded successfully!');
       window.location.href = 'all-photos';
-    });
+    }); */
   }
 
   addto()

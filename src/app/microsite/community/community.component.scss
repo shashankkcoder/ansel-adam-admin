@@ -54,6 +54,9 @@ button{
             .card-img-top{
                 //height: 430px;
                 max-height: 430px;
+                max-width: 100%;
+                width: auto;
+                padding:10px;
             }
         }
         .comment-container{
