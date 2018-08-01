@@ -167,6 +167,7 @@ open(content) {
   } 
  
   flag() {
+  debugger;
     let url = 'http://18.144.43.217:9090/anseladams/api/posts';
     
     const httpOptions = {
@@ -180,9 +181,8 @@ open(content) {
    }
     this.http.patch(url+ '/' + this.postId + '/flag',null, httpOptions).subscribe(response =>{
       console.log(response);
-    })
-  location.reload();
-    
+        location.reload();
+    })    
   }
 
   closeCommentModal() {
