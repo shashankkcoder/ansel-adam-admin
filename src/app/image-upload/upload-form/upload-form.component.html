@@ -13,5 +13,5 @@
     <span class="input-group-addon">&nbsp;&nbsp;</span>
     <input type="text" [(ngModel)]="longitude" class="form-control" placeholder="Longitude" (input)="updateForm()">
   </div>
-  <textarea [(ngModel)]="safetyWarning" style="resize: none;" rows="4" cols="50" placeholder="Write safety warning"></textarea>
+  <textarea [(ngModel)]="safetyWarning" style="resize: none;" rows="4" cols="50" placeholder="Write safety warning" (input)="updateForm()"></textarea>
 </div>

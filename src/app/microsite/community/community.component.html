@@ -23,7 +23,7 @@
 
           <div class="overlay" >
             <div  class="heart-liked "(click)="like(post.postId)">
-              <i  class="fa"  [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
+              <i  class="fa" [class.fa-heart-o]="!postLikedMap[post.postId]" [class.fa-heart]="postLikedMap[post.postId]"  aria-hidden="true">&nbsp;{{likesCount}}</i>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
         </div>
         <br>
         <div class="row iconsRow">
-          <i class="col-sm-3 fa" (click)="like()" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
+          <i class="col-sm-3 fa" (click)="like(postdetails.postId)" [class.fa-heart-o]="!isLiked" [class.fa-heart]="isLiked"  aria-hidden="true">&nbsp;{{likesCount}}</i>
          
          
           <i class="col-sm-3 fa fa-comment-o" aria-hidden="true" >&nbsp;{{postdetails.commentsCount}}</i>

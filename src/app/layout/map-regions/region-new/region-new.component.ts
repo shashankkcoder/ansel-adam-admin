@@ -98,12 +98,11 @@ export class RegionNewComponent implements OnInit {
         // update images with the new region
         this.imageService.updateImageRegion(item, newRegionId);
       });
+        alert("New region created");
+        this.router.navigate(['/map-regions']);
     });
 
-    alert("New region created");
 
-    location.reload();
-    this.router.navigate(['/map-regions']);
   }
 
   onCancel() {

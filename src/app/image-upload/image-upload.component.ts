@@ -229,14 +229,14 @@ export class ImageUploadComponent implements OnInit, OnChanges {
   submitAllFiles() {
     debugger
 
+    let fileHolderCounter = 1;
     let observables: Observable<any>[] = [];
     
-    let formData = new FormData();
     
     for (let file of this.uploadFileHolders) {
       console.log(file);
 
-     
+      let formData = new FormData();
 
       if (file.imageName) {
         formData.append('name', file.imageName);
@@ -258,16 +258,20 @@ export class ImageUploadComponent implements OnInit, OnChanges {
       }
 
       formData.append('file[]', file.file);
-    }
 
-     let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
+
+      let image$ = this.imageService.uploadMiscImage('http://18.144.43.217:9090/anseladams/upload', formData);
       image$.subscribe(response => {
         //console.log(response);
-        alert('All images uploaded successfully!');
-        window.location.href = 'all-photos';
+        if (fileHolderCounter == this.uploadFileHolders.length) {
+          alert('All images uploaded successfully!');
+          window.location.href = 'all-photos';
+        }
+        fileHolderCounter ++;
       });
 
       observables.push(image$);
+    }
     
      /*forkJoin(observables)
     .subscribe(dataArray => {

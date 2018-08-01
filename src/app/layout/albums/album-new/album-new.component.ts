@@ -63,6 +63,7 @@ export class AlbumNewComponent implements OnInit {
   }
 
   onSubmit(albumName, albumDescription) {
+
     // create new album
     let newAlbum = {
       "name": this.albumName,
@@ -73,6 +74,7 @@ export class AlbumNewComponent implements OnInit {
     let newAlbumId = -1;
 
     let newAlbumResponse = this.albumService.createAlbum(newAlbum).subscribe(response => {
+      debugger;
       console.log('created new album ' + JSON.stringify(response));
       newAlbumId = response.albumId;
 
@@ -81,12 +83,9 @@ export class AlbumNewComponent implements OnInit {
         // update images with the new album
         this.imageService.updateImageAlbum(item, newAlbumId);
       });
+        alert("New album created");
+        this.router.navigate(['/albums']);
     });
-
-    alert("New album created");
-
-    location.reload();
-    this.router.navigate(['/albums']);
   }
 
   onCancel() {

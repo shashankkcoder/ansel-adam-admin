@@ -61,6 +61,7 @@ export class ImageActionsComponent implements OnInit {
   }
   
   addToAlbum(albumId) {
+    debugger
     if (this.imageIds && this.imageIds.length > 0) {
       for (let id of this.imageIds) {
         this.imageService.updateImageAlbum(id, albumId);
@@ -72,6 +73,7 @@ export class ImageActionsComponent implements OnInit {
   }
 
   addToNewAlbum() {
+    debugger
     this.multiSelectService.setSelectedImageIds(this.imageIds);
 
     this.router.navigateByUrl("/albums/new");

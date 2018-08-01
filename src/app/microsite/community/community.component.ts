@@ -27,6 +27,7 @@ export class CommunityComponent implements OnInit {
   postId:number;
   isClicked:boolean=false;
   searchParam: string = null;
+  postLikedMap: any = {};
   likesCountMap: any = {};
   showImageDetails: Boolean = false;
   Content:any;
@@ -53,12 +54,16 @@ export class CommunityComponent implements OnInit {
       //  );
 
       const likesCountMapTemp: any = {};
+      const postLikedMapTemp: any = {};
       this.posts.forEach(function (value) {
         // console.log(value);
         likesCountMapTemp[value['postId']] = value['likesCount'];
+        postLikedMapTemp[value['postId']] = value['isLiked'];
       });
 
       this.likesCountMap = likesCountMapTemp;
+      this.postLikedMap = postLikedMapTemp;
+
     });
   }
 
@@ -145,10 +150,12 @@ open(content) {
   like(postId) {
     event.preventDefault();
     event.stopPropagation();
-    if(!this.isLiked) {
-    this.likesCount++
+    if(!this.postLikedMap[postId]) {
+      this.postLikedMap[postId] = true;
+      this.likesCount++
     } else {
       this.likesCount--;
+      this.postLikedMap[postId] = false;
     }
     let url = 'http://18.144.43.217:9090/anseladams/api/posts';
     
