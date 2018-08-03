@@ -11,7 +11,12 @@
         <label class="switch">
             <input type="checkbox" [checked]="!regionIsPublicMap[region.regionId]" (change)="toggleSwitch(region)">
             <span class="slider round"></span>
-        </label>  
+        </label> 
+        <label class="checkbox-container">
+         <span *ngIf="!regionIsPaidMap[region.regionId]">Free</span>
+         <span *ngIf="regionIsPaidMap[region.regionId]">Paid</span> <input type="checkbox" [checked]="regionIsPaidMap[region.regionId]" (change)="togglePaidFree(region)">
+          <span class="checkmark"></span>
+        </label>
         <a class="class" [routerLink]="['/map-regions/map-detail',region.regionId]">
           <div class="card card-columns">
             <img class="card-img-top" [src]="region.defaultImageUrl" height="300px" onerror="this.src='http://via.placeholder.com/300x200'"

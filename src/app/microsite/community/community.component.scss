@@ -26,7 +26,7 @@ button{
 }
 .modal-body {
     padding:0px;
-    top:30%;
+    //top:30%;
 //    top:50%;
 }
 .modal{
@@ -42,9 +42,16 @@ button{
     min-height: 200px;
 }
 .commentModalWrap{
-    display: block;position: fixed;top: 23%;background: #fff;max-width: 50%;left: 23%;z-index: 1000; max-height: 430px;
+        display: block;
+        position: fixed;
+        top: 5%;
+        background: #fff;
+        width: 90%;
+        left: 5%;
+        z-index: 9999999;
+        bottom: 5%;
     .commentModal{
-         max-height: 430px; 
+         height: 100%; 
         .imgWrap{
             padding:0px;
             .circ{width: 85%;}
@@ -53,9 +60,9 @@ button{
             padding:0 0.938em 0 0;
             .card-img-top{
                 //height: 430px;
-                max-height: 430px;
+                //max-height: 430px;
+                max-height: 100%;
                 max-width: 100%;
-                width: auto;
                 padding:10px;
             }
         }
@@ -140,6 +147,7 @@ button{
     top: 0;
     opacity: 0.7;
     margin-left: -10%;
+    z-index: 99999;
 
 }
 

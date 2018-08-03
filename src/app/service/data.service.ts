@@ -78,6 +78,15 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  _updateRegionPaidStatus(regionId, isPaid) {
+    return this.http
+      .patch(this.apiUrl + '/paid/' + regionId + '/' + isPaid, null)
+      .map((response: Response) => {
+        return response.json();
+      })
+      .catch(this.handleError);
+  }
+
 
   _updateImageRegion(imageId, regionId) {
     return this.http

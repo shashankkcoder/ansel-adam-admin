@@ -34,13 +34,13 @@
 <div *ngIf="showImageDetails">
   <div class="commentModalWrap">
     <div class="modal-body commentModal" >
-      <div class="row">
-        <div class="col-7 img-container" style="height:430px;display: flex;align-items: center;justify-content: center;">
+      <div class="row" style="height:100%">
+        <div class="col-8 img-container" style="display: flex;align-items: center;justify-content: center;background-color:#000;">
           <img class="card-img-top"  *ngIf="postdetails.communityImage.waterMarkedUrl != ''" [src]="postdetails.communityImage.waterMarkedUrl"  onerror="this.src='assets/images/default.png'">
         <img class="card-img-top" *ngIf="postdetails.communityImage.waterMarkedUrl == '' && postdetails.communityImage.croppedUrl != ''" [src]="postdetails.communityImage.croppedUrl"  onerror="this.src='assets/images/default.png'">
         <img class="card-img-top" *ngIf="postdetails.communityImage.waterMarkedUrl == '' && postdetails.communityImage.croppedUrl == ''" [src]="postdetails.communityImage.url" onerror="this.src='assets/images/default.png'">
         </div>
-        <div class="col-5 comment-container">
+        <div class="col-4 comment-container">
         <div class="row">
           <div class="col-2 imgWrap">
            <img class="circ" [src]="postdetails.profileImageUrl" onerror="this.src='assets/images/default.png'">
@@ -61,8 +61,8 @@
          
           <i class="col-sm-3 fa fa-comment-o" aria-hidden="true" >&nbsp;{{postdetails.commentsCount}}</i>
           
-          <i class="col-sm-3 fa fa-share" aria-hidden="true">&nbsp;</i>
-
+<!--           <i class="col-sm-3 fa fa-share" aria-hidden="true">&nbsp;</i>
+ -->
           <i class="col-sm-3 fa" (click)="flag()" [class.fa-flag-o]="!isFlagged" [class.fa-flag]="isFlagged" aria-hidden="true"></i>
          
         </div>

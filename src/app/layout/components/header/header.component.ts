@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppAuthService } from '../../../service/auth.service';
+import { MultiSelectService } from './../../../service/multi-select.service';
 
 @Component({
     selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
     fullName: string='Guest';
 
-    constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService) {
+    constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService,private multiSelectService: MultiSelectService) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
@@ -61,5 +62,17 @@ export class HeaderComponent implements OnInit {
     
     changeLang(language: string) {
         this.translate.use(language);
+    }
+
+    navigateToNewAlbum() {
+        let imageIds: any = [];
+        this.multiSelectService.setSelectedImageIds(imageIds);
+        this.router.navigateByUrl("/albums/new");
+    }
+
+    navigateToNewMapRegion() {
+        let imageIds: any = [];
+        this.multiSelectService.setSelectedImageIds(imageIds);
+        this.router.navigateByUrl("/map-regions/new");
     }
 }

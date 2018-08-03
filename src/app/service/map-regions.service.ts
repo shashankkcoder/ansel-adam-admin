@@ -66,4 +66,11 @@ export class MapRegionsService extends DataService {
       console.log('album updated');
     });
   }
+
+   updateRegionPaidStatus(id, isPaid) {
+    return this._updateRegionPaidStatus(id, isPaid).subscribe(response => {
+      console.log(response);
+      console.log('album updated');
+    });
+  }
 }

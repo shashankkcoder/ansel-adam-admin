@@ -14,6 +14,7 @@ export class MapRegionsComponent implements OnInit {
   regions: any[];
   searchParam: string = null;
   regionIsPublicMap: any = {};
+  regionIsPaidMap: any = {};
   constructor(private mapRegionsService: MapRegionsService, private route: ActivatedRoute) {
 
     /*this.route.queryParams.subscribe(params => {
@@ -28,10 +29,13 @@ export class MapRegionsComponent implements OnInit {
         regions => {
           this.regions = regions;
           let regionIsPublicMapTemp: any =  {};
+          let regionIsPaidMapTemp: any = {};
           this.regions.forEach(function(value) {
             regionIsPublicMapTemp[value.regionId] = value.hidden;
+            regionIsPaidMapTemp[value.regionId] = value.paid;
           });
           this.regionIsPublicMap = regionIsPublicMapTemp;
+          this.regionIsPaidMap = regionIsPaidMapTemp;
         },
         error => console.log('Error :: ' + error)
       );
@@ -81,6 +85,19 @@ export class MapRegionsComponent implements OnInit {
     }
 
     this.mapRegionsService.updateRegionHiddenStatus(region.regionId, hideIt);
+ }
+
+ togglePaidFree(region) {
+   let isPaid: Boolean = false;
+    if (!this.regionIsPaidMap[region.regionId]) {
+      this.regionIsPaidMap[region.regionId] = true;
+      isPaid = true;
+    } else {
+      isPaid = false;
+      this.regionIsPaidMap[region.regionId] = false;
+    }
+
+    this.mapRegionsService.updateRegionPaidStatus(region.regionId, isPaid);
  }
 
 }

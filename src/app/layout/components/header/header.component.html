@@ -19,10 +19,10 @@
 				</a>
 				<div class="dropdown-menu" ngbDropdownMenu>
 					<b class="dropdown-header">CREATE:</b>
-					<a class="dropdown-item" [routerLink]="['/map-regions/new']">
+					<a class="dropdown-item" (click)="navigateToNewMapRegion()">
 						Map Region
 					</a>
-					<a class="dropdown-item" [routerLink]="['/albums/new']">
+					<a class="dropdown-item" (click)="navigateToNewAlbum()">
 						Album
 					</a>
 				</div>
