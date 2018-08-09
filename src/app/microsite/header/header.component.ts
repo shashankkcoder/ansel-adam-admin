@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,7 @@ export class HeaderComponent implements OnInit {
   searchTerm: string = null;
   fullName: string = 'Guest';
   needToShowDropDown: Boolean = false;
-  constructor(public authService: AppAuthService) { }
+  constructor(public authService: AppAuthService, private router: Router) { }
 
   ngOnInit() {
     this.fullName = localStorage.getItem('fullName');
@@ -39,4 +41,11 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     // localStorage.setItem('fullName', this.authService.userProfile.name);
 }
+
+  reloadMicrosite() {
+    debugger;
+    this.router.navigateByUrl('/microsite');
+    window.location.reload();
+  }
+
 }

@@ -66,4 +66,10 @@ export class SidebarComponent implements OnInit {
     ngOnInit(){
         this.fullName = localStorage.getItem('fullName');;
     }
+
+    reloadAllPhotos() {
+        debugger
+        window.location.href = 'all-photos';
+        //[routerLink]="['/all-photos']" 
+    }
 }

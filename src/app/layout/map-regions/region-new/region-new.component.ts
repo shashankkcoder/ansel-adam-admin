@@ -28,6 +28,7 @@ export class RegionNewComponent implements OnInit {
   imageIds: any[] = [];
   defaultImage: MyImage;
   selectedImages: MyImage[] = [];
+  loading = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -67,6 +68,7 @@ export class RegionNewComponent implements OnInit {
   }
 
   onSubmit(regionName, regionDescription) {
+    this.loading = true;
     let latitude = 0;
     let longitude = 0;
 
@@ -82,14 +84,16 @@ export class RegionNewComponent implements OnInit {
     let newregion = {
       "name": this.regionName,
       "description": this.regionDescription,
-      "defaultImageUrl": this.defaultImage.url,
       "latitude": latitude,
       "longitude": longitude
     }
-
+    if (this.defaultImage) {
+          newregion["defaultImageUrl"] = this.defaultImage.url;
+    }
     let newRegionId = -1;
 
     let newRegionResponse = this.regionService.createRegion(newregion).subscribe(response => {
+      this.loading = false;
       console.log('created new region ' + JSON.stringify(response));
       newRegionId = response.regionId;
 

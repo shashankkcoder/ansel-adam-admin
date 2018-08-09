@@ -24,6 +24,8 @@ export class AlbumNewComponent implements OnInit {
   imageIds: any[] = [];
   defaultImage: MyImage;
   selectedImages: MyImage[] = [];
+  loading = false;
+
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -63,18 +65,22 @@ export class AlbumNewComponent implements OnInit {
   }
 
   onSubmit(albumName, albumDescription) {
-
+    this.loading = true;
     // create new album
     let newAlbum = {
       "name": this.albumName,
       "description": this.albumDescription,
-      "defaultImageUrl": this.defaultImage.url
+    }
+
+    if (this.defaultImage) {
+          newAlbum["defaultImageUrl"] = this.defaultImage.url;                                                                                                       
     }
 
     let newAlbumId = -1;
 
     let newAlbumResponse = this.albumService.createAlbum(newAlbum).subscribe(response => {
       debugger;
+      this.loading = false;
       console.log('created new album ' + JSON.stringify(response));
       newAlbumId = response.albumId;
 

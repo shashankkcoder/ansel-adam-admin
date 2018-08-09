@@ -11,6 +11,7 @@ import { AlbumEditComponent } from './album-edit/album-edit.component';
 import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
 import { AlbumNewComponent } from './album-new/album-new.component';
 import { ProductsComponent } from './products/products.component';
+import { LoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ProductsComponent } from './products/products.component';
     FormsModule,
     SelectImageModule,
     MyCheckBoxModule,
-    ImageActionsModule
+    ImageActionsModule,
+    LoadingModule
   ],
   declarations: [AlbumsComponent, AlbumDetailsComponent, AlbumEditComponent, AlbumNewComponent, ProductsComponent]
 })

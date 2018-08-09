@@ -12,6 +12,8 @@ import { MapRegionsComponent } from './map-regions.component';
 import { ImageActionsModule } from '../../shared/modules/image-actions/image-actions.module';
 import { RegionNewComponent } from './region-new/region-new.component';
 import { ProductsComponent } from './products/products.component';
+import { LoadingModule } from 'ngx-loading';
+
 
 @NgModule({
   imports: [
@@ -20,7 +22,8 @@ import { ProductsComponent } from './products/products.component';
     FormsModule,
     MyCheckBoxModule,
     SelectImageModule,
-    ImageActionsModule
+    ImageActionsModule,
+    LoadingModule
   ],
   declarations: [MapRegionsComponent, MapDetailComponent, EditPhotoMapComponent,
     EditMapprofileComponent, RegionNewComponent, ProductsComponent]
