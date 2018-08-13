@@ -17,9 +17,10 @@ export class MapRegionsComponent implements OnInit {
   regionIsPaidMap: any = {};
   constructor(private mapRegionsService: MapRegionsService, private route: ActivatedRoute) {
 
-    /*this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(params => {
+      debugger;
       this.searchParam = params['search'];
-    });*/
+    });
 
    }
 

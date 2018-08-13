@@ -4,7 +4,6 @@ import { Album } from '../../model/album';
 import { routerTransition } from '../../router.animations';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
@@ -17,9 +16,9 @@ export class AlbumsComponent implements OnInit {
   searchParam: string = null;
   albumIsPublicMap: any = {};
   constructor(private albumService: AlbumService, private route: ActivatedRoute) {
-    /*this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(params => {
       this.searchParam = params['search'];
-    });*/
+    });
   }
 
   getAlbums(): void {

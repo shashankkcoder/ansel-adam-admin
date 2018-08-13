@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppAuthService } from '../../service/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -13,14 +13,23 @@ export class HeaderComponent implements OnInit {
   searchTerm: string = null;
   fullName: string = 'Guest';
   needToShowDropDown: Boolean = false;
-  constructor(public authService: AppAuthService, private router: Router) { }
+  constructor(public authService: AppAuthService, private router: Router,private route: ActivatedRoute ) { 
+     this.route.queryParams.subscribe(params => {
+      debugger;
+      this.searchTerm = params['search'];
+    });
+  }
 
   ngOnInit() {
     this.fullName = localStorage.getItem('fullName');
   }
 
   onMicrositeFormSubmit(searchTerm) {
-    window.location.href = 'microsite?search=' + searchTerm;
+    if (searchTerm) {
+      window.location.href = 'microsite?search=' + searchTerm;
+    } else {
+      window.location.href = window.location.pathname;
+    }
   }
 
   hideShowRightMenu() {

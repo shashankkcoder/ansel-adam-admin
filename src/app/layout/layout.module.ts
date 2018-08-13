@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ImageUploadModule } from '../image-upload/image-upload.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import { ImageUploadModule } from '../image-upload/image-upload.module';
         NgbDropdownModule.forRoot(),
         ImageUploadModule,
         SelectImageModule,
-        MyCheckBoxModule
+        MyCheckBoxModule,
+        FormsModule
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
 })

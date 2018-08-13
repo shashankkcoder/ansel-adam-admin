@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppAuthService } from '../../../service/auth.service';
 import { MultiSelectService } from './../../../service/multi-select.service';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
     selector: 'app-header',
@@ -12,8 +14,9 @@ import { MultiSelectService } from './../../../service/multi-select.service';
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
     fullName: string='Guest';
+    searchParam: string = null;
 
-    constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService,private multiSelectService: MultiSelectService) {
+    constructor(private translate: TranslateService, public router: Router, public authService: AppAuthService,private multiSelectService: MultiSelectService,private route: ActivatedRoute ) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
@@ -28,6 +31,10 @@ export class HeaderComponent implements OnInit {
             ) {
                 this.toggleSidebar();
             }
+        });
+
+        this.route.queryParams.subscribe(params => {
+          this.searchParam = params['search'];
         });
     }
 
@@ -74,5 +81,14 @@ export class HeaderComponent implements OnInit {
         let imageIds: any = [];
         this.multiSelectService.setSelectedImageIds(imageIds);
         this.router.navigateByUrl("/map-regions/new");
+    }
+
+    onEnterSearch() {
+
+        if (this.searchParam) {
+            window.location.href = window.location.pathname+'?search=' + this.searchParam;
+        } else {
+            window.location.href = window.location.pathname;
+        }
     }
 }
